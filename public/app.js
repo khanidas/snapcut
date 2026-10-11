@@ -230,7 +230,14 @@ const tkModeRadios = document.getElementsByName('tkMode');
 function updateTikTokModeUI() {
     const selectedMode = document.querySelector('input[name="tkMode"]:checked');
     const mode = selectedMode ? selectedMode.value : 'full';
-    const url = urlInput.value;
+    
+    // TikTok iframe engeli olduğu için playerWrapper'ı gizliyoruz
+    playerWrapper.classList.add('hidden');
+    tkPlayerContainer.classList.add('hidden');
+    mediaControls.classList.add('hidden');
+    timeCaptureBtns.classList.add('hidden');
+    sliderContainer.style.display = 'none';
+    tkIframe.src = "";
     
     if (mode === 'cut') {
         timeOptions.classList.remove('hidden');
@@ -238,19 +245,10 @@ function updateTikTokModeUI() {
         endTimeInput.required = true;
         if (!startTimeInput.value) startTimeInput.value = '00:00';
         if (!endTimeInput.value) endTimeInput.value = '00:15';
-        
-        const tkId = getTikTokId(url);
-        if (tkId) {
-            tkIframe.src = `https://www.tiktok.com/embed/v2/${tkId}`;
-            tkPlayerContainer.classList.remove('hidden');
-            playerWrapper.classList.remove('hidden');
-        }
     } else {
         timeOptions.classList.add('hidden');
         startTimeInput.required = false;
         endTimeInput.required = false;
-        tkPlayerContainer.classList.add('hidden');
-        playerWrapper.classList.add('hidden');
     }
 }
 
