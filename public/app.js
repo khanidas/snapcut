@@ -224,9 +224,43 @@ const playBtn = document.getElementById('play-btn');
 const pauseBtn = document.getElementById('pause-btn');
 const timeCaptureBtns = document.getElementById('time-capture-btns');
 
-// TikTok Mode Elements
 const tiktokModeGroup = document.getElementById('tiktok-mode-group');
 const tkModeRadios = document.getElementsByName('tkMode');
+
+function updateTikTokModeUI() {
+    const selectedMode = document.querySelector('input[name="tkMode"]:checked');
+    const mode = selectedMode ? selectedMode.value : 'full';
+    const url = urlInput.value;
+    
+    if (mode === 'cut') {
+        timeOptions.classList.remove('hidden');
+        startTimeInput.required = true;
+        endTimeInput.required = true;
+        if (!startTimeInput.value) startTimeInput.value = '00:00';
+        if (!endTimeInput.value) endTimeInput.value = '00:15';
+        
+        const tkId = getTikTokId(url);
+        if (tkId) {
+            tkIframe.src = `https://www.tiktok.com/embed/v2/${tkId}`;
+            tkPlayerContainer.classList.remove('hidden');
+            playerWrapper.classList.remove('hidden');
+        }
+    } else {
+        timeOptions.classList.add('hidden');
+        startTimeInput.required = false;
+        endTimeInput.required = false;
+        tkPlayerContainer.classList.add('hidden');
+        playerWrapper.classList.add('hidden');
+    }
+}
+
+Array.from(tkModeRadios).forEach(radio => {
+    radio.addEventListener('change', () => {
+        if (currentPlatform === 'tiktok') {
+            updateTikTokModeUI();
+        }
+    });
+});
 
 const sliderContainer = document.getElementById('slider-container');
 const sliderStart = document.getElementById('slider-start');
@@ -402,24 +436,7 @@ urlInput.addEventListener('input', (e) => {
         platformBadge.className = 'badge tiktok';
         btnText.textContent = t.submitBtnTiktok;
         
-        const mode = document.querySelector('input[name="tkMode"]:checked').value;
-        if (mode === 'cut') {
-            timeOptions.classList.remove('hidden');
-            startTimeInput.required = true;
-            endTimeInput.required = true;
-            
-            const tkId = getTikTokId(url);
-            if (tkId) {
-                tkIframe.src = `https://www.tiktok.com/embed/v2/${tkId}`;
-                tkPlayerContainer.classList.remove('hidden');
-                playerWrapper.classList.remove('hidden');
-            }
-        } else {
-            timeOptions.classList.add('hidden');
-            startTimeInput.required = false;
-            endTimeInput.required = false;
-        }
-        
+        updateTikTokModeUI();
     } else if (urlLower.includes('youtube.com') || urlLower.includes('youtu.be')) {
         currentPlatform = 'youtube';
         timeOptions.classList.remove('hidden');
