@@ -12,6 +12,14 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.get('/youtube-cutter', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'youtube-cutter.html'));
+});
+
+app.get('/tiktok-downloader', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'tiktok-downloader.html'));
+});
+
 const downloadsDir = path.join(__dirname, 'downloads');
 if (!fs.existsSync(downloadsDir)) {
     fs.mkdirSync(downloadsDir, { recursive: true });

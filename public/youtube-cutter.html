@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online YouTube Video Cutter - Trim & Download MP4 Clips | SnapCut</title>
+    <meta name="description" content="Free online YouTube video cutter. Trim, clip, and cut exact sections from any YouTube video with millisecond precision. Download HD MP4 fast and free.">
+    <meta name="keywords" content="youtube video cutter, trim youtube video, cut youtube video online, youtube trimmer, youtube klip kesme, online video kesici">
+    <link rel="canonical" href="https://snapcut.tech/youtube-cutter">
+    
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://snapcut.tech/youtube-cutter">
+    <meta property="og:title" content="Online YouTube Video Cutter - SnapCut">
+    <meta property="og:description" content="Cut and download precise clips from YouTube videos online in HD.">
+
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+    
+    <div class="container">
+        <header>
+            <div class="lang-selector">
+                <select id="language-select">
+                    <option value="en">English</option>
+                    <option value="tr">Türkçe</option>
+                    <option value="es">Español</option>
+                    <option value="de">Deutsch</option>
+                </select>
+            </div>
+            <h1>YouTube Video <span class="gradient-text">Cutter</span></h1>
+            <p>Paste any YouTube URL, set start and end timestamps, and download your trimmed clip instantly.</p>
+        </header>
+
+        <main>
+            <div class="glass-panel">
+                <div id="player-wrapper" class="hidden">
+                    <div id="player-container">
+                        <div id="yt-player"></div>
+                    </div>
+                    <div id="tk-player" class="hidden">
+                        <iframe id="tk-iframe" src=""></iframe>
+                    </div>
+                    <div class="media-controls hidden" id="media-controls">
+                        <button type="button" class="ctrl-btn" id="play-btn">▶ Play</button>
+                        <button type="button" class="ctrl-btn" id="pause-btn">⏸ Pause</button>
+                    </div>
+                    <div class="slider-container" id="slider-container" style="display: none;">
+                        <div class="range-slider">
+                            <div class="range-track"></div>
+                            <div class="range-fill" id="range-fill"></div>
+                            <input type="range" id="slider-start" min="0" max="100" value="0" step="1">
+                            <input type="range" id="slider-end" min="0" max="100" value="100" step="1">
+                        </div>
+                        <div class="slider-labels">
+                            <span id="label-start">00:00</span>
+                            <span id="label-end">00:00</span>
+                        </div>
+                    </div>
+                    <div class="player-controls" id="time-capture-btns">
+                        <button type="button" id="set-start-btn" class="time-btn">⏱️ Set Current Time as Start</button>
+                        <button type="button" id="set-end-btn" class="time-btn">⏱️ Set Current Time as End</button>
+                    </div>
+                </div>
+                
+                <form id="cutter-form">
+                    <div class="input-group">
+                        <label for="url">YouTube Video URL</label>
+                        <input type="url" id="url" name="url" placeholder="https://www.youtube.com/watch?v=..." required>
+                        <div id="platform-badge" class="badge youtube">YouTube</div>
+                    </div>
+
+                    <div class="input-group" id="tiktok-mode-group" style="display: none;">
+                        <label>Download Option</label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="tkMode" value="full"> Full Video</label>
+                            <label><input type="radio" name="tkMode" value="cut" checked> Cut Section</label>
+                        </div>
+                    </div>
+
+                    <div class="time-inputs" id="time-options">
+                        <div class="input-group">
+                            <label for="startTime">Start Time (MM:SS)</label>
+                            <input type="text" id="startTime" name="startTime" placeholder="00:00" pattern="^([0-9]{2,}):([0-5][0-9])$" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="endTime">End Time (MM:SS)</label>
+                            <input type="text" id="endTime" name="endTime" placeholder="01:00" pattern="^([0-9]{2,}):([0-5][0-9])$" required>
+                        </div>
+                    </div>
+
+                    <button type="submit" id="submit-btn">
+                        <span class="btn-text">Trim & Download MP4</span>
+                        <div class="loader" id="loader"></div>
+                    </button>
+                </form>
+                
+                <div id="status-message" class="hidden"></div>
+            </div>
+
+            <!-- Reklam Alanı (Adsterra) -->
+            <div class="ad-container">
+                <div class="ad-desktop">
+                    <script type="text/javascript">
+                      atOptions = {
+                        'key' : '391e610ac2c9651adda2f991677434af',
+                        'format' : 'iframe',
+                        'height' : 90,
+                        'width' : 728,
+                        'params' : {}
+                      };
+                    </script>
+                    <script type="text/javascript" src="https://bauval.org/22/391e610ac2c9651adda2f991677434af"></script>
+                </div>
+                <div class="ad-mobile">
+                    <script type="text/javascript">
+                      atOptions = {
+                        'key' : '3f263a4c274052ed655b50b774ea0977',
+                        'format' : 'iframe',
+                        'height' : 250,
+                        'width' : 300,
+                        'params' : {}
+                      };
+                    </script>
+                    <script type="text/javascript" src="https://bauval.org/22/3f263a4c274052ed655b50b774ea0977"></script>
+                </div>
+            </div>
+        </main>
+
+        <section class="seo-section" style="margin-top: 50px; color: var(--text-muted); line-height: 1.7; font-size: 0.95rem;">
+            <div class="glass-panel" style="padding: 35px; margin-bottom: 30px;">
+                <h2 style="color: var(--text-main); font-size: 1.5rem; margin-bottom: 15px; font-weight: 700;">
+                    How to Cut YouTube Videos Online with SnapCut
+                </h2>
+                <ol style="padding-left: 20px; margin-bottom: 20px;">
+                    <li style="margin-bottom: 8px;"><strong>Copy the YouTube Link:</strong> Open YouTube and copy the link of the video you want to trim.</li>
+                    <li style="margin-bottom: 8px;"><strong>Choose Start & End Timestamps:</strong> Use the interactive player or manually enter the exact minutes and seconds.</li>
+                    <li style="margin-bottom: 8px;"><strong>Click Trim & Download:</strong> Our fast cloud server cuts the section and renders your crisp HD MP4 clip.</li>
+                </ol>
+            </div>
+            <footer style="text-align: center; margin-top: 30px; font-size: 0.85rem; color: var(--text-muted); padding-bottom: 20px;">
+                <p>© 2026 SnapCut.tech — <a href="/" style="color: #4facfe; text-decoration: none;">Home</a> | <a href="/tiktok-downloader" style="color: #4facfe; text-decoration: none;">TikTok Downloader</a></p>
+            </footer>
+        </section>
+    </div>
+    <script src="app.js?v=6"></script>
+</body>
+</html>

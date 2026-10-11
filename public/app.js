@@ -549,3 +549,14 @@ document.getElementById('cutter-form').addEventListener('submit', async (e) => {
         statusDiv.classList.remove('hidden');
     }
 });
+
+// URL Parametresi Desteği (?url=https://...)
+window.addEventListener('DOMContentLoaded', () => {
+    const params = new URLSearchParams(window.location.search);
+    const prefillUrl = params.get('url') || params.get('link');
+    if (prefillUrl) {
+        urlInput.value = decodeURIComponent(prefillUrl);
+        urlInput.dispatchEvent(new Event('input'));
+    }
+});
+
