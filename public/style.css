@@ -438,3 +438,33 @@ button:hover {
     height: 20px;
     accent-color: #4facfe;
 }
+
+/* Reklam Alanı Stilleri */
+.ad-container {
+    width: 100%;
+    max-width: 728px;
+    margin: 25px auto 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.ad-desktop {
+    display: block;
+}
+
+.ad-mobile {
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .ad-desktop {
+        display: none !important;
+    }
+    .ad-mobile {
+        display: block !important;
+    }
+}
+
