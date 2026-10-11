@@ -468,3 +468,30 @@ button:hover {
     }
 }
 
+/* Sağ ve Sol Kanat (Skyscraper 160x600) Stilleri */
+.skyscraper-ad {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 160px;
+    height: 600px;
+    z-index: 99;
+    display: none;
+}
+
+.skyscraper-left {
+    left: 20px;
+}
+
+.skyscraper-right {
+    right: 20px;
+}
+
+/* Sadece geniş ekranlarda (PC / Masaüstü) göster */
+@media (min-width: 1300px) {
+    .skyscraper-ad {
+        display: block;
+    }
+}
+
+
