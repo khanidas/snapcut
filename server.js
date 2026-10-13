@@ -108,11 +108,14 @@ app.post('/api/process', (req, res) => {
 
     let command = '';
 
+    // bgutil pot-provider ile YouTube bot korumasini asiyoruz (cookie gerektirmez)
+    const potProviderOpt = '--extractor-args youtubepot-bgutilhttp:base_url=http://localhost:4416 --remote-components ejs:github';
+    // Opsiyonel: cookies.txt varsa kullan (kisitli videolar icin)
     const cookiePath = path.join(__dirname, 'cookies.txt');
     const cookieOpt = fs.existsSync(cookiePath) ? `--cookies "${cookiePath}"` : '';
 
     if (platform === 'youtube') {
-        command = `${ytDlpCmd} ${cookieOpt} ${ffmpegOption} --download-sections "*${startTime}-${endTime}" --force-keyframes-at-cuts ${safeUrl} -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/mp4" -o "${finalFilePath}"`;
+        command = `${ytDlpCmd} ${potProviderOpt} ${cookieOpt} ${ffmpegOption} --download-sections "*${startTime}-${endTime}" --no-part ${safeUrl} -f "bestvideo[height<=720][ext=mp4]+bestaudio[ext=m4a]/bestvideo[height<=720]+bestaudio/best[height<=720]/best" -o "${finalFilePath}"`;
     } else if (platform === 'tiktok') {
         if (mode === 'cut') {
             command = `${ytDlpCmd} ${ffmpegOption} --download-sections "*${startTime}-${endTime}" --force-keyframes-at-cuts ${safeUrl} -o "${finalFilePath}"`;
@@ -135,12 +138,22 @@ app.post('/api/process', (req, res) => {
             let userMessage = 'Indirme basarisiz oldu. Lutfen tekrar deneyin.';
             const errText = ((stderr || '') + error.message).toLowerCase();
 
-            if (errText.includes('private') || errText.includes('sign in')) {
-                userMessage = 'Bu video gizli veya giris gerektiriyor.';
+            if (errText.includes('no longer valid') || errText.includes('rotated in the browser')) {
+                userMessage = 'YouTube oturumunun süresi dolmuş (cookies süresi bitti / yenilendi). Lütfen güncel cookies.txt yükleyin.';
+            } else if (errText.includes('confirm you\'re not a bot') || (errText.includes('bot') && errText.includes('sign in'))) {
+                userMessage = 'YouTube bot koruması (Sign in to confirm you are not a bot) engeline takıldı. Sunucuya güncel cookies.txt eklenmelidir.';
+            } else if (errText.includes('confirm your age') || errText.includes('age-restricted')) {
+                userMessage = 'Bu video yaş kısıtlamalıdır (+18) ve giriş (cookies.txt) gerektiriyor.';
+            } else if (errText.includes('private')) {
+                userMessage = 'Bu video gizli (özel) bir videodur.';
+            } else if (errText.includes('sign in')) {
+                userMessage = 'Bu video gizli veya giriş gerektiriyor.';
             } else if (errText.includes('not available') || errText.includes('unavailable')) {
                 userMessage = 'Video mevcut degil veya bolgenizde kullanilmiyor.';
-            } else if (errText.includes('ffmpeg')) {
+            } else if (errText.includes('ffmpeg not found') || errText.includes('ffmpeg is not installed')) {
                 userMessage = 'Sunucuda ffmpeg eksik. Yonetici ile iletisime gecin.';
+            } else if (errText.includes('ffmpeg exited')) {
+                userMessage = 'Video işleme / kesme sırasında dönüştürücü hatası oluştu. Lütfen tekrar deneyin.';
             } else if (errText.includes('429') || errText.includes('too many')) {
                 userMessage = 'Cok fazla istek. Lutfen birkac saniye bekleyin.';
             }
