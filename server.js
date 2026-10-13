@@ -115,7 +115,7 @@ app.post('/api/process', (req, res) => {
     const cookieOpt = fs.existsSync(cookiePath) ? `--cookies "${cookiePath}"` : '';
 
     if (platform === 'youtube') {
-        command = `${ytDlpCmd} ${potProviderOpt} ${cookieOpt} ${ffmpegOption} --download-sections "*${startTime}-${endTime}" --no-part ${safeUrl} -f "bestvideo[height<=720][ext=mp4]+bestaudio[ext=m4a]/bestvideo[height<=720]+bestaudio/best[height<=720]/best" -o "${finalFilePath}"`;
+        command = `${ytDlpCmd} ${potProviderOpt} ${cookieOpt} ${ffmpegOption} --download-sections "*${startTime}-${endTime}" --no-part ${safeUrl} -f "22/18/bestvideo[height<=720][ext=mp4]+bestaudio[ext=m4a]/best[height<=720]/best" -o "${finalFilePath}"`;
     } else if (platform === 'tiktok') {
         if (mode === 'cut') {
             command = `${ytDlpCmd} ${ffmpegOption} --download-sections "*${startTime}-${endTime}" --force-keyframes-at-cuts ${safeUrl} -o "${finalFilePath}"`;
