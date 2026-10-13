@@ -527,18 +527,27 @@ document.getElementById('cutter-form').addEventListener('submit', async (e) => {
             body: JSON.stringify(payload)
         });
         
-        const data = await response.json();
+        let data = null;
+        const text = await response.text();
+        try {
+            data = JSON.parse(text);
+        } catch (e) {
+            if (response.status === 504) {
+                throw new Error(currentLang === 'tr' ? 'İşlem zaman aşımına uğradı. Video uzun olabilir, lütfen daha kısa bir kesit seçin.' : 'Processing timed out. Please select a shorter segment.');
+            }
+            throw new Error(currentLang === 'tr' ? `Sunucu hatası (${response.status}). Lütfen tekrar deneyin.` : `Server error (${response.status}). Please try again.`);
+        }
         
-        if (response.ok) {
+        if (response.ok && data) {
             statusDiv.textContent = t.success;
             statusDiv.classList.add('success');
             
-            if(data.downloadUrl) {
+            if (data.downloadUrl) {
                 // Yönlendirme ile indir (Tarayıcı pop-up engelleyicisini aşmak için)
                 window.location.href = data.downloadUrl;
             }
         } else {
-            throw new Error(data.error || t.errorGeneral);
+            throw new Error((data && data.error) || t.errorGeneral);
         }
     } catch (err) {
         statusDiv.textContent = err.message;
