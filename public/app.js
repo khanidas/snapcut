@@ -547,7 +547,7 @@ document.getElementById('cutter-form').addEventListener('submit', async (e) => {
     const startTime = startTimeInput.value;
     const endTime = endTimeInput.value;
     const qualityEl = document.getElementById('quality');
-    const quality = qualityEl ? qualityEl.value : '720';
+    const quality = qualityEl ? qualityEl.value : '1080';
     
     const btn = document.getElementById('submit-btn');
     const statusDiv = document.getElementById('status-message');
@@ -584,7 +584,16 @@ document.getElementById('cutter-form').addEventListener('submit', async (e) => {
         }
         
         if (response.ok && data) {
-            statusDiv.textContent = t.success;
+            const downloadFilename = data.filename || 'video.mp4';
+            statusDiv.innerHTML = `
+                <div style="font-weight: 600; font-size: 1.05rem; margin-bottom: 6px;">${t.success}</div>
+                <div style="font-size: 0.95rem; margin-bottom: 12px; word-break: break-all; color: #4facfe;">
+                    📁 <strong>${downloadFilename}</strong>
+                </div>
+                <a href="${data.downloadUrl}" class="direct-download-link" download="${downloadFilename}">
+                    ⬇️ ${currentLang === 'tr' ? 'İndirme başlamadıysa buraya tıklayın' : 'Click here if download does not start'}
+                </a>
+            `;
             statusDiv.classList.add('success');
             
             if (data.downloadUrl) {

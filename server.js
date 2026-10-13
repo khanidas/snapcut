@@ -77,37 +77,47 @@ try {
 
 function formatTimeSegment(t) {
     if (!t) return '0000';
-    const parts = t.trim().split(':').map(p => p.padStart(2, '0'));
+    const cleanTime = String(t).trim().split('.')[0];
+    const parts = cleanTime.split(':').map(p => p.trim().padStart(2, '0'));
     return parts.join('');
 }
 
-function sanitizeForFilename(title) {
+function slugifyTitle(title) {
     if (!title) return 'video';
-    let clean = title
+    const charMap = {
+        'ç': 'c', 'Ç': 'c',
+        'ğ': 'g', 'Ğ': 'g',
+        'ı': 'i', 'I': 'i', 'İ': 'i',
+        'ö': 'o', 'Ö': 'o',
+        'ş': 's', 'Ş': 's',
+        'ü': 'u', 'Ü': 'u'
+    };
+    let latinized = title.replace(/[çÇğĞıIİöÖşŞüÜ]/g, m => charMap[m] || m);
+    let clean = latinized
         .trim()
-        .replace(/[\s_]+/g, '-')
-        .replace(/[^\p{L}\p{N}\-.]/gu, '')
+        .replace(/[^\p{L}\p{N}]+/gu, '-')
         .replace(/-+/g, '-')
-        .replace(/^[-.]+|[-.]+$/g, '');
+        .replace(/^-+|-+$/g, '');
     
-    if (clean.length > 60) {
-        clean = clean.substring(0, 60).replace(/-+$/, '');
+    if (clean.length > 45) {
+        clean = clean.substring(0, 45).replace(/-+$/, '');
     }
     return clean || 'video';
 }
 
 function getFormatOption(quality) {
-    const q = String(quality || '720');
+    const q = String(quality || '1080');
     switch (q) {
         case '1080':
             return 'bestvideo[height<=1080][ext=mp4]+bestaudio[ext=m4a]/bestvideo[height<=1080]+bestaudio/best[height<=1080]/best';
+        case '720':
+            return '22/bestvideo[height<=720][ext=mp4]+bestaudio[ext=m4a]/bestvideo[height<=720]+bestaudio/best[height<=720]/18/best';
         case '480':
             return 'bestvideo[height<=480][ext=mp4]+bestaudio[ext=m4a]/bestvideo[height<=480]+bestaudio/best[height<=480]/18/best';
         case '360':
             return '18/bestvideo[height<=360][ext=mp4]+bestaudio[ext=m4a]/bestvideo[height<=360]+bestaudio/best[height<=360]/best';
-        case '720':
         default:
-            return '22/bestvideo[height<=720][ext=mp4]+bestaudio[ext=m4a]/bestvideo[height<=720]+bestaudio/best[height<=720]/18/best';
+            return 'bestvideo[height<=1080][ext=mp4]+bestaudio[ext=m4a]/bestvideo[height<=1080]+bestaudio/best[height<=1080]/best';
     }
 }
 
@@ -132,9 +142,9 @@ app.post('/api/process', (req, res) => {
     }
 
     const uniqueId = Date.now();
-    let timeSuffix = '';
+    let timeSegmentStr = '';
     if (startTime && endTime) {
-        timeSuffix = `-${formatTimeSegment(startTime)}-${formatTimeSegment(endTime)}`;
+        timeSegmentStr = `${formatTimeSegment(startTime)}-${formatTimeSegment(endTime)}`;
     }
 
     // Guvenlik: URL'yi tirnak icine alarak komut enjeksiyonunu onluyoruz
@@ -150,17 +160,17 @@ app.post('/api/process', (req, res) => {
 
     if (platform === 'youtube') {
         const formatStr = getFormatOption(quality);
-        const outTemplate = path.join(downloadsDir, `%(title).50s${timeSuffix}_${uniqueId}.%(ext)s`);
-        command = `${ytDlpCmd} ${potProviderOpt} ${cookieOpt} ${ffmpegOption} --download-sections "*${startTime}-${endTime}" --no-part --windows-filenames --print after_move:filename ${safeUrl} -f "${formatStr}" -o "${outTemplate}"`;
+        const outTemplate = path.join(downloadsDir, `%(title).60s___${timeSegmentStr || 'full'}___${uniqueId}.%(ext)s`);
+        command = `${ytDlpCmd} ${potProviderOpt} ${cookieOpt} ${ffmpegOption} --download-sections "*${startTime}-${endTime}" --no-part --windows-filenames --merge-output-format mp4 --print after_move:filename ${safeUrl} -f "${formatStr}" -o "${outTemplate}"`;
     } else if (platform === 'tiktok') {
-        const outTemplate = path.join(downloadsDir, `%(title).50s${timeSuffix}_${uniqueId}.%(ext)s`);
+        const outTemplate = path.join(downloadsDir, `%(title).60s___${timeSegmentStr || 'full'}___${uniqueId}.%(ext)s`);
         if (mode === 'cut') {
-            command = `${ytDlpCmd} ${ffmpegOption} --download-sections "*${startTime}-${endTime}" --force-keyframes-at-cuts --windows-filenames --print after_move:filename ${safeUrl} -o "${outTemplate}"`;
+            command = `${ytDlpCmd} ${ffmpegOption} --download-sections "*${startTime}-${endTime}" --force-keyframes-at-cuts --windows-filenames --merge-output-format mp4 --print after_move:filename ${safeUrl} -o "${outTemplate}"`;
         } else {
-            command = `${ytDlpCmd} ${ffmpegOption} --windows-filenames --print after_move:filename ${safeUrl} -o "${outTemplate}"`;
+            command = `${ytDlpCmd} ${ffmpegOption} --windows-filenames --merge-output-format mp4 --print after_move:filename ${safeUrl} -o "${outTemplate}"`;
         }
     } else if (platform === 'spotify') {
-        const outTemplate = path.join(downloadsDir, `%(title).50s_${uniqueId}.%(ext)s`);
+        const outTemplate = path.join(downloadsDir, `%(title).60s___full___${uniqueId}.%(ext)s`);
         command = `${ytDlpCmd} ${ffmpegOption} --windows-filenames --print after_move:filename ${safeUrl} -x --audio-format mp3 -o "${outTemplate}"`;
     }
 
@@ -236,15 +246,25 @@ app.post('/api/process', (req, res) => {
         const ext = path.extname(rawDiskFilename) || (platform === 'spotify' ? '.mp3' : '.mp4');
         const rawBaseWithoutExt = path.basename(rawDiskFilename, ext);
 
-        // Benzersiz kimlik takısını kaldırıp temiz isim oluştur
-        const baseWithoutId = rawBaseWithoutExt.replace(new RegExp(`_${uniqueId}$`), '');
-        const sanitizedBase = sanitizeForFilename(baseWithoutId);
+        // Şablon: %(title).60s___<timeSegmentStr|full>___<uniqueId>.<ext>
+        const parts = rawBaseWithoutExt.split('___');
+        let rawTitle = 'video';
+        let timePart = '';
 
+        if (parts.length >= 3) {
+            rawTitle = parts[0].trim();
+            timePart = (parts[1] === 'full') ? '' : parts[1].trim();
+        } else {
+            rawTitle = rawBaseWithoutExt.replace(new RegExp(`_${uniqueId}$`), '');
+            if (timeSegmentStr) timePart = timeSegmentStr;
+        }
+
+        const cleanTitle = slugifyTitle(rawTitle);
         // Kullanıcının göreceği ve indireceği dosya adı (Örn: Elraen-oyun-1120-1130.mp4)
-        const clientDownloadName = `${sanitizedBase}${ext}`;
+        const clientDownloadName = `${cleanTitle}${timePart ? '-' + timePart : ''}${ext}`;
 
-        // Disk üzerindeki dosya adını da temiz ve çakışmasız yapıyoruz
-        const safeDiskFilename = `${sanitizedBase}_${uniqueId}${ext}`;
+        // Disk üzerindeki dosya adı
+        const safeDiskFilename = `${cleanTitle}${timePart ? '-' + timePart : ''}_${uniqueId}${ext}`;
         const safeDiskPath = path.join(downloadsDir, safeDiskFilename);
 
         if (generatedFilePath !== safeDiskPath) {
