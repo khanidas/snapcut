@@ -75,8 +75,44 @@ try {
     console.error('HATA: yt-dlp bulunamadi veya calismiyor!', e.message);
 }
 
+function formatTimeSegment(t) {
+    if (!t) return '0000';
+    const parts = t.trim().split(':').map(p => p.padStart(2, '0'));
+    return parts.join('');
+}
+
+function sanitizeForFilename(title) {
+    if (!title) return 'video';
+    let clean = title
+        .trim()
+        .replace(/[\s_]+/g, '-')
+        .replace(/[^\p{L}\p{N}\-.]/gu, '')
+        .replace(/-+/g, '-')
+        .replace(/^[-.]+|[-.]+$/g, '');
+    
+    if (clean.length > 60) {
+        clean = clean.substring(0, 60).replace(/-+$/, '');
+    }
+    return clean || 'video';
+}
+
+function getFormatOption(quality) {
+    const q = String(quality || '720');
+    switch (q) {
+        case '1080':
+            return 'bestvideo[height<=1080][ext=mp4]+bestaudio[ext=m4a]/bestvideo[height<=1080]+bestaudio/best[height<=1080]/best';
+        case '480':
+            return 'bestvideo[height<=480][ext=mp4]+bestaudio[ext=m4a]/bestvideo[height<=480]+bestaudio/best[height<=480]/18/best';
+        case '360':
+            return '18/bestvideo[height<=360][ext=mp4]+bestaudio[ext=m4a]/bestvideo[height<=360]+bestaudio/best[height<=360]/best';
+        case '720':
+        default:
+            return '22/bestvideo[height<=720][ext=mp4]+bestaudio[ext=m4a]/bestvideo[height<=720]+bestaudio/best[height<=720]/18/best';
+    }
+}
+
 app.post('/api/process', (req, res) => {
-    const { url, startTime, endTime, platform, mode } = req.body;
+    const { url, startTime, endTime, platform, mode, quality } = req.body;
 
     if (!url) {
         return res.status(400).json({ error: 'Video URL eksik. / Missing video URL.' });
@@ -95,13 +131,11 @@ app.post('/api/process', (req, res) => {
         }
     }
 
-    let prefix = 'yt';
-    if (platform === 'tiktok') prefix = 'tiktok';
-    if (platform === 'spotify') prefix = 'spotify';
-
-    const extension = platform === 'spotify' ? 'mp3' : 'mp4';
-    const finalFileName = `${prefix}_${Date.now()}.${extension}`;
-    const finalFilePath = path.join(downloadsDir, finalFileName);
+    const uniqueId = Date.now();
+    let timeSuffix = '';
+    if (startTime && endTime) {
+        timeSuffix = `-${formatTimeSegment(startTime)}-${formatTimeSegment(endTime)}`;
+    }
 
     // Guvenlik: URL'yi tirnak icine alarak komut enjeksiyonunu onluyoruz
     const safeUrl = `"${url.replace(/"/g, '\\"')}"`;
@@ -115,15 +149,19 @@ app.post('/api/process', (req, res) => {
     const cookieOpt = fs.existsSync(cookiePath) ? `--cookies "${cookiePath}"` : '';
 
     if (platform === 'youtube') {
-        command = `${ytDlpCmd} ${potProviderOpt} ${cookieOpt} ${ffmpegOption} --download-sections "*${startTime}-${endTime}" --no-part ${safeUrl} -f "22/18/bestvideo[height<=720][ext=mp4]+bestaudio[ext=m4a]/best[height<=720]/best" -o "${finalFilePath}"`;
+        const formatStr = getFormatOption(quality);
+        const outTemplate = path.join(downloadsDir, `%(title).50s${timeSuffix}_${uniqueId}.%(ext)s`);
+        command = `${ytDlpCmd} ${potProviderOpt} ${cookieOpt} ${ffmpegOption} --download-sections "*${startTime}-${endTime}" --no-part --windows-filenames --print after_move:filename ${safeUrl} -f "${formatStr}" -o "${outTemplate}"`;
     } else if (platform === 'tiktok') {
+        const outTemplate = path.join(downloadsDir, `%(title).50s${timeSuffix}_${uniqueId}.%(ext)s`);
         if (mode === 'cut') {
-            command = `${ytDlpCmd} ${ffmpegOption} --download-sections "*${startTime}-${endTime}" --force-keyframes-at-cuts ${safeUrl} -o "${finalFilePath}"`;
+            command = `${ytDlpCmd} ${ffmpegOption} --download-sections "*${startTime}-${endTime}" --force-keyframes-at-cuts --windows-filenames --print after_move:filename ${safeUrl} -o "${outTemplate}"`;
         } else {
-            command = `${ytDlpCmd} ${ffmpegOption} ${safeUrl} -o "${finalFilePath}"`;
+            command = `${ytDlpCmd} ${ffmpegOption} --windows-filenames --print after_move:filename ${safeUrl} -o "${outTemplate}"`;
         }
     } else if (platform === 'spotify') {
-        command = `${ytDlpCmd} ${ffmpegOption} ${safeUrl} -x --audio-format mp3 -o "${finalFilePath}"`;
+        const outTemplate = path.join(downloadsDir, `%(title).50s_${uniqueId}.%(ext)s`);
+        command = `${ytDlpCmd} ${ffmpegOption} --windows-filenames --print after_move:filename ${safeUrl} -x --audio-format mp3 -o "${outTemplate}"`;
     }
 
     console.log('Komut:', command);
@@ -161,33 +199,94 @@ app.post('/api/process', (req, res) => {
             return res.status(500).json({ error: userMessage });
         }
 
-        // Dosya olusturuldu mu kontrol et
-        if (!fs.existsSync(finalFilePath)) {
-            console.error('Dosya olusturulamadi:', finalFilePath);
-            return res.status(500).json({ error: 'Dosya olusturulamadi. Lutfen tekrar deneyin.' });
+        // yt-dlp ciktisindan veya downloads klasorunden olusturulan dosyayi bul
+        let generatedFilePath = null;
+        if (stdout) {
+            const lines = stdout.split(/\r?\n/).map(l => l.trim()).filter(Boolean);
+            for (let i = lines.length - 1; i >= 0; i--) {
+                const line = lines[i];
+                if (fs.existsSync(line)) {
+                    generatedFilePath = line;
+                    break;
+                }
+                const candidate = path.join(downloadsDir, path.basename(line));
+                if (fs.existsSync(candidate)) {
+                    generatedFilePath = candidate;
+                    break;
+                }
+            }
         }
 
-        const fileSize = fs.statSync(finalFilePath).size;
-        console.log('Indirme tamamlandi:', finalFileName, '(' + (fileSize / 1024 / 1024).toFixed(2) + ' MB)');
+        if (!generatedFilePath || !fs.existsSync(generatedFilePath)) {
+            try {
+                const files = fs.readdirSync(downloadsDir);
+                const match = files.find(f => f.includes(String(uniqueId)));
+                if (match) {
+                    generatedFilePath = path.join(downloadsDir, match);
+                }
+            } catch (e) {}
+        }
+
+        if (!generatedFilePath || !fs.existsSync(generatedFilePath)) {
+            console.error('Dosya olusturulamadi (uniqueId: ' + uniqueId + ')');
+            return res.status(500).json({ error: 'Dosya oluşturulamadı. Lütfen tekrar deneyin.' });
+        }
+
+        const rawDiskFilename = path.basename(generatedFilePath);
+        const ext = path.extname(rawDiskFilename) || (platform === 'spotify' ? '.mp3' : '.mp4');
+        const rawBaseWithoutExt = path.basename(rawDiskFilename, ext);
+
+        // Benzersiz kimlik takısını kaldırıp temiz isim oluştur
+        const baseWithoutId = rawBaseWithoutExt.replace(new RegExp(`_${uniqueId}$`), '');
+        const sanitizedBase = sanitizeForFilename(baseWithoutId);
+
+        // Kullanıcının göreceği ve indireceği dosya adı (Örn: Elraen-oyun-1120-1130.mp4)
+        const clientDownloadName = `${sanitizedBase}${ext}`;
+
+        // Disk üzerindeki dosya adını da temiz ve çakışmasız yapıyoruz
+        const safeDiskFilename = `${sanitizedBase}_${uniqueId}${ext}`;
+        const safeDiskPath = path.join(downloadsDir, safeDiskFilename);
+
+        if (generatedFilePath !== safeDiskPath) {
+            try {
+                fs.renameSync(generatedFilePath, safeDiskPath);
+            } catch (renameErr) {
+                console.warn('Dosya yeniden adlandırılamadı:', renameErr.message);
+            }
+        }
+
+        const finalServedDiskFilename = fs.existsSync(safeDiskPath) ? safeDiskFilename : rawDiskFilename;
+        const finalServedPath = path.join(downloadsDir, finalServedDiskFilename);
+        const fileSize = fs.statSync(finalServedPath).size;
+
+        console.log('İndirme tamamlandı:', clientDownloadName, `(Disk: ${finalServedDiskFilename}, ${(fileSize / 1024 / 1024).toFixed(2)} MB)`);
 
         res.json({
             message: 'Success',
-            downloadUrl: `/download/${finalFileName}`,
-            filename: finalFileName
+            downloadUrl: `/download/${encodeURIComponent(finalServedDiskFilename)}?name=${encodeURIComponent(clientDownloadName)}`,
+            filename: clientDownloadName
         });
     });
 });
 
 app.get('/download/:filename', (req, res) => {
-    const filename = path.basename(req.params.filename);
-    const file = path.join(downloadsDir, filename);
+    const diskFilename = path.basename(req.params.filename);
+    const file = path.join(downloadsDir, diskFilename);
 
     if (fs.existsSync(file)) {
-        res.setHeader('Content-Disposition', `attachment; filename="${filename}"`);
-        res.setHeader('Content-Type', 'application/octet-stream');
+        let downloadName = req.query.name || req.query.title;
+        if (!downloadName) {
+            const ext = path.extname(diskFilename);
+            const base = path.basename(diskFilename, ext).replace(/_\d+$/, '');
+            downloadName = `${base}${ext}`;
+        }
+        downloadName = path.basename(downloadName);
 
-        const fileStream = fs.createReadStream(file);
-        fileStream.pipe(res);
+        res.download(file, downloadName, (err) => {
+            if (err && !res.headersSent) {
+                console.error('Download transfer hatasi:', err.message);
+            }
+        });
 
         // 5 dakika sonra sil
         setTimeout(() => {

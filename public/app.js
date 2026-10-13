@@ -1,5 +1,10 @@
 const translations = {
     en: {
+        qualityLabel: "Video Quality",
+        opt720: "⚡ 720p HD (Fast & Recommended)",
+        opt1080: "🎬 1080p Full HD",
+        opt480: "📱 480p SD",
+        opt360: "💾 360p (Small Size)",
         subtitle: "Cut and download media from YouTube, TikTok in seconds.",
         urlLabel: "Media Link (YouTube, TikTok)",
         tiktokModeLabel: "Download Option",
@@ -22,6 +27,11 @@ const translations = {
         errorGeneral: "An error occurred."
     },
     tr: {
+        qualityLabel: "Video Çözünürlüğü",
+        opt720: "⚡ 720p HD (En Hızlı & Önerilen)",
+        opt1080: "🎬 1080p Full HD",
+        opt480: "📱 480p SD",
+        opt360: "💾 360p (Düşük Boyut)",
         subtitle: "YouTube ve TikTok medyalarını saniyeler içinde kesin ve indirin.",
         urlLabel: "Medya Linki (YouTube, TikTok)",
         tiktokModeLabel: "İndirme Seçeneği",
@@ -44,6 +54,11 @@ const translations = {
         errorGeneral: "Bir hata oluştu."
     },
     es: {
+        qualityLabel: "Calidad de video",
+        opt720: "⚡ 720p HD (Rápido y recomendado)",
+        opt1080: "🎬 1080p Full HD",
+        opt480: "📱 480p SD",
+        opt360: "💾 360p (Tamaño reducido)",
         subtitle: "Corta y descarga medios de YouTube y Spotify en segundos.",
         urlLabel: "Enlace (YouTube, TikTok)",
         tiktokModeLabel: "Opción de descarga",
@@ -66,6 +81,11 @@ const translations = {
         errorGeneral: "Ocurrió un error."
     },
     fr: {
+        qualityLabel: "Qualité vidéo",
+        opt720: "⚡ 720p HD (Rapide et recommandé)",
+        opt1080: "🎬 1080p Full HD",
+        opt480: "📱 480p SD",
+        opt360: "💾 360p (Taille réduite)",
         subtitle: "Coupez et téléchargez des médias depuis YouTube et TikTok en quelques secondes.",
         urlLabel: "Lien média (YouTube, TikTok)",
         tiktokModeLabel: "Option de téléchargement",
@@ -88,6 +108,11 @@ const translations = {
         errorGeneral: "Une erreur est survenue."
     },
     de: {
+        qualityLabel: "Videoqualität",
+        opt720: "⚡ 720p HD (Schnell & empfohlen)",
+        opt1080: "🎬 1080p Full HD",
+        opt480: "📱 480p SD",
+        opt360: "💾 360p (Kompakt)",
         subtitle: "Schneiden und laden Sie Medien von YouTube und TikTok in Sekunden herunter.",
         urlLabel: "Medien-Link (YouTube, TikTok)",
         tiktokModeLabel: "Download-Option",
@@ -110,6 +135,11 @@ const translations = {
         errorGeneral: "Ein Fehler ist aufgetreten."
     },
     ar: {
+        qualityLabel: "جودة الفيديو",
+        opt720: "⚡ 720p HD (سريع وموصى به)",
+        opt1080: "🎬 1080p Full HD",
+        opt480: "📱 480p SD",
+        opt360: "💾 360p (حجم صغير)",
         subtitle: "قص وتنزيل الوسائط من YouTube و TikTok و Spotify في ثوانٍ.",
         urlLabel: "رابط الوسائط",
         tiktokModeLabel: "خيار التنزيل",
@@ -132,6 +162,11 @@ const translations = {
         errorGeneral: "حدث خطأ."
     },
     hi: {
+        qualityLabel: "वीडियो गुणवत्ता",
+        opt720: "⚡ 720p HD (तेज़ और अनुशंसित)",
+        opt1080: "🎬 1080p Full HD",
+        opt480: "📱 480p SD",
+        opt360: "💾 360p (छोटा आकार)",
         subtitle: "सेकंड में YouTube, TikTok और Spotify से मीडिया काटें और डाउनलोड करें।",
         urlLabel: "मीडिया लिंक",
         tiktokModeLabel: "डाउनलोड विकल्प",
@@ -154,6 +189,11 @@ const translations = {
         errorGeneral: "एक त्रुटि हुई।"
     },
     zh: {
+        qualityLabel: "视频清晰度",
+        opt720: "⚡ 720p HD (最快且推荐)",
+        opt1080: "🎬 1080p Full HD",
+        opt480: "📱 480p SD",
+        opt360: "💾 360p (小文件)",
         subtitle: "在几秒钟内剪切并下载YouTube，TikTok和Spotify媒体。",
         urlLabel: "媒体链接",
         tiktokModeLabel: "下载选项",
@@ -225,6 +265,7 @@ const pauseBtn = document.getElementById('pause-btn');
 const timeCaptureBtns = document.getElementById('time-capture-btns');
 
 const tiktokModeGroup = document.getElementById('tiktok-mode-group');
+const qualityGroup = document.getElementById('quality-group');
 const tkModeRadios = document.getElementsByName('tkMode');
 
 function updateTikTokModeUI() {
@@ -428,6 +469,7 @@ urlInput.addEventListener('input', (e) => {
     
     if (urlLower.includes('tiktok.com')) {
         currentPlatform = 'tiktok';
+        if (qualityGroup) qualityGroup.style.display = 'none';
         tiktokModeGroup.style.display = 'block';
         
         platformBadge.textContent = t.badgeTiktok;
@@ -437,6 +479,7 @@ urlInput.addEventListener('input', (e) => {
         updateTikTokModeUI();
     } else if (urlLower.includes('youtube.com') || urlLower.includes('youtu.be')) {
         currentPlatform = 'youtube';
+        if (qualityGroup) qualityGroup.style.display = 'block';
         timeOptions.classList.remove('hidden');
         
         platformBadge.textContent = t.badgeYoutube;
@@ -503,6 +546,8 @@ document.getElementById('cutter-form').addEventListener('submit', async (e) => {
     const url = urlInput.value;
     const startTime = startTimeInput.value;
     const endTime = endTimeInput.value;
+    const qualityEl = document.getElementById('quality');
+    const quality = qualityEl ? qualityEl.value : '720';
     
     const btn = document.getElementById('submit-btn');
     const statusDiv = document.getElementById('status-message');
@@ -516,9 +561,9 @@ document.getElementById('cutter-form').addEventListener('submit', async (e) => {
         let payload;
         if (currentPlatform === 'tiktok') {
             const mode = document.querySelector('input[name="tkMode"]:checked').value;
-            payload = { url, platform: 'tiktok', mode, startTime, endTime };
+            payload = { url, platform: 'tiktok', mode, startTime, endTime, quality };
         } else {
-            payload = { url, startTime, endTime, platform: 'youtube' };
+            payload = { url, startTime, endTime, platform: 'youtube', quality };
         }
             
         const response = await fetch('/api/process', {

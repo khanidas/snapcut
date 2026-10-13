@@ -23,7 +23,7 @@
     <meta property="og:description" content="Cut and download precise clips from YouTube videos online in HD.">
 
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=7">
 </head>
 <body>
     <!-- Sol Kanat Reklamı (Masaüstü 160x600) -->
@@ -130,6 +130,23 @@
                         </div>
                     </div>
 
+                    <div class="input-group" id="quality-group">
+                        <label for="quality">Video Quality / Çözünürlük</label>
+                        <div class="select-wrapper">
+                            <select id="quality" name="quality" class="custom-select">
+                                <option value="720" selected>⚡ 720p HD (En Hızlı & Önerilen)</option>
+                                <option value="1080">🎬 1080p Full HD</option>
+                                <option value="480">📱 480p SD</option>
+                                <option value="360">💾 360p (Düşük Boyut)</option>
+                            </select>
+                            <div class="select-arrow">
+                                <svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1 1L7 7L13 1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
                     <button type="submit" id="submit-btn">
                         <span class="btn-text">Trim & Download MP4</span>
                         <div class="loader" id="loader"></div>
@@ -184,6 +201,6 @@
             </footer>
         </section>
     </div>
-    <script src="app.js?v=6"></script>
+    <script src="app.js?v=7"></script>
 </body>
 </html>

@@ -149,6 +149,61 @@ input:not([type="range"]):not([type="radio"]):focus {
     box-shadow: 0 0 0 4px rgba(79, 172, 254, 0.1);
 }
 
+.select-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.custom-select {
+    width: 100%;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: rgba(0, 0, 0, 0.25);
+    border: 1px solid var(--glass-border);
+    color: #ffffff;
+    padding: 16px 45px 16px 18px;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-family: inherit;
+    font-weight: 500;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.custom-select:hover {
+    border-color: rgba(79, 172, 254, 0.5);
+    background: rgba(0, 0, 0, 0.35);
+}
+
+.custom-select:focus {
+    border-color: #4facfe;
+    box-shadow: 0 0 0 4px rgba(79, 172, 254, 0.15);
+}
+
+.custom-select option {
+    background: #111827;
+    color: #ffffff;
+    padding: 12px;
+}
+
+.select-arrow {
+    position: absolute;
+    right: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: var(--text-muted);
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+.select-wrapper:hover .select-arrow {
+    color: #4facfe;
+}
+
 button {
     width: 100%;
     padding: 18px;
