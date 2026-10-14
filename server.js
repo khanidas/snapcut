@@ -187,38 +187,47 @@ app.post('/api/process', (req, res) => {
 
     console.log('Komut:', command);
 
-    exec(command, { timeout: 300000 }, (error, stdout, stderr) => {
-        if (stdout) console.log('stdout:', stdout.slice(0, 500));
-        if (stderr) console.log('stderr:', stderr.slice(0, 1000));
+    function executeYtDlp(cmdToRun, isRetry = false) {
+        exec(cmdToRun, { timeout: 300000 }, (error, stdout, stderr) => {
+            if (stdout) console.log('stdout:', stdout.slice(0, 500));
+            if (stderr) console.log('stderr:', stderr.slice(0, 1000));
 
-        if (error) {
-            console.error('Indirme hatasi (exit code ' + error.code + '):', error.message);
+            if (error) {
+                console.error('Indirme hatasi (exit code ' + error.code + '):', error.message);
 
-            let userMessage = 'Indirme basarisiz oldu. Lutfen tekrar deneyin.';
-            const errText = ((stderr || '') + error.message).toLowerCase();
+                const errText = ((stderr || '') + error.message).toLowerCase();
 
-            if (errText.includes('no longer valid') || errText.includes('rotated in the browser')) {
-                userMessage = 'YouTube oturumunun süresi dolmuş (cookies süresi bitti / yenilendi). Lütfen güncel cookies.txt yükleyin.';
-            } else if (errText.includes('confirm you\'re not a bot') || (errText.includes('bot') && errText.includes('sign in'))) {
-                userMessage = 'YouTube bot koruması (Sign in to confirm you are not a bot) engeline takıldı. Sunucuya güncel cookies.txt eklenmelidir.';
-            } else if (errText.includes('confirm your age') || errText.includes('age-restricted')) {
-                userMessage = 'Bu video yaş kısıtlamalıdır (+18) ve giriş (cookies.txt) gerektiriyor.';
-            } else if (errText.includes('private')) {
-                userMessage = 'Bu video gizli (özel) bir videodur.';
-            } else if (errText.includes('sign in')) {
-                userMessage = 'Bu video gizli veya giriş gerektiriyor.';
-            } else if (errText.includes('not available') || errText.includes('unavailable')) {
-                userMessage = 'Video mevcut degil veya bolgenizde kullanilmiyor.';
-            } else if (errText.includes('ffmpeg not found') || errText.includes('ffmpeg is not installed')) {
-                userMessage = 'Sunucuda ffmpeg eksik. Yonetici ile iletisime gecin.';
-            } else if (errText.includes('ffmpeg exited')) {
-                userMessage = 'Video işleme / kesme sırasında dönüştürücü hatası oluştu. Lütfen tekrar deneyin.';
-            } else if (errText.includes('429') || errText.includes('too many')) {
-                userMessage = 'Cok fazla istek. Lutfen birkac saniye bekleyin.';
+                // Eğer cookie süresi dolmuşsa ve komutta cookie kullanılmışsa, otomatik çerezsiz fallback dene!
+                if (!isRetry && cookieOpt && (errText.includes('no longer valid') || errText.includes('rotated in the browser')) && cmdToRun.includes(cookieOpt)) {
+                    console.warn('UYARI: YouTube cookie oturumu dolmuş! Çerezsiz bgutil pot-provider ile tekrar deneniyor...');
+                    const fallbackCmd = cmdToRun.replace(cookieOpt, '').replace(/\s+/g, ' ');
+                    return executeYtDlp(fallbackCmd, true);
+                }
+
+                let userMessage = 'Indirme basarisiz oldu. Lutfen tekrar deneyin.';
+
+                if (errText.includes('no longer valid') || errText.includes('rotated in the browser')) {
+                    userMessage = 'YouTube oturumunun süresi dolmuş (cookies süresi bitti / yenilendi). Lütfen güncel cookies.txt yükleyin.';
+                } else if (errText.includes('confirm you\'re not a bot') || (errText.includes('bot') && errText.includes('sign in'))) {
+                    userMessage = 'YouTube bot koruması (Sign in to confirm you are not a bot) engeline takıldı. Sunucuya güncel cookies.txt eklenmelidir.';
+                } else if (errText.includes('confirm your age') || errText.includes('age-restricted')) {
+                    userMessage = 'Bu video yaş kısıtlamalıdır (+18) ve giriş (cookies.txt) gerektiriyor.';
+                } else if (errText.includes('private')) {
+                    userMessage = 'Bu video gizli (özel) bir videodur.';
+                } else if (errText.includes('sign in')) {
+                    userMessage = 'Bu video gizli veya giriş gerektiriyor.';
+                } else if (errText.includes('not available') || errText.includes('unavailable')) {
+                    userMessage = 'Video mevcut degil veya bolgenizde kullanilmiyor.';
+                } else if (errText.includes('ffmpeg not found') || errText.includes('ffmpeg is not installed')) {
+                    userMessage = 'Sunucuda ffmpeg eksik. Yonetici ile iletisime gecin.';
+                } else if (errText.includes('ffmpeg exited')) {
+                    userMessage = 'Video işleme / kesme sırasında dönüştürücü hatası oluştu. Lütfen tekrar deneyin.';
+                } else if (errText.includes('429') || errText.includes('too many')) {
+                    userMessage = 'Cok fazla istek. Lutfen birkac saniye bekleyin.';
+                }
+
+                return res.status(500).json({ error: userMessage });
             }
-
-            return res.status(500).json({ error: userMessage });
-        }
 
         // yt-dlp ciktisindan veya downloads klasorunden olusturulan dosyayi bul
         let generatedFilePath = null;
@@ -297,7 +306,10 @@ app.post('/api/process', (req, res) => {
             downloadUrl: `/download/${encodeURIComponent(finalServedDiskFilename)}?name=${encodeURIComponent(clientDownloadName)}`,
             filename: clientDownloadName
         });
-    });
+        });
+    }
+
+    executeYtDlp(command);
 });
 
 app.get('/download/:filename', (req, res) => {

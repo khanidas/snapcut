@@ -32,6 +32,8 @@ const translations = {
         badgeSpotify: "Spotify Detected (MP3)",
         success: "Success! Your file is downloading...",
         errorGeneral: "An error occurred.",
+        processDurationHint: "⏱️ Video cutting and downloading process may take about 15 seconds.",
+        processingNotice: "⏳ Processing video... This may take about 15 seconds. Please do not close the page.",
 
         // Main Index Guide
         guideTitle: "⚡ How to Cut Videos & Download Media with SnapCut",
@@ -158,6 +160,8 @@ const translations = {
         badgeSpotify: "Spotify Algılandı (MP3 Olarak İndirilecek)",
         success: "İşlem başarılı! Dosyanız iniyor...",
         errorGeneral: "Bir hata oluştu.",
+        processDurationHint: "⏱️ Video kesme ve indirme işlemi yaklaşık 15 saniye sürebilir.",
+        processingNotice: "⏳ Video işleniyor... Bu işlem yaklaşık 15 saniye sürebilir. Lütfen sayfayı kapatmayın.",
 
         // Main Index Guide
         guideTitle: "⚡ SnapCut ile Video Kesme ve İndirme Rehberi",
@@ -756,12 +760,13 @@ document.getElementById('cutter-form').addEventListener('submit', async (e) => {
     const quality = qualityEl ? qualityEl.value : '1080';
     
     const btn = document.getElementById('submit-btn');
-    const statusDiv = document.getElementById('status-message');
-    
     btn.classList.add('btn-loading');
     btn.disabled = true;
-    statusDiv.classList.add('hidden');
-    statusDiv.className = '';
+    
+    // İşlem başladığında 15 saniye uyarısını ve spinner'ı göster
+    statusDiv.className = 'processing';
+    statusDiv.textContent = t.processingNotice || (currentLang === 'tr' ? '⏳ Video işleniyor... Bu işlem yaklaşık 15 saniye sürebilir. Lütfen sayfayı kapatmayın.' : '⏳ Processing video... This may take about 15 seconds. Please do not close the page.');
+    statusDiv.classList.remove('hidden');
     
     try {
         let payload;

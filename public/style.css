@@ -249,6 +249,17 @@ button:hover {
     display: block;
 }
 
+.process-hint {
+    margin-top: 10px;
+    font-size: 0.85rem;
+    color: #94a3b8;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
 #status-message {
     margin-top: 20px;
     text-align: center;
@@ -260,6 +271,18 @@ button:hover {
 
 .hidden {
     display: none;
+}
+
+.processing {
+    background: rgba(59, 130, 246, 0.12);
+    color: #93c5fd;
+    border: 1px solid rgba(59, 130, 246, 0.35);
+    animation: pulseNotice 2s ease-in-out infinite;
+}
+
+@keyframes pulseNotice {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
 }
 
 .success {
