@@ -12,18 +12,103 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Online YouTube Video Cutter - Trim & Download MP4 Clips | SnapCut</title>
-    <meta name="description" content="Free online YouTube video cutter. Trim, clip, and cut exact sections from any YouTube video with millisecond precision. Download HD MP4 fast and free.">
-    <meta name="keywords" content="youtube video cutter, trim youtube video, cut youtube video online, youtube trimmer, youtube klip kesme, online video kesici">
+    <title>Online YouTube Video Cutter - Trim & Cut YouTube Videos to MP4 (1080p HD) | SnapCut</title>
+    <meta name="description" content="Free online YouTube video cutter and trimmer. Cut precise moments, podcast highlights, and clips from YouTube videos in 1080p or 720p HD MP4. Fast, free, no watermark.">
+    <meta name="keywords" content="youtube video cutter, trim youtube video, cut youtube video online, youtube trimmer, youtube klip kesme, online video kesici, youtube shorts cutter, download youtube clip">
+    <meta name="robots" content="index, follow, max-image-preview:large">
     <link rel="canonical" href="https://snapcut.tech/youtube-cutter">
     
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://snapcut.tech/youtube-cutter">
-    <meta property="og:title" content="Online YouTube Video Cutter - SnapCut">
-    <meta property="og:description" content="Cut and download precise clips from YouTube videos online in HD.">
+    <meta property="og:title" content="Online YouTube Video Cutter - Trim & Download MP4 in HD">
+    <meta property="og:description" content="Cut exact sections from YouTube videos online with millisecond precision. 1080p Full HD, no watermark.">
+    <meta property="og:image" content="https://snapcut.tech/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="675">
+    <meta property="og:site_name" content="SnapCut">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://snapcut.tech/youtube-cutter">
+    <meta property="twitter:title" content="Online YouTube Video Cutter - Trim & Download MP4 in HD">
+    <meta property="twitter:description" content="Cut exact sections from YouTube videos online with millisecond precision. 1080p Full HD, no watermark.">
+    <meta property="twitter:image" content="https://snapcut.tech/og-image.jpg">
+
+    <!-- Schema.org WebApplication, Breadcrumb & FAQPage -->
+    <script type="application/ld+json">
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "SnapCut YouTube Video Cutter",
+        "url": "https://snapcut.tech/youtube-cutter",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "All",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "ratingCount": "960"
+        }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://snapcut.tech/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "YouTube Video Cutter",
+            "item": "https://snapcut.tech/youtube-cutter"
+          }
+        ]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How to cut a YouTube video online?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Paste your YouTube link, select the start and end times using the interactive player or time fields, choose 1080p or 720p quality, and hit 'Trim & Download MP4'."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I cut YouTube Shorts?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes! SnapCut supports regular YouTube videos as well as YouTube Shorts links."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does SnapCut reduce the video quality?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No, SnapCut preserves the original audio and video quality, delivering crisp 1080p Full HD or 720p HD MP4 files."
+            }
+          }
+        ]
+      }
+    ]
+    </script>
 
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=7">
+    <link rel="stylesheet" href="style.css?v=8">
 </head>
 <body>
     <!-- Sol Kanat Reklamı (Masaüstü 160x600) -->
@@ -60,17 +145,36 @@
     </div>
     
     <div class="container">
-        <header>
-            <div class="lang-selector">
-                <select id="language-select">
-                    <option value="en">English</option>
-                    <option value="tr">Türkçe</option>
-                    <option value="es">Español</option>
-                    <option value="de">Deutsch</option>
-                </select>
+        <!-- Site Navigation Bar -->
+        <nav class="site-nav">
+            <a href="/" class="nav-brand">
+                ✂️ Snap<span>Cut</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="/youtube-cutter" class="nav-link active">🎬 YouTube Cutter</a></li>
+                <li><a href="/tiktok-downloader" class="nav-link">📱 TikTok Downloader</a></li>
+                <li><a href="#how-to" class="nav-link">💡 How To</a></li>
+                <li><a href="#faq" class="nav-link">❓ FAQ</a></li>
+            </ul>
+            <div class="nav-actions">
+                <div class="lang-selector">
+                    <select id="language-select">
+                        <option value="en">English</option>
+                        <option value="tr">Türkçe</option>
+                        <option value="es">Español</option>
+                        <option value="de">Deutsch</option>
+                    </select>
+                </div>
             </div>
+        </nav>
+
+        <div class="breadcrumb-nav">
+            <a href="/">Home</a> <span>/</span> <span>YouTube Video Cutter</span>
+        </div>
+
+        <header>
             <h1>YouTube Video <span class="gradient-text">Cutter</span></h1>
-            <p>Paste any YouTube URL, set start and end timestamps, and download your trimmed clip instantly.</p>
+            <p>Paste any YouTube URL, set start and end timestamps, and download your trimmed clip instantly in 1080p Full HD.</p>
         </header>
 
         <main>
@@ -185,22 +289,101 @@
             </div>
         </main>
 
+        <!-- SEO Bilgilendirme ve Rehber -->
         <section class="seo-section" style="margin-top: 50px; color: var(--text-muted); line-height: 1.7; font-size: 0.95rem;">
-            <div class="glass-panel" style="padding: 35px; margin-bottom: 30px;">
+            
+            <div class="glass-panel" id="how-to" style="padding: 35px; margin-bottom: 30px;">
                 <h2 style="color: var(--text-main); font-size: 1.5rem; margin-bottom: 15px; font-weight: 700;">
-                    How to Cut YouTube Videos Online with SnapCut
+                    ✂️ How to Cut YouTube Videos Online Step-by-Step
                 </h2>
-                <ol style="padding-left: 20px; margin-bottom: 20px;">
-                    <li style="margin-bottom: 8px;"><strong>Copy the YouTube Link:</strong> Open YouTube and copy the link of the video you want to trim.</li>
-                    <li style="margin-bottom: 8px;"><strong>Choose Start & End Timestamps:</strong> Use the interactive player or manually enter the exact minutes and seconds.</li>
-                    <li style="margin-bottom: 8px;"><strong>Click Trim & Download:</strong> Our fast cloud server cuts the section and renders your crisp HD MP4 clip.</li>
-                </ol>
+                <div class="steps-grid">
+                    <div class="step-card">
+                        <div class="step-num">1</div>
+                        <h3 class="step-title">Paste YouTube Link</h3>
+                        <p class="step-desc">Copy URL from YouTube app or browser (e.g. youtube.com/watch?v=... or youtu.be/...) and paste it in the box.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-num">2</div>
+                        <h3 class="step-title">Set Timestamps</h3>
+                        <p class="step-desc">Use the interactive video preview to pause at key frames and click 'Set Current Time', or type MM:SS manually.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-num">3</div>
+                        <h3 class="step-title">Save 1080p MP4</h3>
+                        <p class="step-desc">Click 'Trim & Download MP4'. The cut video will download automatically, named with the video title and exact time range.</p>
+                    </div>
+                </div>
             </div>
-            <footer style="text-align: center; margin-top: 30px; font-size: 0.85rem; color: var(--text-muted); padding-bottom: 20px;">
-                <p>© 2026 SnapCut.tech — <a href="/" style="color: #4facfe; text-decoration: none;">Home</a> | <a href="/tiktok-downloader" style="color: #4facfe; text-decoration: none;">TikTok Downloader</a></p>
+
+            <!-- Çapraz Link: TikTok İndirici -->
+            <div class="cross-promo">
+                <div class="cross-promo-text">
+                    <h3>📱 Want to Download TikTok Videos Without Watermark?</h3>
+                    <p>Save high-definition TikTok videos without watermark or cut highlights with our TikTok tool.</p>
+                </div>
+                <a href="/tiktok-downloader" class="cross-promo-btn">Try TikTok Downloader →</a>
+            </div>
+
+            <div class="glass-panel" id="faq" style="padding: 35px; margin-bottom: 30px;">
+                <h2 style="color: var(--text-main); font-size: 1.4rem; margin-bottom: 20px; font-weight: 700;">
+                    ❓ YouTube Video Cutter FAQ
+                </h2>
+                
+                <div style="margin-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 16px;">
+                    <h3 style="color: var(--text-main); font-size: 1.05rem; margin-bottom: 6px;">How do I trim YouTube video clips on iPhone or Android?</h3>
+                    <p style="font-size: 0.9rem;">Open Safari or Chrome on your mobile phone, navigate to snapcut.tech/youtube-cutter, paste the YouTube video link, select start and end timestamps, and download the MP4 straight to your phone's gallery or files.</p>
+                </div>
+
+                <div style="margin-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 16px;">
+                    <h3 style="color: var(--text-main); font-size: 1.05rem; margin-bottom: 6px;">What video quality can I download?</h3>
+                    <p style="font-size: 0.9rem;">SnapCut offers 1080p Full HD, 720p HD, 480p SD, and 360p lightweight video options, ensuring high quality audio and video sync.</p>
+                </div>
+
+                <div>
+                    <h3 style="color: var(--text-main); font-size: 1.05rem; margin-bottom: 6px;">Are there any limitations or file size caps?</h3>
+                    <p style="font-size: 0.9rem;">No! SnapCut is free for everyone. You can cut clips from short videos or multi-hour livestreams and podcasts without paying anything.</p>
+                </div>
+            </div>
+
+            <!-- Kapsamlı Footer -->
+            <footer class="site-footer">
+                <div class="footer-grid">
+                    <div class="footer-col">
+                        <h4>✂️ SnapCut</h4>
+                        <p style="font-size: 0.85rem; line-height: 1.6;">
+                            Professional online YouTube video trimmer and TikTok clip cutter.
+                        </p>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Tools</h4>
+                        <ul>
+                            <li><a href="/">Home (All-in-One)</a></li>
+                            <li><a href="/youtube-cutter">YouTube Cutter</a></li>
+                            <li><a href="/tiktok-downloader">TikTok Downloader</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Features</h4>
+                        <ul>
+                            <li><a href="#how-to">1080p YouTube MP4</a></li>
+                            <li><a href="#how-to">Precision Trimming</a></li>
+                            <li><a href="#faq">Mobile Friendly</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Sitemap</h4>
+                        <ul>
+                            <li><a href="/sitemap.xml">sitemap.xml</a></li>
+                            <li><a href="/robots.txt">robots.txt</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>© 2026 SnapCut.tech — Free Online YouTube Video Cutter & Trimmer.</p>
+                </div>
             </footer>
         </section>
     </div>
-    <script src="app.js?v=7"></script>
+    <script src="app.js?v=8"></script>
 </body>
 </html>

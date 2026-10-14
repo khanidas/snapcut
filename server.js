@@ -20,6 +20,17 @@ app.get('/tiktok-downloader', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'tiktok-downloader.html'));
 });
 
+// Sitemap ve Robots.txt için kesin MIME türü garantisi
+app.get('/sitemap.xml', (req, res) => {
+    res.header('Content-Type', 'application/xml');
+    res.sendFile(path.join(__dirname, 'public', 'sitemap.xml'));
+});
+
+app.get('/robots.txt', (req, res) => {
+    res.header('Content-Type', 'text/plain');
+    res.sendFile(path.join(__dirname, 'public', 'robots.txt'));
+});
+
 const downloadsDir = path.join(__dirname, 'downloads');
 if (!fs.existsSync(downloadsDir)) {
     fs.mkdirSync(downloadsDir, { recursive: true });
