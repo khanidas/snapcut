@@ -760,13 +760,16 @@ document.getElementById('cutter-form').addEventListener('submit', async (e) => {
     const quality = qualityEl ? qualityEl.value : '1080';
     
     const btn = document.getElementById('submit-btn');
+    const statusDiv = document.getElementById('status-message');
     btn.classList.add('btn-loading');
     btn.disabled = true;
     
     // İşlem başladığında 15 saniye uyarısını ve spinner'ı göster
-    statusDiv.className = 'processing';
-    statusDiv.textContent = t.processingNotice || (currentLang === 'tr' ? '⏳ Video işleniyor... Bu işlem yaklaşık 15 saniye sürebilir. Lütfen sayfayı kapatmayın.' : '⏳ Processing video... This may take about 15 seconds. Please do not close the page.');
-    statusDiv.classList.remove('hidden');
+    if (statusDiv) {
+        statusDiv.className = 'processing';
+        statusDiv.textContent = t.processingNotice || (currentLang === 'tr' ? '⏳ Video işleniyor... Bu işlem yaklaşık 15 saniye sürebilir. Lütfen sayfayı kapatmayın.' : '⏳ Processing video... This may take about 15 seconds. Please do not close the page.');
+        statusDiv.classList.remove('hidden');
+    }
     
     try {
         let payload;
