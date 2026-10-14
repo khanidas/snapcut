@@ -8,7 +8,33 @@ const os = require('os');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.use(cors());
+const allowedOrigins = [
+    'https://snapcut.tech',
+    'https://www.snapcut.tech',
+    'http://localhost:3000',
+    'http://localhost:5000',
+    'http://127.0.0.1:3000',
+    'http://127.0.0.1:5000'
+];
+
+app.use(cors({
+    origin: function (origin, callback) {
+        // Tarayıcı aynı siteden istek atınca origin undefined olabilir, izin ver
+        if (!origin) return callback(null, true);
+        if (allowedOrigins.includes(origin)) {
+            return callback(null, true);
+        }
+        return callback(new Error('CORS Engeli: Bu API yalnızca snapcut.tech üzerinden kullanılabilir.'));
+    }
+}));
+
+// Güvenlik Başlıkları (Başka sitelerin SnapCut'ı iframe içine gömmesini engeller)
+app.use((req, res, next) => {
+    res.setHeader('X-Frame-Options', 'SAMEORIGIN');
+    res.setHeader('X-Content-Type-Options', 'nosniff');
+    next();
+});
+
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
