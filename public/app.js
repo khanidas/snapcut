@@ -1,11 +1,18 @@
 const translations = {
     en: {
+        // Nav
+        navYt: "🎬 YouTube Cutter",
+        navTk: "📱 TikTok Saver",
+        navGuide: "💡 How To",
+        navFaq: "❓ FAQ",
+
+        // Main Card
         qualityLabel: "Video Quality",
         opt720: "⚡ 720p HD (Fast & Recommended)",
         opt1080: "🎬 1080p Full HD",
         opt480: "📱 480p SD",
         opt360: "💾 360p (Small Size)",
-        subtitle: "Cut and download media from YouTube, TikTok in seconds.",
+        subtitle: "Cut and download media from YouTube & TikTok in seconds.",
         urlLabel: "Media Link (YouTube, TikTok)",
         tiktokModeLabel: "Download Option",
         tkFull: "Full Video",
@@ -24,9 +31,108 @@ const translations = {
         badgeTiktok: "TikTok Detected (No Watermark)",
         badgeSpotify: "Spotify Detected (MP3)",
         success: "Success! Your file is downloading...",
-        errorGeneral: "An error occurred."
+        errorGeneral: "An error occurred.",
+
+        // Main Index Guide
+        guideTitle: "⚡ How to Cut Videos & Download Media with SnapCut",
+        guideSubtitle: "Follow these 3 simple steps to trim any YouTube video or download watermark-free TikTok clips in seconds:",
+        step1Title: "1. Paste Video URL",
+        step1Desc: "Copy your YouTube or TikTok link and paste it into the search box above. SnapCut will instantly load and preview the video.",
+        step2Title: "2. Select Time & Quality",
+        step2Desc: "Pick exact start and end times with our interactive timeline slider. Choose your preferred quality: 1080p Full HD, 720p HD, or 480p.",
+        step3Title: "3. Instant Download",
+        step3Desc: "Click 'Start Process'. Our lightning-fast cloud renderer slices the clip and delivers your clean MP4 file immediately without watermarks.",
+
+        // Cross Promo
+        promoYtTitle: "🎬 Dedicated YouTube Video Cutter",
+        promoYtDesc: "Need precise millisecond trimming for YouTube podcasts, music, and highlights? Use our specialized tool.",
+        promoYtBtn: "Open YouTube Cutter →",
+        promoTkTitle: "📱 TikTok Video Downloader (No Watermark)",
+        promoTkDesc: "Save viral TikTok videos in original HD quality without logo or creator usernames with one single click.",
+        promoTkBtn: "Open TikTok Downloader →",
+
+        // Why Choose
+        whyTitle: "🚀 Why Choose SnapCut Over Traditional Software?",
+        whyDesc: "SnapCut is built for content creators, TikTokers, YouTubers, meme editors, and casual users who value time. You no longer need heavy editing software like Premiere Pro, CapCut, or desktop tools just to cut a 15-second snippet from an hour-long podcast.",
+        feat1Title: "✂️ Millisecond Precision",
+        feat1Desc: "Set exact timestamps down to the second. Download the best moments without wasting bandwidth on full videos.",
+        feat2Title: "🎯 100% Watermark-Free",
+        feat2Desc: "We never inject ads, logos, or intrusive watermarks into your rendered clips. Clean, professional MP4 output.",
+        feat3Title: "⚡ Cloud-Based Speed",
+        feat3Desc: "Heavy rendering is handled on our ultra-fast cloud servers. It won't overheat your phone or slow down your PC.",
+
+        // FAQ
+        faqTitle: "❓ Frequently Asked Questions (FAQ)",
+        faq1Q: "How do I cut a YouTube video online with SnapCut?",
+        faq1A: "Copy the YouTube video URL, paste it into SnapCut, choose your start and end times using the timeline slider or input boxes, pick your resolution (1080p, 720p), and click 'Start Process'. Your trimmed MP4 will download automatically in seconds.",
+        faq2Q: "Does SnapCut remove TikTok watermarks?",
+        faq2A: "Yes! SnapCut automatically removes watermarks and usernames from TikTok videos, saving original HD MP4 videos directly to your mobile phone or computer.",
+        faq3Q: "Is SnapCut free and safe to use?",
+        faq3A: "SnapCut is 100% free with no hidden subscriptions, credit cards, or accounts required. We respect user privacy: files are temporarily processed and purged automatically.",
+        faq4Q: "Can I use SnapCut on iPhone and Android?",
+        faq4A: "Yes, SnapCut is completely responsive and optimized for Safari on iOS (iPhone/iPad), Chrome on Android, and all major desktop browsers (Chrome, Edge, Firefox, Brave).",
+
+        // Subpage: YouTube Cutter
+        ytPageTitle: "YouTube Video <span class=\"gradient-text\">Cutter</span>",
+        ytPageSubtitle: "Paste any YouTube URL, set start and end timestamps, and download your trimmed clip instantly in 1080p Full HD.",
+        ytBreadcrumbHome: "Home",
+        ytBreadcrumbCurrent: "YouTube Video Cutter",
+        ytGuideTitle: "✂️ How to Cut YouTube Videos Online Step-by-Step",
+        ytStep1Title: "1. Copy YouTube Link",
+        ytStep1Desc: "Find any video, podcast, or song on YouTube and copy its share link or browser address.",
+        ytStep2Title: "2. Set Start & End Timestamps",
+        ytStep2Desc: "Use the built-in video player or interactive timeline slider to set exact cutting points.",
+        ytStep3Title: "3. Save 1080p MP4",
+        ytStep3Desc: "Click 'Trim & Download MP4'. The cut video will download automatically with high audio & video quality.",
+        ytPromoTkTitle: "📱 Want to Download TikTok Videos Without Watermark?",
+        ytPromoTkDesc: "Save high-definition TikTok videos without watermark or cut highlights with our TikTok tool.",
+        ytPromoTkBtn: "Try TikTok Downloader →",
+        ytFaqTitle: "❓ YouTube Video Cutter FAQ",
+        ytFaq1Q: "How do I trim YouTube video clips on iPhone or Android?",
+        ytFaq1A: "Open Safari or Chrome on your mobile phone, navigate to snapcut.tech/youtube-cutter, paste the YouTube video link, select start and end timestamps, and download the MP4 straight to your phone's gallery or files.",
+        ytFaq2Q: "What video quality can I download?",
+        ytFaq2A: "SnapCut offers 1080p Full HD, 720p HD, 480p SD, and 360p lightweight video options, ensuring high quality audio and video sync.",
+        ytFaq3Q: "Are there any limitations or file size caps?",
+        ytFaq3A: "No! SnapCut is free for everyone. You can cut clips from short videos or multi-hour livestreams and podcasts without paying anything.",
+
+        // Subpage: TikTok Downloader
+        tkPageTitle: "TikTok Video <span class=\"gradient-text\">Downloader</span> (No Watermark)",
+        tkPageSubtitle: "Save high-definition TikTok MP4 videos without watermark or logos directly to your device.",
+        tkBreadcrumbHome: "Home",
+        tkBreadcrumbCurrent: "TikTok Video Downloader",
+        tkGuideTitle: "📱 How to Download TikTok Videos Without Watermark",
+        tkStep1Title: "1. Copy TikTok Link",
+        tkStep1Desc: "Open TikTok, tap Share on any video, and choose 'Copy Link'.",
+        tkStep2Title: "2. Choose Download Mode",
+        tkStep2Desc: "Select 'Full Video' for the complete clip or 'Cut Section' to trim a specific part.",
+        tkStep3Title: "3. Download Clean MP4",
+        tkStep3Desc: "Click 'Download TikTok' and save original HD video without any logos or watermarks.",
+        tkPromoYtTitle: "🎬 Need to Trim YouTube Videos?",
+        tkPromoYtDesc: "Cut and trim YouTube videos with millisecond precision using our specialized YouTube cutter.",
+        tkPromoYtBtn: "Try YouTube Cutter →",
+        tkFaqTitle: "❓ TikTok Video Downloader FAQ",
+        tkFaq1Q: "How do I save TikTok videos on iPhone (iOS)?",
+        tkFaq1A: "Open Safari, visit snapcut.tech/tiktok-downloader, paste the copied TikTok URL and tap Download. Safari will prompt you to download the file directly into your Files or Camera Roll.",
+        tkFaq2Q: "Do I need to install any app or browser extension?",
+        tkFaq2A: "No! SnapCut is 100% web-based. You don't need any third-party apps, APKs, or browser extensions. It works entirely in your web browser.",
+        tkFaq3Q: "Can I download private TikTok videos?",
+        tkFaq3A: "No, SnapCut only downloads publicly accessible TikTok videos to protect privacy and adhere to platform terms.",
+
+        // Footer
+        footerDesc: "The fastest free online YouTube video cutter and TikTok watermark-free downloader. Cut, trim and save HD media anywhere.",
+        footerTools: "Online Tools",
+        footerFeatures: "Popular Features",
+        footerSitemap: "Sitemap & Info",
+        footerRights: "© 2026 SnapCut.tech — All rights reserved. Fast & Free Online Media Downloader & Video Cutter."
     },
     tr: {
+        // Nav
+        navYt: "🎬 YouTube Kesici",
+        navTk: "📱 TikTok İndirici",
+        navGuide: "💡 Rehber",
+        navFaq: "❓ SSS",
+
+        // Main Card
         qualityLabel: "Video Çözünürlüğü",
         opt720: "⚡ 720p HD (En Hızlı & Önerilen)",
         opt1080: "🎬 1080p Full HD",
@@ -51,7 +157,99 @@ const translations = {
         badgeTiktok: "TikTok Algılandı (Filigransız İndirilecek)",
         badgeSpotify: "Spotify Algılandı (MP3 Olarak İndirilecek)",
         success: "İşlem başarılı! Dosyanız iniyor...",
-        errorGeneral: "Bir hata oluştu."
+        errorGeneral: "Bir hata oluştu.",
+
+        // Main Index Guide
+        guideTitle: "⚡ SnapCut ile Video Kesme ve İndirme Rehberi",
+        guideSubtitle: "YouTube videolarını kırpmak veya TikTok videolarını filigransız indirmek için 3 basit adım:",
+        step1Title: "1. Video Linkini Yapıştırın",
+        step1Desc: "YouTube veya TikTok video bağlantısını kopyalayıp yukarıdaki kutucuğa yapıştırın. SnapCut videoyu anında algılar.",
+        step2Title: "2. Süre ve Kaliteyi Belirleyin",
+        step2Desc: "Başlangıç ve bitiş saniyelerini ayarlayın. 1080p Full HD, 720p HD veya 480p kalitesini seçin.",
+        step3Title: "3. Anında İndirin",
+        step3Desc: "'İşlemi Başlat' butonuna tıklayın. Bulut sunucumuz videoyu saniyeler içinde kesip filigransız MP4 olarak indirir.",
+
+        // Cross Promo
+        promoYtTitle: "🎬 Özel YouTube Video Kesici",
+        promoYtDesc: "YouTube videolarında saniye ve milisaniye hassasiyetiyle kesit almak için özel aracımızı kullanın.",
+        promoYtBtn: "YouTube Kesiciyi Aç →",
+        promoTkTitle: "📱 TikTok Filigransız Video İndirici",
+        promoTkDesc: "TikTok videolarını logo veya kullanıcı adı olmadan orijinal HD kalitede tek tıkla indirin.",
+        promoTkBtn: "TikTok İndiriciyi Aç →",
+
+        // Why Choose
+        whyTitle: "🚀 Neden SnapCut Kullanmalısınız?",
+        whyDesc: "SnapCut; içerik üreticileri, editörler ve zamandan tasarruf etmek isteyenler için tasarlandı. 15 saniyelik bir kesit için Premiere Pro, CapCut veya saatlerce dosya indirme zahmetine katlanmanıza gerek yok.",
+        feat1Title: "✂️ Saniye Hassasiyetinde Kesim",
+        feat1Desc: "Videonun tam istediğiniz kısmını kesin, gereksiz GB'larca video indirmekle uğraşmayın.",
+        feat2Title: "🎯 %100 Filigransız & Temiz",
+        feat2Desc: "İndirilen videolara asla reklam, logo veya filigran eklenmez. Orijinal kalitede MP4 çıktısı alırsınız.",
+        feat3Title: "⚡ Bulut Tabanlı Yüksek Hız",
+        feat3Desc: "Video işleme tamamen güçlü sunucularımızda yapılır; telefonunuz ısınmaz, bilgisayarınız kasmaz.",
+
+        // FAQ
+        faqTitle: "❓ Sıkça Sorulan Sorular (SSS)",
+        faq1Q: "SnapCut ile YouTube videosu nasıl kesilir?",
+        faq1A: "YouTube video bağlantısını kopyalayıp SnapCut'a yapıştırın, kesmek istediğiniz başlangıç ve bitiş sürelerini belirleyin, çözünürlüğü seçip 'İşlemi Başlat'a tıklayın. Kırpılmış MP4 videonuz saniyeler içinde otomatik olarak cihazınıza inecektir.",
+        faq2Q: "TikTok videoları filigransız (yazısız) indirilir mi?",
+        faq2A: "Evet! SnapCut TikTok videolarındaki kullanıcı adlarını ve hareketli logoları otomatik olarak temizler. Videonun tamamını indirebilir veya sadece istediğiniz bölümü keserek kaydedebilirsiniz.",
+        faq3Q: "SnapCut ücretsiz ve güvenli mi?",
+        faq3A: "Evet, SnapCut %100 ücretsizdir. Kayıt olma, kredi kartı veya abonelik gerekmez. Kullanıcı gizliliğine önem verilir; işlenen geçici dosyalar sunucudan otomatik olarak silinir.",
+        faq4Q: "iPhone ve Android telefonlarda çalışır mı?",
+        faq4A: "Evet, SnapCut tüm mobil cihazlarla tam uyumludur. iPhone'da Safari, Android'de Chrome ile doğrudan tarayıcınızdan program yüklemeden kullanabilirsiniz.",
+
+        // Subpage: YouTube Cutter
+        ytPageTitle: "YouTube Video <span class=\"gradient-text\">Kesici</span>",
+        ytPageSubtitle: "Herhangi bir YouTube linkini yapıştırın, başlangıç ve bitiş sürelerini seçin ve 1080p Full HD olarak hemen indirin.",
+        ytBreadcrumbHome: "Ana Sayfa",
+        ytBreadcrumbCurrent: "YouTube Video Kesici",
+        ytGuideTitle: "✂️ YouTube Videosu Nasıl Kesilir? Adım Adım Rehber",
+        ytStep1Title: "1. YouTube Linkini Kopyalayın",
+        ytStep1Desc: "YouTube'da istediğiniz videoyu, podcast'i veya şarkıyı açıp bağlantısını kopyalayın.",
+        ytStep2Title: "2. Başlangıç ve Bitiş Sürelerini Ayarlayın",
+        ytStep2Desc: "Gömülü video oynatıcıyı veya zaman çizelgesi kaydırıcısını kullanarak tam kesim noktalarını belirleyin.",
+        ytStep3Title: "3. 1080p MP4 Olarak İndirin",
+        ytStep3Desc: "'Videoyu Kes & İndir' butonuna tıklayın. Kırpılan video yüksek kalitede otomatik olarak cihazınıza indirilecektir.",
+        ytPromoTkTitle: "📱 TikTok Videolarını Filigransız İndirmek İster misiniz?",
+        ytPromoTkDesc: "TikTok aracımızla filigransız ve orijinal HD kalitede TikTok videoları indirin veya kesin.",
+        ytPromoTkBtn: "TikTok İndiriciyi Dene →",
+        ytFaqTitle: "❓ YouTube Video Kesici SSS",
+        ytFaq1Q: "Telefonda (iPhone veya Android) YouTube videosu kesebilir miyim?",
+        ytFaq1A: "Evet! iPhone'da Safari veya Android'de Chrome ile snapcut.tech/youtube-cutter adresini açın, linki yapıştırıp süreleri seçin ve MP4 videoyu doğrudan galerinize indirin.",
+        ytFaq2Q: "Hangi video kalitelerinde indirebilirim?",
+        ytFaq2A: "SnapCut; 1080p Full HD, 720p HD, 480p SD ve 360p seçenekleri sunar; ses ve görüntü senkronizasyonu bozulmaz.",
+        ytFaq3Q: "Herhangi bir süre veya dosya boyutu sınırı var mı?",
+        ytFaq3A: "Hayır! SnapCut herkes için tamamen ücretsizdir. Kısa videolardan veya saatler süren yayınlardan dilediğiniz kesitleri alabilirsiniz.",
+
+        // Subpage: TikTok Downloader
+        tkPageTitle: "TikTok Filigransız Video <span class=\"gradient-text\">İndirici</span>",
+        tkPageSubtitle: "TikTok videolarını logo veya filigran olmadan orijinal HD kalitede doğrudan cihazınıza indirin.",
+        tkBreadcrumbHome: "Ana Sayfa",
+        tkBreadcrumbCurrent: "TikTok Video İndirici",
+        tkGuideTitle: "📱 TikTok Videosu Filigransız Nasıl İndirilir?",
+        tkStep1Title: "1. TikTok Linkini Kopyalayın",
+        tkStep1Desc: "TikTok uygulamasını açın, istediğiniz videoda 'Paylaş'a basıp 'Bağlantıyı Kopyala' seçeneğini seçin.",
+        tkStep2Title: "2. İndirme Modunu Seçin",
+        tkStep2Desc: "Videonun tamamı için 'Tamamı'nı, belirli bir bölümü almak için 'Kesit Al'ı seçin.",
+        tkStep3Title: "3. Filigransız MP4 İndirin",
+        tkStep3Desc: "'Videoyu İndir' butonuna tıklayın ve filigransız orijinal videoyu anında kaydedin.",
+        tkPromoYtTitle: "🎬 YouTube Videolarını Kırpmak mı İstiyorsunuz?",
+        tkPromoYtDesc: "Özel YouTube kesicimizle YouTube videolarından saniyeler içinde klip alın.",
+        tkPromoYtBtn: "YouTube Kesiciyi Dene →",
+        tkFaqTitle: "❓ TikTok Video İndirici SSS",
+        tkFaq1Q: "iPhone'a (iOS) filigransız TikTok videosu nasıl indirilir?",
+        tkFaq1A: "Safari tarayıcısını açıp linki yapıştırın ve İndir'e basın. Safari videoyu doğrudan Dosyalar veya Galerinize kaydetmenizi sağlar.",
+        tkFaq2Q: "Herhangi bir uygulama veya eklenti yüklemem gerekiyor mu?",
+        tkFaq2A: "Hayır! SnapCut %100 web tabanlıdır. Hiçbir harici program, APK veya eklenti kurmanıza gerek yoktur.",
+        tkFaq3Q: "Gizli hesapların TikTok videoları indirilebilir mi?",
+        tkFaq3A: "Hayır, gizlilik politikaları gereğince yalnızca herkese açık TikTok videoları indirilebilir.",
+
+        // Footer
+        footerDesc: "En hızlı ücretsiz çevrim içi YouTube video kesici ve TikTok filigransız indirici. HD medyaları dilediğiniz yerde kesin ve kaydedin.",
+        footerTools: "Çevrim İçi Araçlar",
+        footerFeatures: "Popüler Özellikler",
+        footerSitemap: "Site Haritası & Bilgi",
+        footerRights: "© 2026 SnapCut.tech — Tüm hakları saklıdır. Hızlı & Ücretsiz Çevrim İçi Medya Kesici ve İndirici."
     },
     es: {
         qualityLabel: "Calidad de video",
@@ -222,18 +420,24 @@ let currentLang = 'en';
 function applyLanguage(lang) {
     currentLang = lang;
     document.documentElement.lang = lang;
-    const t = translations[lang];
-    if (!t) return;
+    const t = translations[lang] || translations['en'];
+    const tEn = translations['en'];
 
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
-        if (t[key]) {
-            el.textContent = t[key];
+        const text = (t && t[key]) || (tEn && tEn[key]);
+        if (text) {
+            if (text.includes('<') && text.includes('>')) {
+                el.innerHTML = text;
+            } else {
+                el.textContent = text;
+            }
         }
     });
     
-    const event = new Event('input');
-    urlInput.dispatchEvent(event);
+    if (typeof urlInput !== 'undefined' && urlInput) {
+        urlInput.dispatchEvent(new Event('input'));
+    }
 }
 
 const tag = document.createElement('script');
@@ -312,17 +516,19 @@ let currentPlatform = 'unknown';
 let videoDuration = 0;
 let durationPollInterval = null;
 
-const browserLang = navigator.language.substring(0, 2);
-if (translations[browserLang]) {
-    document.getElementById('language-select').value = browserLang;
-    applyLanguage(browserLang);
-} else {
-    applyLanguage('en');
-}
+const savedLang = localStorage.getItem('snapcut_lang');
+const browserLang = (navigator.language || 'en').substring(0, 2);
+const initialLang = savedLang || (translations[browserLang] ? browserLang : 'en');
 
-document.getElementById('language-select').addEventListener('change', (e) => {
-    applyLanguage(e.target.value);
-});
+const langSelectEl = document.getElementById('language-select');
+if (langSelectEl) {
+    langSelectEl.value = initialLang;
+    langSelectEl.addEventListener('change', (e) => {
+        localStorage.setItem('snapcut_lang', e.target.value);
+        applyLanguage(e.target.value);
+    });
+}
+applyLanguage(initialLang);
 
 function getTikTokId(url) {
     const match = url.match(/\/video\/(\d+)/);

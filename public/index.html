@@ -107,37 +107,9 @@
     ]
     </script>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=8">
+    <link rel="stylesheet" href="style.css?v=11">
 </head>
 <body>
-    <!-- Sol Kanat Reklamı (Masaüstü 160x600) -->
-    <div class="skyscraper-ad skyscraper-left">
-        <script type="text/javascript">
-          atOptions = {
-            'key' : '0818ef6b5dfe60a663ae908d273c1001',
-            'format' : 'iframe',
-            'height' : 600,
-            'width' : 160,
-            'params' : {}
-          };
-        </script>
-        <script type="text/javascript" src="https://bauval.org/22/0818ef6b5dfe60a663ae908d273c1001"></script>
-    </div>
-
-    <!-- Sağ Kanat Reklamı (Masaüstü 160x600) -->
-    <div class="skyscraper-ad skyscraper-right">
-        <script type="text/javascript">
-          atOptions = {
-            'key' : '0818ef6b5dfe60a663ae908d273c1001',
-            'format' : 'iframe',
-            'height' : 600,
-            'width' : 160,
-            'params' : {}
-          };
-        </script>
-        <script type="text/javascript" src="https://bauval.org/22/0818ef6b5dfe60a663ae908d273c1001"></script>
-    </div>
-
     <div class="background-blobs">
         <div class="blob blob-1"></div>
         <div class="blob blob-2"></div>
@@ -146,28 +118,26 @@
     <div class="container">
         <!-- Site Navigation Bar (Internal SEO Links) -->
         <nav class="site-nav">
-            <a href="/" class="nav-brand">
-                ✂️ Snap<span>Cut</span>
-            </a>
+            <div class="nav-brand-container">
+                <a href="/" class="nav-brand">✂️ Snap<span>Cut</span></a>
+            </div>
             <ul class="nav-links">
-                <li><a href="/youtube-cutter" class="nav-link">🎬 YouTube Cutter</a></li>
-                <li><a href="/tiktok-downloader" class="nav-link">📱 TikTok Downloader</a></li>
-                <li><a href="#how-it-works" class="nav-link">💡 How It Works</a></li>
-                <li><a href="#faq" class="nav-link">❓ FAQ</a></li>
+                <li><a href="/youtube-cutter" class="nav-link" data-i18n="navYt">🎬 YouTube Cutter</a></li>
+                <li><a href="/tiktok-downloader" class="nav-link" data-i18n="navTk">📱 TikTok Saver</a></li>
+                <li><a href="#how-it-works" class="nav-link" data-i18n="navGuide">💡 How To</a></li>
+                <li><a href="#faq" class="nav-link" data-i18n="navFaq">❓ FAQ</a></li>
             </ul>
-            <div class="nav-actions">
-                <div class="lang-selector">
-                    <select id="language-select">
-                        <option value="en">English</option>
-                        <option value="tr">Türkçe</option>
-                        <option value="es">Español</option>
-                        <option value="fr">Français</option>
-                        <option value="de">Deutsch</option>
-                        <option value="ar">العربية</option>
-                        <option value="hi">हिन्दी</option>
-                        <option value="zh">中文</option>
-                    </select>
-                </div>
+            <div class="lang-selector">
+                <select id="language-select">
+                    <option value="en">English</option>
+                    <option value="tr">Türkçe</option>
+                    <option value="es">Español</option>
+                    <option value="fr">Français</option>
+                    <option value="de">Deutsch</option>
+                    <option value="ar">العربية</option>
+                    <option value="hi">हिन्दी</option>
+                    <option value="zh">中文</option>
+                </select>
             </div>
         </nav>
 
@@ -266,9 +236,9 @@
             </div>
 
             <!-- Reklam Alanı (Adsterra) -->
-            <div class="ad-container" style="margin: 25px auto 0; text-align: center; max-width: 100%; overflow: hidden;">
+            <div class="ad-container">
                 <!-- Masaüstü 728x90 Banner -->
-                <div class="ad-desktop" style="display: block; margin: 0 auto;">
+                <div class="ad-desktop">
                     <script type="text/javascript">
                       atOptions = {
                         'key' : '391e610ac2c9651adda2f991677434af',
@@ -282,7 +252,7 @@
                 </div>
 
                 <!-- Mobil / Kare 300x250 Banner -->
-                <div class="ad-mobile" style="display: block; margin: 15px auto 0;">
+                <div class="ad-mobile">
                     <script type="text/javascript">
                       atOptions = {
                         'key' : '3f263a4c274052ed655b50b774ea0977',
@@ -302,25 +272,25 @@
             
             <!-- Adım Adım Nasıl Çalışır (How It Works) -->
             <div class="glass-panel" id="how-it-works" style="padding: 35px; margin-bottom: 30px;">
-                <h2 style="color: var(--text-main); font-size: 1.5rem; margin-bottom: 10px; font-weight: 700;">
+                <h2 style="color: var(--text-main); font-size: 1.5rem; margin-bottom: 10px; font-weight: 700;" data-i18n="guideTitle">
                     ⚡ How to Cut Videos & Download Media with SnapCut
                 </h2>
-                <p>Follow these 3 simple steps to trim any YouTube video or download watermark-free TikTok clips in seconds:</p>
+                <p data-i18n="guideSubtitle">Follow these 3 simple steps to trim any YouTube video or download watermark-free TikTok clips in seconds:</p>
                 <div class="steps-grid">
                     <div class="step-card">
                         <div class="step-num">1</div>
-                        <h3 class="step-title">Paste Video URL</h3>
-                        <p class="step-desc">Copy your YouTube or TikTok link and paste it into the search box above. SnapCut will instantly load and preview the video.</p>
+                        <h3 class="step-title" data-i18n="step1Title">1. Paste Video URL</h3>
+                        <p class="step-desc" data-i18n="step1Desc">Copy your YouTube or TikTok link and paste it into the search box above. SnapCut will instantly load and preview the video.</p>
                     </div>
                     <div class="step-card">
                         <div class="step-num">2</div>
-                        <h3 class="step-title">Select Time & Quality</h3>
-                        <p class="step-desc">Pick exact start and end times with our interactive timeline slider. Choose your preferred quality: 1080p Full HD, 720p HD, or 480p.</p>
+                        <h3 class="step-title" data-i18n="step2Title">2. Select Time & Quality</h3>
+                        <p class="step-desc" data-i18n="step2Desc">Pick exact start and end times with our interactive timeline slider. Choose your preferred quality: 1080p Full HD, 720p HD, or 480p.</p>
                     </div>
                     <div class="step-card">
                         <div class="step-num">3</div>
-                        <h3 class="step-title">Instant Download</h3>
-                        <p class="step-desc">Click "Start Process". Our lightning-fast cloud renderer slices the clip and delivers your MP4 file immediately without watermarks.</p>
+                        <h3 class="step-title" data-i18n="step3Title">3. Instant Download</h3>
+                        <p class="step-desc" data-i18n="step3Desc">Click "Start Process". Our lightning-fast cloud renderer slices the clip and delivers your MP4 file immediately without watermarks.</p>
                     </div>
                 </div>
             </div>
@@ -328,68 +298,68 @@
             <!-- Özel Araçlara Doğrudan Çapraz Yönlendirme Kartları (Internal Linking) -->
             <div class="cross-promo">
                 <div class="cross-promo-text">
-                    <h3>🎬 Dedicated YouTube Video Cutter</h3>
-                    <p>Need precise millisecond trimming for YouTube podcasts, music, and highlights? Use our specialized tool.</p>
+                    <h3 data-i18n="promoYtTitle">🎬 Dedicated YouTube Video Cutter</h3>
+                    <p data-i18n="promoYtDesc">Need precise millisecond trimming for YouTube podcasts, music, and highlights? Use our specialized tool.</p>
                 </div>
-                <a href="/youtube-cutter" class="cross-promo-btn">Open YouTube Cutter →</a>
+                <a href="/youtube-cutter" class="cross-promo-btn" data-i18n="promoYtBtn">Open YouTube Cutter →</a>
             </div>
 
             <div class="cross-promo">
                 <div class="cross-promo-text">
-                    <h3>📱 TikTok Video Downloader (No Watermark)</h3>
-                    <p>Save viral TikTok videos in original HD quality without logo or creator usernames with one single click.</p>
+                    <h3 data-i18n="promoTkTitle">📱 TikTok Video Downloader (No Watermark)</h3>
+                    <p data-i18n="promoTkDesc">Save viral TikTok videos in original HD quality without logo or creator usernames with one single click.</p>
                 </div>
-                <a href="/tiktok-downloader" class="cross-promo-btn">Open TikTok Downloader →</a>
+                <a href="/tiktok-downloader" class="cross-promo-btn" data-i18n="promoTkBtn">Open TikTok Downloader →</a>
             </div>
 
             <!-- Neden SnapCut? Özellikler Paneli -->
             <div class="glass-panel" style="padding: 35px; margin-bottom: 30px;">
-                <h2 style="color: var(--text-main); font-size: 1.5rem; margin-bottom: 15px; font-weight: 700;">
+                <h2 style="color: var(--text-main); font-size: 1.5rem; margin-bottom: 15px; font-weight: 700;" data-i18n="whyTitle">
                     🚀 Why Choose SnapCut Over Traditional Software?
                 </h2>
-                <p style="margin-bottom: 20px;">
+                <p style="margin-bottom: 20px;" data-i18n="whyDesc">
                     SnapCut is built for content creators, TikTokers, YouTubers, meme editors, and casual users who value time. You no longer need heavy editing software like Premiere Pro, CapCut, or desktop tools just to cut a 15-second snippet from an hour-long podcast.
                 </p>
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-top: 25px;">
                     <div style="background: rgba(255,255,255,0.03); padding: 18px; border-radius: 12px; border: 1px solid var(--glass-border);">
-                        <h3 style="color: var(--text-main); font-size: 1.1rem; margin-bottom: 8px;">✂️ Millisecond Precision</h3>
-                        <p style="font-size: 0.88rem;">Set exact timestamps down to the second. Download the best moments without wasting bandwidth on full videos.</p>
+                        <h3 style="color: var(--text-main); font-size: 1.1rem; margin-bottom: 8px;" data-i18n="feat1Title">✂️ Millisecond Precision</h3>
+                        <p style="font-size: 0.88rem;" data-i18n="feat1Desc">Set exact timestamps down to the second. Download the best moments without wasting bandwidth on full videos.</p>
                     </div>
                     <div style="background: rgba(255,255,255,0.03); padding: 18px; border-radius: 12px; border: 1px solid var(--glass-border);">
-                        <h3 style="color: var(--text-main); font-size: 1.1rem; margin-bottom: 8px;">🎯 100% Watermark-Free</h3>
-                        <p style="font-size: 0.88rem;">We never inject ads, logos, or intrusive watermarks into your rendered clips. Clean, professional MP4 output.</p>
+                        <h3 style="color: var(--text-main); font-size: 1.1rem; margin-bottom: 8px;" data-i18n="feat2Title">🎯 100% Watermark-Free</h3>
+                        <p style="font-size: 0.88rem;" data-i18n="feat2Desc">We never inject ads, logos, or intrusive watermarks into your rendered clips. Clean, professional MP4 output.</p>
                     </div>
                     <div style="background: rgba(255,255,255,0.03); padding: 18px; border-radius: 12px; border: 1px solid var(--glass-border);">
-                        <h3 style="color: var(--text-main); font-size: 1.1rem; margin-bottom: 8px;">⚡ Cloud-Based Speed</h3>
-                        <p style="font-size: 0.88rem;">Heavy rendering is handled on our ultra-fast cloud servers. It won't overheat your phone or slow down your PC.</p>
+                        <h3 style="color: var(--text-main); font-size: 1.1rem; margin-bottom: 8px;" data-i18n="feat3Title">⚡ Cloud-Based Speed</h3>
+                        <p style="font-size: 0.88rem;" data-i18n="feat3Desc">Heavy rendering is handled on our ultra-fast cloud servers. It won't overheat your phone or slow down your PC.</p>
                     </div>
                 </div>
             </div>
 
             <!-- Sıkça Sorulan Sorular (Google FAQ Schema Uyumlu) -->
             <div class="glass-panel" id="faq" style="padding: 35px; margin-bottom: 30px;">
-                <h2 style="color: var(--text-main); font-size: 1.4rem; margin-bottom: 20px; font-weight: 700;">
-                    ❓ Frequently Asked Questions (FAQ) / Sıkça Sorulan Sorular
+                <h2 style="color: var(--text-main); font-size: 1.4rem; margin-bottom: 20px; font-weight: 700;" data-i18n="faqTitle">
+                    ❓ Frequently Asked Questions (FAQ)
                 </h2>
                 
                 <div style="margin-bottom: 22px; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 16px;">
-                    <h3 style="color: var(--text-main); font-size: 1.05rem; margin-bottom: 6px;">How do I cut a YouTube video online with SnapCut? / YouTube videosu nasıl kesilir?</h3>
-                    <p style="font-size: 0.9rem;">Copy the YouTube video URL, paste it into SnapCut, choose your start and end times using the timeline slider or input boxes, pick your resolution (1080p, 720p), and click "Start Process". Your trimmed MP4 will download automatically in seconds.</p>
+                    <h3 style="color: var(--text-main); font-size: 1.05rem; margin-bottom: 6px;" data-i18n="faq1Q">How do I cut a YouTube video online with SnapCut?</h3>
+                    <p style="font-size: 0.9rem;" data-i18n="faq1A">Copy the YouTube video URL, paste it into SnapCut, choose your start and end times using the timeline slider or input boxes, pick your resolution (1080p, 720p), and click "Start Process". Your trimmed MP4 will download automatically in seconds.</p>
                 </div>
 
                 <div style="margin-bottom: 22px; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 16px;">
-                    <h3 style="color: var(--text-main); font-size: 1.05rem; margin-bottom: 6px;">Does SnapCut remove TikTok watermarks? / TikTok filigranı silinir mi?</h3>
-                    <p style="font-size: 0.9rem;">Yes! SnapCut allows you to download TikTok videos in clean, watermark-free high definition. You can download the full clip or select a specific portion to cut.</p>
+                    <h3 style="color: var(--text-main); font-size: 1.05rem; margin-bottom: 6px;" data-i18n="faq2Q">Does SnapCut remove TikTok watermarks?</h3>
+                    <p style="font-size: 0.9rem;" data-i18n="faq2A">Yes! SnapCut allows you to download TikTok videos in clean, watermark-free high definition. You can download the full clip or select a specific portion to cut.</p>
                 </div>
 
                 <div style="margin-bottom: 22px; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 16px;">
-                    <h3 style="color: var(--text-main); font-size: 1.05rem; margin-bottom: 6px;">Is SnapCut free and safe to use? / Ücretsiz ve güvenli mi?</h3>
-                    <p style="font-size: 0.9rem;">SnapCut is 100% free with no hidden subscriptions, credit cards, or accounts required. We respect user privacy: files are temporarily processed and purged automatically.</p>
+                    <h3 style="color: var(--text-main); font-size: 1.05rem; margin-bottom: 6px;" data-i18n="faq3Q">Is SnapCut free and safe to use?</h3>
+                    <p style="font-size: 0.9rem;" data-i18n="faq3A">SnapCut is 100% free with no hidden subscriptions, credit cards, or accounts required. We respect user privacy: files are temporarily processed and purged automatically.</p>
                 </div>
 
                 <div>
-                    <h3 style="color: var(--text-main); font-size: 1.05rem; margin-bottom: 6px;">Can I use SnapCut on iPhone and Android? / Telefonda çalışır mı?</h3>
-                    <p style="font-size: 0.9rem;">Yes, SnapCut is completely responsive and optimized for Safari on iOS (iPhone/iPad), Chrome on Android, and all major desktop browsers (Chrome, Edge, Firefox, Brave).</p>
+                    <h3 style="color: var(--text-main); font-size: 1.05rem; margin-bottom: 6px;" data-i18n="faq4Q">Can I use SnapCut on iPhone and Android?</h3>
+                    <p style="font-size: 0.9rem;" data-i18n="faq4A">Yes, SnapCut is completely responsive and optimized for Safari on iOS (iPhone/iPad), Chrome on Android, and all major desktop browsers (Chrome, Edge, Firefox, Brave).</p>
                 </div>
             </div>
             
@@ -398,12 +368,12 @@
                 <div class="footer-grid">
                     <div class="footer-col">
                         <h4>✂️ SnapCut</h4>
-                        <p style="font-size: 0.85rem; line-height: 1.6;">
+                        <p style="font-size: 0.85rem; line-height: 1.6;" data-i18n="footerDesc">
                             The fastest free online YouTube video cutter and TikTok watermark-free downloader. Cut, trim and save HD media anywhere.
                         </p>
                     </div>
                     <div class="footer-col">
-                        <h4>Online Tools</h4>
+                        <h4 data-i18n="footerTools">Online Tools</h4>
                         <ul>
                             <li><a href="/youtube-cutter">YouTube Video Cutter</a></li>
                             <li><a href="/tiktok-downloader">TikTok Video Downloader</a></li>
@@ -411,7 +381,7 @@
                         </ul>
                     </div>
                     <div class="footer-col">
-                        <h4>Popular Features</h4>
+                        <h4 data-i18n="footerFeatures">Popular Features</h4>
                         <ul>
                             <li><a href="#how-it-works">1080p Full HD Trimming</a></li>
                             <li><a href="#how-it-works">No Watermark Video Saver</a></li>
@@ -419,7 +389,7 @@
                         </ul>
                     </div>
                     <div class="footer-col">
-                        <h4>Sitemap & Info</h4>
+                        <h4 data-i18n="footerSitemap">Sitemap & Info</h4>
                         <ul>
                             <li><a href="/sitemap.xml">XML Sitemap</a></li>
                             <li><a href="/robots.txt">Robots.txt</a></li>
@@ -428,11 +398,37 @@
                     </div>
                 </div>
                 <div class="footer-bottom">
-                    <p>© 2026 SnapCut.tech — All rights reserved. Fast & Free Online Media Downloader & Video Cutter.</p>
+                    <p data-i18n="footerRights">© 2026 SnapCut.tech — All rights reserved. Fast & Free Online Media Downloader & Video Cutter.</p>
                 </div>
             </footer>
         </section>
     </div>
-    <script src="app.js?v=8"></script>
+    <script src="app.js?v=11"></script>
+
+    <!-- Sol ve Sağ Kanat Skyscraper Reklamları (Masaüstü >= 1300px için sayfa sonuna taşındı, render engellemez) -->
+    <div class="skyscraper-ad skyscraper-left">
+        <script type="text/javascript">
+          atOptions = {
+            'key' : '0818ef6b5dfe60a663ae908d273c1001',
+            'format' : 'iframe',
+            'height' : 600,
+            'width' : 160,
+            'params' : {}
+          };
+        </script>
+        <script type="text/javascript" src="https://bauval.org/22/0818ef6b5dfe60a663ae908d273c1001"></script>
+    </div>
+    <div class="skyscraper-ad skyscraper-right">
+        <script type="text/javascript">
+          atOptions = {
+            'key' : '0818ef6b5dfe60a663ae908d273c1001',
+            'format' : 'iframe',
+            'height' : 600,
+            'width' : 160,
+            'params' : {}
+          };
+        </script>
+        <script type="text/javascript" src="https://bauval.org/22/0818ef6b5dfe60a663ae908d273c1001"></script>
+    </div>
 </body>
 </html>

@@ -108,37 +108,9 @@
     </script>
 
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=8">
+    <link rel="stylesheet" href="style.css?v=11">
 </head>
 <body>
-    <!-- Sol Kanat Reklamı (Masaüstü 160x600) -->
-    <div class="skyscraper-ad skyscraper-left">
-        <script type="text/javascript">
-          atOptions = {
-            'key' : '0818ef6b5dfe60a663ae908d273c1001',
-            'format' : 'iframe',
-            'height' : 600,
-            'width' : 160,
-            'params' : {}
-          };
-        </script>
-        <script type="text/javascript" src="https://bauval.org/22/0818ef6b5dfe60a663ae908d273c1001"></script>
-    </div>
-
-    <!-- Sağ Kanat Reklamı (Masaüstü 160x600) -->
-    <div class="skyscraper-ad skyscraper-right">
-        <script type="text/javascript">
-          atOptions = {
-            'key' : '0818ef6b5dfe60a663ae908d273c1001',
-            'format' : 'iframe',
-            'height' : 600,
-            'width' : 160,
-            'params' : {}
-          };
-        </script>
-        <script type="text/javascript" src="https://bauval.org/22/0818ef6b5dfe60a663ae908d273c1001"></script>
-    </div>
-
     <div class="background-blobs">
         <div class="blob blob-1"></div>
         <div class="blob blob-2"></div>
@@ -147,34 +119,36 @@
     <div class="container">
         <!-- Site Navigation Bar -->
         <nav class="site-nav">
-            <a href="/" class="nav-brand">
-                ✂️ Snap<span>Cut</span>
-            </a>
+            <div class="nav-brand-container">
+                <a href="/" class="nav-brand">✂️ Snap<span>Cut</span></a>
+            </div>
             <ul class="nav-links">
-                <li><a href="/youtube-cutter" class="nav-link">🎬 YouTube Cutter</a></li>
-                <li><a href="/tiktok-downloader" class="nav-link active">📱 TikTok Downloader</a></li>
-                <li><a href="#how-to" class="nav-link">💡 How To</a></li>
-                <li><a href="#faq" class="nav-link">❓ FAQ</a></li>
+                <li><a href="/youtube-cutter" class="nav-link" data-i18n="navYt">🎬 YouTube Cutter</a></li>
+                <li><a href="/tiktok-downloader" class="nav-link active" data-i18n="navTk">📱 TikTok Saver</a></li>
+                <li><a href="#how-to" class="nav-link" data-i18n="navGuide">💡 How To</a></li>
+                <li><a href="#faq" class="nav-link" data-i18n="navFaq">❓ FAQ</a></li>
             </ul>
-            <div class="nav-actions">
-                <div class="lang-selector">
-                    <select id="language-select">
-                        <option value="en">English</option>
-                        <option value="tr">Türkçe</option>
-                        <option value="es">Español</option>
-                        <option value="de">Deutsch</option>
-                    </select>
-                </div>
+            <div class="lang-selector">
+                <select id="language-select">
+                    <option value="en">English</option>
+                    <option value="tr">Türkçe</option>
+                    <option value="es">Español</option>
+                    <option value="fr">Français</option>
+                    <option value="de">Deutsch</option>
+                    <option value="ar">العربية</option>
+                    <option value="hi">हिन्दी</option>
+                    <option value="zh">中文</option>
+                </select>
             </div>
         </nav>
 
         <div class="breadcrumb-nav">
-            <a href="/">Home</a> <span>/</span> <span>TikTok Video Downloader</span>
+            <a href="/" data-i18n="tkBreadcrumbHome">Home</a> <span>/</span> <span data-i18n="tkBreadcrumbCurrent">TikTok Video Downloader</span>
         </div>
 
         <header>
-            <h1>TikTok Video <span class="gradient-text">Downloader</span></h1>
-            <p>Save watermark-free TikTok videos in crystal-clear HD, or trim specific soundbites in seconds.</p>
+            <h1 data-i18n="tkPageTitle">TikTok Video <span class="gradient-text">Downloader</span></h1>
+            <p data-i18n="tkPageSubtitle">Save watermark-free TikTok videos in crystal-clear HD, or trim specific soundbites in seconds.</p>
         </header>
 
         <main>
@@ -276,24 +250,24 @@
         <section class="seo-section" style="margin-top: 50px; color: var(--text-muted); line-height: 1.7; font-size: 0.95rem;">
             
             <div class="glass-panel" id="how-to" style="padding: 35px; margin-bottom: 30px;">
-                <h2 style="color: var(--text-main); font-size: 1.5rem; margin-bottom: 15px; font-weight: 700;">
+                <h2 style="color: var(--text-main); font-size: 1.5rem; margin-bottom: 15px; font-weight: 700;" data-i18n="tkGuideTitle">
                     📱 How to Download TikTok Videos Without Watermark
                 </h2>
                 <div class="steps-grid">
                     <div class="step-card">
                         <div class="step-num">1</div>
-                        <h3 class="step-title">Copy TikTok Link</h3>
-                        <p class="step-desc">Open the TikTok app on your smartphone, tap the "Share" button on any video and choose "Copy Link".</p>
+                        <h3 class="step-title" data-i18n="tkStep1Title">1. Copy TikTok Link</h3>
+                        <p class="step-desc" data-i18n="tkStep1Desc">Open the TikTok app on your smartphone, tap the "Share" button on any video and choose "Copy Link".</p>
                     </div>
                     <div class="step-card">
                         <div class="step-num">2</div>
-                        <h3 class="step-title">Paste & Choose Mode</h3>
-                        <p class="step-desc">Paste the link into SnapCut. Select "Full Video" for the entire clip or "Cut Section" to trim a favorite part.</p>
+                        <h3 class="step-title" data-i18n="tkStep2Title">2. Choose Download Mode</h3>
+                        <p class="step-desc" data-i18n="tkStep2Desc">Paste the link into SnapCut. Select "Full Video" for the entire clip or "Cut Section" to trim a favorite part.</p>
                     </div>
                     <div class="step-card">
                         <div class="step-num">3</div>
-                        <h3 class="step-title">Instant HD Download</h3>
-                        <p class="step-desc">Click "Download TikTok HD". Your watermark-free MP4 file will be downloaded directly to your device storage.</p>
+                        <h3 class="step-title" data-i18n="tkStep3Title">3. Instant HD Download</h3>
+                        <p class="step-desc" data-i18n="tkStep3Desc">Click "Download TikTok HD". Your watermark-free MP4 file will be downloaded directly to your device storage.</p>
                     </div>
                 </div>
             </div>
@@ -301,30 +275,28 @@
             <!-- Çapraz Link: YouTube Kesici -->
             <div class="cross-promo">
                 <div class="cross-promo-text">
-                    <h3>🎬 Need to Trim YouTube Videos & Podcasts?</h3>
-                    <p>Cut precise YouTube video clips in 1080p Full HD with our dedicated YouTube trimmer.</p>
+                    <h3 data-i18n="tkPromoYtTitle">🎬 Need to Trim YouTube Videos?</h3>
+                    <p data-i18n="tkPromoYtDesc">Cut and trim YouTube videos with millisecond precision using our specialized YouTube cutter.</p>
                 </div>
-                <a href="/youtube-cutter" class="cross-promo-btn">Try YouTube Cutter →</a>
+                <a href="/youtube-cutter" class="cross-promo-btn" data-i18n="tkPromoYtBtn">Try YouTube Cutter →</a>
             </div>
 
             <div class="glass-panel" id="faq" style="padding: 35px; margin-bottom: 30px;">
-                <h2 style="color: var(--text-main); font-size: 1.4rem; margin-bottom: 20px; font-weight: 700;">
-                    ❓ TikTok Video Downloader FAQ
-                </h2>
+                <h2 style="color: var(--text-main); font-size: 1.4rem; margin-bottom: 20px; font-weight: 700;" data-i18n="tkFaqTitle">❓ TikTok Video Downloader FAQ</h2>
                 
                 <div style="margin-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 16px;">
                     <h3 style="color: var(--text-main); font-size: 1.05rem; margin-bottom: 6px;">How do I save TikTok videos on iPhone (iOS)?</h3>
-                    <p style="font-size: 0.9rem;">Open Safari, visit snapcut.tech/tiktok-downloader, paste the copied TikTok URL and tap Download. Safari will prompt you to download the file directly into your Files or Camera Roll.</p>
+                    <p style="font-size: 0.9rem;" data-i18n="tkFaq1A">Open Safari, visit snapcut.tech/tiktok-downloader, paste the copied TikTok URL and tap Download. Safari will prompt you to download the file directly into your Files or Camera Roll.</p>
                 </div>
 
                 <div style="margin-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 16px;">
                     <h3 style="color: var(--text-main); font-size: 1.05rem; margin-bottom: 6px;">Do I need to install any app or browser extension?</h3>
-                    <p style="font-size: 0.9rem;">No! SnapCut is 100% web-based. You don't need any third-party apps, APKs, or browser extensions. It works entirely in your web browser.</p>
+                    <p style="font-size: 0.9rem;" data-i18n="tkFaq2A">No! SnapCut is 100% web-based. You don't need any third-party apps, APKs, or browser extensions. It works entirely in your web browser.</p>
                 </div>
 
                 <div>
                     <h3 style="color: var(--text-main); font-size: 1.05rem; margin-bottom: 6px;">Can I download private TikTok videos?</h3>
-                    <p style="font-size: 0.9rem;">No, SnapCut only downloads publicly accessible TikTok videos to protect privacy and adhere to platform terms.</p>
+                    <p style="font-size: 0.9rem;" data-i18n="tkFaq3A">No, SnapCut only downloads publicly accessible TikTok videos to protect privacy and adhere to platform terms.</p>
                 </div>
             </div>
 
@@ -367,6 +339,32 @@
             </footer>
         </section>
     </div>
-    <script src="app.js?v=8"></script>
+    <script src="app.js?v=11"></script>
+
+    <!-- Sol ve Sağ Kanat Skyscraper Reklamları (Masaüstü >= 1300px için sayfa sonuna taşındı, render engellemez) -->
+    <div class="skyscraper-ad skyscraper-left">
+        <script type="text/javascript">
+          atOptions = {
+            'key' : '0818ef6b5dfe60a663ae908d273c1001',
+            'format' : 'iframe',
+            'height' : 600,
+            'width' : 160,
+            'params' : {}
+          };
+        </script>
+        <script type="text/javascript" src="https://bauval.org/22/0818ef6b5dfe60a663ae908d273c1001"></script>
+    </div>
+    <div class="skyscraper-ad skyscraper-right">
+        <script type="text/javascript">
+          atOptions = {
+            'key' : '0818ef6b5dfe60a663ae908d273c1001',
+            'format' : 'iframe',
+            'height' : 600,
+            'width' : 160,
+            'params' : {}
+          };
+        </script>
+        <script type="text/javascript" src="https://bauval.org/22/0818ef6b5dfe60a663ae908d273c1001"></script>
+    </div>
 </body>
 </html>

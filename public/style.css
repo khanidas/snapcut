@@ -470,19 +470,19 @@ button:hover {
 
 /* Language Selector & TikTok Radio CSS */
 .lang-selector {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    z-index: 10;
+    position: relative;
+    z-index: 5;
+    display: flex;
+    align-items: center;
 }
 
 #language-select {
-    background: rgba(255, 255, 255, 0.1);
-    color: white;
+    background: rgba(15, 23, 42, 0.9);
+    color: #f8fafc;
     border: 1px solid var(--glass-border);
-    padding: 8px 12px;
+    padding: 6px 10px;
     border-radius: 8px;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     outline: none;
     cursor: pointer;
 }
@@ -521,8 +521,8 @@ button:hover {
 /* Reklam Alanı Stilleri */
 .ad-container {
     width: 100%;
-    max-width: 728px;
-    margin: 25px auto 10px;
+    max-width: 100%;
+    margin: 20px auto 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -532,10 +532,14 @@ button:hover {
 
 .ad-desktop {
     display: block;
+    max-width: 100%;
+    overflow: hidden;
 }
 
 .ad-mobile {
-    display: block;
+    display: none;
+    max-width: 100%;
+    overflow: hidden;
 }
 
 @media (max-width: 768px) {
@@ -543,7 +547,10 @@ button:hover {
         display: none !important;
     }
     .ad-mobile {
-        display: block !important;
+        display: flex !important;
+        justify-content: center;
+        width: 100%;
+        margin: 10px auto 0;
     }
 }
 
@@ -578,22 +585,28 @@ button:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgba(15, 23, 42, 0.7);
+    background: rgba(15, 23, 42, 0.85);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border: 1px solid var(--glass-border);
     border-radius: 16px;
-    padding: 12px 24px;
-    margin-bottom: 30px;
+    padding: 12px 18px;
+    margin-bottom: 25px;
     width: 100%;
+    gap: 12px;
+}
+
+.nav-brand-container {
+    display: flex;
+    align-items: center;
 }
 
 .nav-brand {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
     text-decoration: none;
-    font-size: 1.35rem;
+    font-size: 1.25rem;
     font-weight: 800;
     color: var(--text-main);
 }
@@ -607,7 +620,7 @@ button:hover {
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 8px;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -616,34 +629,59 @@ button:hover {
 .nav-link {
     color: var(--text-muted);
     text-decoration: none;
-    font-size: 0.95rem;
-    font-weight: 500;
-    transition: all 0.25s ease;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
     padding: 6px 12px;
     border-radius: 8px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--glass-border);
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    white-space: nowrap;
 }
 
 .nav-link:hover, .nav-link.active {
     color: #fff;
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(79, 172, 254, 0.2);
+    border-color: rgba(79, 172, 254, 0.5);
 }
 
-.nav-actions {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-@media (max-width: 650px) {
+/* Mobil Cihazlar İçin Kusursuz 2 Satırlı Izgara Düzeni (<= 768px) */
+@media (max-width: 768px) {
     .site-nav {
-        flex-direction: column;
-        gap: 14px;
-        padding: 14px;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        grid-template-rows: auto auto;
+        gap: 12px 0;
+        padding: 12px 14px;
+    }
+    .nav-brand-container {
+        grid-column: 1;
+        grid-row: 1;
+        display: flex;
+        align-items: center;
+    }
+    .lang-selector {
+        grid-column: 2;
+        grid-row: 1;
+        display: flex;
+        justify-content: flex-end;
     }
     .nav-links {
-        flex-wrap: wrap;
-        justify-content: center;
+        grid-column: 1 / -1;
+        grid-row: 2;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
         gap: 8px;
+    }
+    .nav-link {
+        justify-content: center;
+        text-align: center;
+        padding: 8px 6px;
+        font-size: 0.82rem;
     }
 }
 
