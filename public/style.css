@@ -627,11 +627,43 @@ button:hover {
 .nav-brand {
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 8px;
     text-decoration: none;
     font-size: 1.25rem;
     font-weight: 800;
     color: var(--text-main);
+}
+
+.brand-logo-img {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    object-fit: cover;
+    box-shadow: 0 0 10px rgba(0, 229, 255, 0.45);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.nav-brand:hover .brand-logo-img {
+    transform: scale(1.08) rotate(-3deg);
+    box-shadow: 0 0 16px rgba(0, 229, 255, 0.7);
+}
+
+.header-logo-badge {
+    margin-bottom: 12px;
+    display: inline-block;
+}
+
+.header-logo-icon {
+    width: 68px;
+    height: 68px;
+    border-radius: 16px;
+    box-shadow: 0 0 25px rgba(0, 229, 255, 0.45), 0 0 50px rgba(0, 229, 255, 0.15);
+    animation: floatLogo 4s ease-in-out infinite;
+}
+
+@keyframes floatLogo {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
 }
 
 .nav-brand span {

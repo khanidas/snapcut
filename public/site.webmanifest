@@ -1,0 +1,31 @@
+{
+  "name": "SnapCut - Video Cutter & TikTok Downloader",
+  "short_name": "SnapCut",
+  "description": "Free Online YouTube Video Cutter & TikTok Downloader Without Watermark",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#070d19",
+  "theme_color": "#00e5ff",
+  "icons": [
+    {
+      "src": "/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/logo-icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

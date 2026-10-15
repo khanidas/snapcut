@@ -524,15 +524,35 @@ const savedLang = localStorage.getItem('snapcut_lang');
 const browserLang = (navigator.language || 'en').substring(0, 2);
 const initialLang = savedLang || (translations[browserLang] ? browserLang : 'en');
 
+// Google Analytics 4 Custom Event Tracking Helper
+function trackGA(eventName, params = {}) {
+    try {
+        if (typeof window.gtag === 'function') {
+            window.gtag('event', eventName, params);
+        }
+    } catch (e) {
+        console.warn('GA4 tracking error:', e);
+    }
+}
+
 const langSelectEl = document.getElementById('language-select');
 if (langSelectEl) {
     langSelectEl.value = initialLang;
     langSelectEl.addEventListener('change', (e) => {
-        localStorage.setItem('snapcut_lang', e.target.value);
-        applyLanguage(e.target.value);
+        const selectedLang = e.target.value;
+        localStorage.setItem('snapcut_lang', selectedLang);
+        applyLanguage(selectedLang);
+        trackGA('change_language', { language: selectedLang });
     });
 }
 applyLanguage(initialLang);
+
+const qualityDropdownEl = document.getElementById('quality');
+if (qualityDropdownEl) {
+    qualityDropdownEl.addEventListener('change', (e) => {
+        trackGA('select_quality', { quality: e.target.value });
+    });
+}
 
 function getTikTokId(url) {
     const match = url.match(/\/video\/(\d+)/);
@@ -687,6 +707,7 @@ urlInput.addEventListener('input', (e) => {
         btnText.textContent = t.submitBtnTiktok;
         
         updateTikTokModeUI();
+        trackGA('video_detected', { platform: 'tiktok' });
     } else if (urlLower.includes('youtube.com') || urlLower.includes('youtu.be')) {
         currentPlatform = 'youtube';
         if (qualityGroup) qualityGroup.style.display = 'block';
@@ -695,6 +716,7 @@ urlInput.addEventListener('input', (e) => {
         platformBadge.textContent = t.badgeYoutube;
         platformBadge.className = 'badge youtube';
         btnText.textContent = t.submitBtnYoutube;
+        trackGA('video_detected', { platform: 'youtube' });
         
         startTimeInput.required = true;
         endTimeInput.required = true;
@@ -773,12 +795,21 @@ document.getElementById('cutter-form').addEventListener('submit', async (e) => {
     
     try {
         let payload;
+        let mode = 'cut';
         if (currentPlatform === 'tiktok') {
-            const mode = document.querySelector('input[name="tkMode"]:checked').value;
+            const tkModeEl = document.querySelector('input[name="tkMode"]:checked');
+            mode = tkModeEl ? tkModeEl.value : 'full';
             payload = { url, platform: 'tiktok', mode, startTime, endTime, quality };
         } else {
             payload = { url, startTime, endTime, platform: 'youtube', quality };
         }
+        
+        trackGA('process_start', {
+            platform: currentPlatform,
+            quality: quality,
+            mode: mode,
+            language: currentLang
+        });
             
         const response = await fetch('/api/process', {
             method: 'POST',
@@ -810,6 +841,24 @@ document.getElementById('cutter-form').addEventListener('submit', async (e) => {
             `;
             statusDiv.classList.add('success');
             
+            trackGA('process_success', {
+                platform: currentPlatform,
+                quality: quality,
+                mode: mode,
+                filename: downloadFilename,
+                language: currentLang
+            });
+            
+            const directLink = statusDiv.querySelector('.direct-download-link');
+            if (directLink) {
+                directLink.addEventListener('click', () => {
+                    trackGA('download_click', {
+                        platform: currentPlatform,
+                        filename: downloadFilename
+                    });
+                });
+            }
+            
             if (data.downloadUrl) {
                 // Yönlendirme ile indir (Tarayıcı pop-up engelleyicisini aşmak için)
                 window.location.href = data.downloadUrl;
@@ -820,6 +869,11 @@ document.getElementById('cutter-form').addEventListener('submit', async (e) => {
     } catch (err) {
         statusDiv.textContent = err.message;
         statusDiv.classList.add('error');
+        trackGA('process_error', {
+            platform: currentPlatform,
+            error_message: (err.message || 'unknown').substring(0, 100),
+            language: currentLang
+        });
     } finally {
         btn.classList.remove('btn-loading');
         btn.disabled = false;
@@ -829,6 +883,13 @@ document.getElementById('cutter-form').addEventListener('submit', async (e) => {
 
 // URL Parametresi Desteği (?url=https://...)
 window.addEventListener('DOMContentLoaded', () => {
+    // Track navigation clicks
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            trackGA('navigation_click', { destination: link.getAttribute('href') });
+        });
+    });
+
     const params = new URLSearchParams(window.location.search);
     const prefillUrl = params.get('url') || params.get('link');
     if (prefillUrl) {
@@ -836,4 +897,5 @@ window.addEventListener('DOMContentLoaded', () => {
         urlInput.dispatchEvent(new Event('input'));
     }
 });
+
 
