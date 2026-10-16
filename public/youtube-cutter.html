@@ -132,7 +132,7 @@
     </script>
 
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=15">
+    <link rel="stylesheet" href="style.css?v=16">
 </head>
 <body>
     <div class="background-blobs">
@@ -196,8 +196,8 @@
                         <iframe id="tk-iframe" src=""></iframe>
                     </div>
                     <div class="media-controls hidden" id="media-controls">
-                        <button type="button" class="ctrl-btn" id="play-btn">▶ Play</button>
-                        <button type="button" class="ctrl-btn" id="pause-btn">⏸ Pause</button>
+                        <button type="button" class="ctrl-btn" id="play-btn" data-i18n="playBtn">▶ Play</button>
+                        <button type="button" class="ctrl-btn" id="pause-btn" data-i18n="pauseBtn">⏸ Pause</button>
                     </div>
                     <div class="slider-container" id="slider-container" style="display: none;">
                         <div class="range-slider">
@@ -212,33 +212,33 @@
                         </div>
                     </div>
                     <div class="player-controls" id="time-capture-btns">
-                        <button type="button" id="set-start-btn" class="time-btn">⏱️ Set Current Time as Start</button>
-                        <button type="button" id="set-end-btn" class="time-btn">⏱️ Set Current Time as End</button>
+                        <button type="button" id="set-start-btn" class="time-btn" data-i18n="setStartBtn">⏱️ Set Current Time as Start</button>
+                        <button type="button" id="set-end-btn" class="time-btn" data-i18n="setEndBtn">⏱️ Set Current Time as End</button>
                     </div>
                 </div>
                 
                 <form id="cutter-form">
                     <div class="input-group">
-                        <label for="url">YouTube Video URL</label>
+                        <label for="url" data-i18n="urlLabel">YouTube Video URL</label>
                         <input type="url" id="url" name="url" placeholder="https://www.youtube.com/watch?v=..." required>
                         <div id="platform-badge" class="badge youtube">YouTube</div>
                     </div>
 
                     <div class="input-group" id="tiktok-mode-group" style="display: none;">
-                        <label>Download Option</label>
+                        <label data-i18n="tiktokModeLabel">Download Option</label>
                         <div class="radio-group">
-                            <label><input type="radio" name="tkMode" value="full"> Full Video</label>
-                            <label><input type="radio" name="tkMode" value="cut" checked> Cut Section</label>
+                            <label><input type="radio" name="tkMode" value="full"> <span data-i18n="tkFull">Full Video</span></label>
+                            <label><input type="radio" name="tkMode" value="cut" checked> <span data-i18n="tkCut">Cut Section</span></label>
                         </div>
                     </div>
 
                     <div class="time-inputs" id="time-options">
                         <div class="input-group">
-                            <label for="startTime">Start Time (MM:SS)</label>
+                            <label for="startTime" data-i18n="startLabel">Start Time (MM:SS)</label>
                             <input type="text" id="startTime" name="startTime" placeholder="00:00" pattern="^([0-9]{2,}):([0-5][0-9])$" required>
                         </div>
                         <div class="input-group">
-                            <label for="endTime">End Time (MM:SS)</label>
+                            <label for="endTime" data-i18n="endLabel">End Time (MM:SS)</label>
                             <input type="text" id="endTime" name="endTime" placeholder="01:00" pattern="^([0-9]{2,}):([0-5][0-9])$" required>
                         </div>
                     </div>
@@ -403,7 +403,7 @@
             </footer>
         </section>
     </div>
-    <script src="app.js?v=15"></script>
+    <script src="app.js?v=16"></script>
 
     <!-- Sol ve Sağ Kanat Skyscraper Reklamları (Masaüstü >= 1300px için sayfa sonuna taşındı, render engellemez) -->
     <div class="skyscraper-ad skyscraper-left">

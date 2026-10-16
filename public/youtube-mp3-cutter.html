@@ -116,7 +116,7 @@
     </script>
 
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=15">
+    <link rel="stylesheet" href="style.css?v=16">
 </head>
 <body>
     <div class="background-blobs">
@@ -162,15 +162,15 @@
         </nav>
 
         <div class="breadcrumb-nav">
-            <a href="/">Home</a> <span>/</span> <span>YouTube MP3 Cutter</span>
+            <a href="/" data-i18n="mp3BreadcrumbHome">Home</a> <span>/</span> <span data-i18n="mp3BreadcrumbCurrent">YouTube MP3 Cutter</span>
         </div>
 
         <header>
             <div class="header-logo-badge">
                 <img src="/logo-icon.png" alt="SnapCut Emblem" class="header-logo-icon">
             </div>
-            <h1>YouTube MP3 <span class="gradient-text">Cutter</span></h1>
-            <p>Paste any YouTube URL, set start and end timestamps, and download your trimmed MP3 audio instantly.</p>
+            <h1 data-i18n="mp3PageTitle">YouTube MP3 <span class="gradient-text">Cutter</span></h1>
+            <p data-i18n="mp3PageSubtitle">Paste any YouTube URL, set start and end timestamps, and download your trimmed MP3 audio instantly.</p>
         </header>
 
         <main>
@@ -206,18 +206,18 @@
                 
                 <form id="cutter-form">
                     <div class="input-group">
-                        <label for="url">YouTube Video or Music Link</label>
+                        <label for="url" data-i18n="urlLabelMp3">YouTube Video or Music Link</label>
                         <input type="url" id="url" name="url" placeholder="https://www.youtube.com/watch?v=..." required>
                         <div id="platform-badge" class="badge hidden"></div>
                     </div>
 
                     <div class="time-inputs" id="time-options">
                         <div class="input-group">
-                            <label for="startTime">Start Time (MM:SS)</label>
+                            <label for="startTime" data-i18n="startLabel">Start Time (MM:SS)</label>
                             <input type="text" id="startTime" name="startTime" placeholder="00:00" pattern="^([0-9]{2,}):([0-5][0-9])$" required>
                         </div>
                         <div class="input-group">
-                            <label for="endTime">End Time (MM:SS)</label>
+                            <label for="endTime" data-i18n="endLabel">End Time (MM:SS)</label>
                             <input type="text" id="endTime" name="endTime" placeholder="01:00" pattern="^([0-9]{2,}):([0-5][0-9])$" required>
                         </div>
                     </div>
@@ -231,7 +231,7 @@
                     </div>
 
                     <div class="input-group" id="quality-group">
-                        <label for="quality" data-i18n="qualityLabel">Format / Format Seçimi</label>
+                        <label for="quality" data-i18n="qualityLabel">Format</label>
                         <div class="select-wrapper">
                             <select id="quality" name="quality" class="custom-select">
                                 <option value="mp3" selected data-i18n="optMp3">🎵 MP3 Audio (Ultra Fast & Lightweight)</option>
@@ -247,10 +247,10 @@
                     </div>
 
                     <button type="submit" id="submit-btn">
-                        <span class="btn-text">🎵 Cut & Download MP3</span>
+                        <span class="btn-text" data-i18n="submitBtnMp3">🎵 Cut & Download MP3</span>
                         <div class="loader" id="loader"></div>
                     </button>
-                    <div class="process-hint">⏱️ Audio extraction is ultra-fast and typically takes only 3 to 6 seconds.</div>
+                    <div class="process-hint" data-i18n="mp3ProcessHint">⏱️ Audio extraction is ultra-fast and typically takes only 3 to 6 seconds.</div>
                 </form>
                 
                 <div id="status-message" class="hidden"></div>
@@ -288,48 +288,48 @@
         <!-- SEO Article & Guide Section -->
         <section class="seo-article" id="how-to">
             <article>
-                <h2>🎵 How to Cut YouTube Songs & Audio to MP3 Online</h2>
-                <p>Looking to create a phone ringtone, cut a music highlight, or extract audio from an hour-long podcast? SnapCut YouTube MP3 Cutter allows you to isolate any audio section and download a clean MP3 file without downloading the full video first.</p>
+                <h2 data-i18n="mp3GuideTitle">🎵 How to Cut YouTube Songs & Audio to MP3 Online</h2>
+                <p data-i18n="mp3GuideDesc">Looking to create a phone ringtone, cut a music highlight, or extract audio from an hour-long podcast? SnapCut YouTube MP3 Cutter allows you to isolate any audio section and download a clean MP3 file without downloading the full video first.</p>
 
                 <div class="steps-grid">
                     <div class="step-card">
                         <div class="step-num">1</div>
-                        <h3>Copy YouTube Link</h3>
-                        <p>Find any song, speech, or podcast on YouTube and copy the URL from your browser address bar or share button.</p>
+                        <h3 data-i18n="mp3Step1Title">Copy YouTube Link</h3>
+                        <p data-i18n="mp3Step1Desc">Find any song, speech, or podcast on YouTube and copy the URL from your browser address bar or share button.</p>
                     </div>
                     <div class="step-card">
                         <div class="step-num">2</div>
-                        <h3>Select Audio Timestamps</h3>
-                        <p>Choose the exact start and end seconds you want to extract using our interactive sliders or time input fields.</p>
+                        <h3 data-i18n="mp3Step2Title">Select Audio Timestamps</h3>
+                        <p data-i18n="mp3Step2Desc">Choose the exact start and end seconds you want to extract using our interactive sliders or time input fields.</p>
                     </div>
                     <div class="step-card">
                         <div class="step-num">3</div>
-                        <h3>Instant MP3 Download</h3>
-                        <p>Click 'Cut & Download MP3'. Our cloud engine extracts the audio stream in seconds, delivering high-fidelity MP3 sound.</p>
+                        <h3 data-i18n="mp3Step3Title">Instant MP3 Download</h3>
+                        <p data-i18n="mp3Step3Desc">Click 'Cut & Download MP3'. Our cloud engine extracts the audio stream in seconds, delivering high-fidelity MP3 sound.</p>
                     </div>
                 </div>
 
                 <!-- Cross-promotion -->
                 <div class="cross-promo-card">
-                    <h3>🎬 Looking for Video Cutting Instead?</h3>
-                    <p>If you need full HD 1080p video cutting with picture and audio sync, check out our dedicated YouTube Video Cutter.</p>
-                    <a href="/youtube-cutter" class="cross-promo-btn">Open YouTube Video Cutter →</a>
+                    <h3 data-i18n="mp3PromoYtTitle">🎬 Looking for Video Cutting Instead?</h3>
+                    <p data-i18n="mp3PromoYtDesc">If you need full HD 1080p video cutting with picture and audio sync, check out our dedicated YouTube Video Cutter.</p>
+                    <a href="/youtube-cutter" class="cross-promo-btn" data-i18n="mp3PromoYtBtn">Open YouTube Video Cutter →</a>
                 </div>
 
                 <!-- FAQ Section -->
                 <div class="faq-section" id="faq">
-                    <h2>❓ Frequently Asked Questions (FAQ)</h2>
+                    <h2 data-i18n="mp3FaqTitle">❓ Frequently Asked Questions (FAQ)</h2>
                     <div class="faq-item">
-                        <h3>How do I make a ringtone from YouTube using SnapCut?</h3>
-                        <p>Paste the YouTube song URL, set a 20 to 30 second start and end segment (e.g. 01:10 to 01:40), select MP3 format, and download. Transfer the MP3 file to your phone and set it as your ringtone or alarm sound!</p>
+                        <h3 data-i18n="mp3Faq1Q">How do I make a ringtone from YouTube using SnapCut?</h3>
+                        <p data-i18n="mp3Faq1A">Paste the YouTube song URL, set a 20 to 30 second start and end segment (e.g. 01:10 to 01:40), select MP3 format, and download. Transfer the MP3 file to your phone and set it as your ringtone or alarm sound!</p>
                     </div>
                     <div class="faq-item">
-                        <h3>Is there a limit on YouTube video length?</h3>
-                        <p>No, you can cut audio from 3-minute music tracks or 4-hour livestreams and podcasts without any restrictions.</p>
+                        <h3 data-i18n="mp3Faq2Q">Is there a limit on YouTube video length?</h3>
+                        <p data-i18n="mp3Faq2A">No, you can cut audio from 3-minute music tracks or 4-hour livestreams and podcasts without any restrictions.</p>
                     </div>
                     <div class="faq-item">
-                        <h3>Is SnapCut YouTube MP3 Cutter free?</h3>
-                        <p>Yes, 100% free with unlimited conversions. No account, software download, or credit card required.</p>
+                        <h3 data-i18n="mp3Faq3Q">Is SnapCut YouTube MP3 Cutter free?</h3>
+                        <p data-i18n="mp3Faq3A">Yes, 100% free with unlimited conversions. No account, software download, or credit card required.</p>
                     </div>
                 </div>
             </article>
@@ -338,24 +338,24 @@
             <footer class="site-footer">
                 <div class="footer-grid">
                     <div class="footer-col">
-                        <h4>SnapCut Tools</h4>
+                        <h4 data-i18n="footerTools">SnapCut Tools</h4>
                         <ul>
-                            <li><a href="/">All-in-One Downloader</a></li>
-                            <li><a href="/youtube-cutter">YouTube Video Cutter</a></li>
-                            <li><a href="/youtube-mp3-cutter">YouTube MP3 Cutter</a></li>
-                            <li><a href="/tiktok-downloader">TikTok Video Saver</a></li>
+                            <li><a href="/" data-i18n="footerHome">All-in-One Downloader</a></li>
+                            <li><a href="/youtube-cutter" data-i18n="navYt">YouTube Video Cutter</a></li>
+                            <li><a href="/youtube-mp3-cutter" data-i18n="navMp3">YouTube MP3 Cutter</a></li>
+                            <li><a href="/tiktok-downloader" data-i18n="navTk">TikTok Video Saver</a></li>
                         </ul>
                     </div>
                     <div class="footer-col">
-                        <h4>Audio Features</h4>
+                        <h4 data-i18n="footerFeatures">Audio Features</h4>
                         <ul>
-                            <li><a href="#how-to">YouTube Ringtone Maker</a></li>
-                            <li><a href="#how-to">Podcast Audio Extraction</a></li>
-                            <li><a href="#how-to">Lightning Fast Cloud Rendering</a></li>
+                            <li><a href="#how-to" data-i18n="featRingtone">YouTube Ringtone Maker</a></li>
+                            <li><a href="#how-to" data-i18n="featPodcast">Podcast Audio Extraction</a></li>
+                            <li><a href="#how-to" data-i18n="featCloud">Lightning Fast Cloud Rendering</a></li>
                         </ul>
                     </div>
                     <div class="footer-col">
-                        <h4>Sitemap & Legal</h4>
+                        <h4 data-i18n="footerSitemap">Sitemap & Legal</h4>
                         <ul>
                             <li><a href="/sitemap.xml">XML Sitemap</a></li>
                             <li><a href="/robots.txt">Robots.txt</a></li>
@@ -363,12 +363,12 @@
                     </div>
                 </div>
                 <div class="footer-bottom">
-                    <p>© 2026 SnapCut.tech — Free Online YouTube MP3 Cutter & Audio Trimmer.</p>
+                    <p data-i18n="mp3FooterRights">© 2026 SnapCut.tech — Free Online YouTube MP3 Cutter & Audio Trimmer.</p>
                 </div>
             </footer>
         </section>
     </div>
-    <script src="app.js?v=15"></script>
+    <script src="app.js?v=16"></script>
 
     <!-- Skyscraper Ads -->
     <div class="skyscraper-ad skyscraper-left">
