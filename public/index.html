@@ -17,6 +17,22 @@
     <meta name="keywords" content="youtube video cutter, video trimmer, cut youtube video online, tiktok downloader without watermark, tiktok filigransız indir, youtube kesit alma, online video cutter, youtube klip kesici, snapcut">
     <meta name="robots" content="index, follow, max-image-preview:large">
     <link rel="canonical" href="https://snapcut.tech/">
+    <link rel="alternate" hreflang="x-default" href="https://snapcut.tech/">
+    <link rel="alternate" hreflang="en" href="https://snapcut.tech/">
+    <link rel="alternate" hreflang="tr" href="https://snapcut.tech/">
+    <link rel="alternate" hreflang="es" href="https://snapcut.tech/">
+    <link rel="alternate" hreflang="pt" href="https://snapcut.tech/">
+    <link rel="alternate" hreflang="id" href="https://snapcut.tech/">
+    <link rel="alternate" hreflang="de" href="https://snapcut.tech/">
+    <link rel="alternate" hreflang="fr" href="https://snapcut.tech/">
+    <link rel="alternate" hreflang="it" href="https://snapcut.tech/">
+    <link rel="alternate" hreflang="ru" href="https://snapcut.tech/">
+    <link rel="alternate" hreflang="ja" href="https://snapcut.tech/">
+    <link rel="alternate" hreflang="ko" href="https://snapcut.tech/">
+    <link rel="alternate" hreflang="vi" href="https://snapcut.tech/">
+    <link rel="alternate" hreflang="ar" href="https://snapcut.tech/">
+    <link rel="alternate" hreflang="hi" href="https://snapcut.tech/">
+    <link rel="alternate" hreflang="zh" href="https://snapcut.tech/">
     <meta name="google-site-verification" content="google20c3c5302cd57adb" />
     
     <!-- Favicon & Mobile Web App Manifest -->
@@ -115,7 +131,7 @@
     ]
     </script>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=13">
+    <link rel="stylesheet" href="style.css?v=15">
 </head>
 <body>
     <div class="background-blobs">
@@ -134,20 +150,28 @@
             </div>
             <ul class="nav-links">
                 <li><a href="/youtube-cutter" class="nav-link" data-i18n="navYt">🎬 YouTube Cutter</a></li>
+                <li><a href="/youtube-mp3-cutter" class="nav-link" data-i18n="navMp3">🎵 MP3 Cutter</a></li>
                 <li><a href="/tiktok-downloader" class="nav-link" data-i18n="navTk">📱 TikTok Saver</a></li>
                 <li><a href="#how-it-works" class="nav-link" data-i18n="navGuide">💡 How To</a></li>
                 <li><a href="#faq" class="nav-link" data-i18n="navFaq">❓ FAQ</a></li>
             </ul>
             <div class="lang-selector">
                 <select id="language-select">
-                    <option value="en">English</option>
-                    <option value="tr">Türkçe</option>
-                    <option value="es">Español</option>
-                    <option value="fr">Français</option>
-                    <option value="de">Deutsch</option>
-                    <option value="ar">العربية</option>
-                    <option value="hi">हिन्दी</option>
-                    <option value="zh">中文</option>
+                    <option value="en">English 🇺🇸</option>
+                    <option value="tr">Türkçe 🇹🇷</option>
+                    <option value="es">Español 🇪🇸</option>
+                    <option value="pt">Português 🇧🇷</option>
+                    <option value="id">Bahasa Indonesia 🇮🇩</option>
+                    <option value="de">Deutsch 🇩🇪</option>
+                    <option value="fr">Français 🇫🇷</option>
+                    <option value="it">Italiano 🇮🇹</option>
+                    <option value="ru">Русский 🇷🇺</option>
+                    <option value="ja">日本語 🇯🇵</option>
+                    <option value="ko">한국어 🇰🇷</option>
+                    <option value="vi">Tiếng Việt 🇻🇳</option>
+                    <option value="ar">العربية 🇸🇦</option>
+                    <option value="hi">हिन्दी 🇮🇳</option>
+                    <option value="zh">中文 (简体) 🇨🇳</option>
                 </select>
             </div>
         </nav>
@@ -223,12 +247,21 @@
                         </div>
                     </div>
 
+                    <div class="clip-actions" id="clip-actions">
+                        <button type="button" id="share-clip-btn" class="share-btn">
+                            <span class="share-icon">🔗</span>
+                            <span data-i18n="shareClipBtn">Share Clip Link</span>
+                        </button>
+                        <div id="share-toast" class="share-toast hidden" data-i18n="shareCopied">✅ Clip link copied to clipboard!</div>
+                    </div>
+
                     <div class="input-group" id="quality-group">
                         <label for="quality" data-i18n="qualityLabel">Video Quality</label>
                         <div class="select-wrapper">
                             <select id="quality" name="quality" class="custom-select">
                                 <option value="1080" selected data-i18n="opt1080">🎬 1080p Full HD</option>
                                 <option value="720" data-i18n="opt720">⚡ 720p HD (Fast & Recommended)</option>
+                                <option value="mp3" data-i18n="optMp3">🎵 MP3 Audio (Ultra Fast & Lightweight)</option>
                                 <option value="480" data-i18n="opt480">📱 480p SD</option>
                                 <option value="360" data-i18n="opt360">💾 360p (Small Size)</option>
                             </select>
@@ -418,7 +451,7 @@
             </footer>
         </section>
     </div>
-    <script src="app.js?v=13"></script>
+    <script src="app.js?v=15"></script>
 
     <!-- Sol ve Sağ Kanat Skyscraper Reklamları (Masaüstü >= 1300px için sayfa sonuna taşındı, render engellemez) -->
     <div class="skyscraper-ad skyscraper-left">

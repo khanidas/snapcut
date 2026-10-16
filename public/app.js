@@ -1,5 +1,9 @@
 const translations = {
     en: {
+        navMp3: "🎵 MP3 Cutter",
+        optMp3: "🎵 MP3 Audio (Ultra Fast & Lightweight)",
+        shareClipBtn: "🔗 Share Clip Link",
+        shareCopied: "✅ Clip link copied to clipboard!",
         // Nav
         navYt: "🎬 YouTube Cutter",
         navTk: "📱 TikTok Saver",
@@ -128,6 +132,10 @@ const translations = {
         footerRights: "© 2026 SnapCut.tech — All rights reserved. Fast & Free Online Media Downloader & Video Cutter."
     },
     tr: {
+        navMp3: "🎵 MP3 Kesici",
+        optMp3: "🎵 MP3 Ses (Ultra Hızlı & Zil Sesi)",
+        shareClipBtn: "🔗 Bu Kesiti Paylaş",
+        shareCopied: "✅ Kesit linki kopyalandı!",
         // Nav
         navYt: "🎬 YouTube Kesici",
         navTk: "📱 TikTok İndirici",
@@ -256,60 +264,249 @@ const translations = {
         footerRights: "© 2026 SnapCut.tech — Tüm hakları saklıdır. Hızlı & Ücretsiz Çevrim İçi Medya Kesici ve İndirici."
     },
     es: {
+        navMp3: "🎵 Cortador MP3",
+        optMp3: "🎵 Audio MP3 (Ultra Rápido y Ligero)",
+        shareClipBtn: "🔗 Compartir Clip",
+        shareCopied: "✅ ¡Enlace copiado al portapapeles!",
+        navYt: "🎬 Cortador de YouTube",
+        navTk: "📱 Descargador de TikTok",
+        navGuide: "💡 Guía",
+        navFaq: "❓ Preguntas",
         qualityLabel: "Calidad de video",
         opt720: "⚡ 720p HD (Rápido y recomendado)",
         opt1080: "🎬 1080p Full HD",
         opt480: "📱 480p SD",
-        opt360: "💾 360p (Tamaño reducido)",
-        subtitle: "Corta y descarga medios de YouTube y Spotify en segundos.",
-        urlLabel: "Enlace (YouTube, TikTok)",
+        opt360: "💾 360p (Tamaño pequeño)",
+        subtitle: "Corta y descarga videos de YouTube y TikTok en segundos.",
+        urlLabel: "Enlace del video (YouTube, TikTok)",
         tiktokModeLabel: "Opción de descarga",
         tkFull: "Video completo",
         tkCut: "Cortar sección",
         startLabel: "Inicio",
         endLabel: "Fin",
-        submitBtnDefault: "Iniciar",
+        submitBtnDefault: "Iniciar proceso",
         submitBtnYoutube: "Cortar y Descargar",
         submitBtnTiktok: "Descargar TikTok",
         submitBtnSpotify: "Descargar MP3",
         playBtn: "▶ Reproducir",
         pauseBtn: "⏸ Pausa",
-        setStartBtn: "⏱️ Establecer Inicio",
-        setEndBtn: "⏱️ Establecer Fin",
-        badgeYoutube: "YouTube Detectado",
-        badgeTiktok: "TikTok Detectado",
+        setStartBtn: "⏱️ Fijar como Inicio",
+        setEndBtn: "⏱️ Fijar como Fin",
+        badgeYoutube: "YouTube Detectado (Cortar)",
+        badgeTiktok: "TikTok Detectado (Sin marca de agua)",
         badgeSpotify: "Spotify Detectado",
         success: "¡Éxito! Tu archivo se está descargando...",
-        errorGeneral: "Ocurrió un error."
+        errorGeneral: "Ocurrió un error.",
+        processDurationHint: "⏱️ El procesamiento del video puede tardar unos 15 segundos.",
+        processingNotice: "⏳ Procesando video... Esto puede tardar unos 15 segundos. Por favor no cierre la página.",
+        guideTitle: "⚡ Cómo cortar y descargar videos con SnapCut",
+        guideSubtitle: "Sigue estos 3 sencillos pasos para recortar videos de YouTube o guardar TikToks sin marca de agua:",
+        step1Title: "1. Pega la URL del video",
+        step1Desc: "Copia el enlace de YouTube o TikTok y pégalo en la casilla superior.",
+        step2Title: "2. Elige el tiempo y la calidad",
+        step2Desc: "Selecciona el minuto exacto de inicio y fin y tu resolución deseada (1080p, 720p).",
+        step3Title: "3. Descarga instantánea",
+        step3Desc: "Haz clic en 'Iniciar proceso' y descarga tu archivo MP4 limpio en segundos.",
+        promoYtTitle: "🎬 Cortador especializado de YouTube",
+        promoYtDesc: "Recorta fragmentos con precisión de segundos para podcasts, música o momentos destacados.",
+        promoYtBtn: "Abrir Cortador de YouTube →",
+        promoTkTitle: "📱 Descargador de TikTok sin marca de agua",
+        promoTkDesc: "Guarda videos virales de TikTok en HD original sin logo ni marcas de creadores.",
+        promoTkBtn: "Abrir Descargador de TikTok →",
+        whyTitle: "🚀 ¿Por qué elegir SnapCut?",
+        whyDesc: "Sin necesidad de programas pesados como Premiere o CapCut para cortar fragmentos de 15 segundos.",
+        feat1Title: "✂️ Precisión milimétrica",
+        feat1Desc: "Define marcas de tiempo exactas. Descarga solo lo que necesitas.",
+        feat2Title: "🎯 100% Sin marca de agua",
+        feat2Desc: "Sin marcas de agua intrusivas ni logotipos agregados a tu MP4.",
+        feat3Title: "⚡ Procesamiento en la nube",
+        feat3Desc: "Servidores ultra rápidos que no sobrecalientan tu teléfono ni ralentizan tu PC.",
+        faqTitle: "❓ Preguntas Frecuentes (FAQ)",
+        faq1Q: "¿Cómo cortar un video de YouTube en línea con SnapCut?",
+        faq1A: "Pega el enlace de YouTube, define el inicio y el fin, elige calidad (1080p/720p) y haz clic en Iniciar. Tu MP4 se descargará automáticamente.",
+        faq2Q: "¿SnapCut elimina las marcas de agua de TikTok?",
+        faq2A: "¡Sí! SnapCut remueve automáticamente los logos y nombres de usuario de TikTok, entregando un archivo MP4 en calidad HD.",
+        faq3Q: "¿Es gratis y seguro?",
+        faq3A: "100% gratuito sin registros ni tarjetas. Los archivos temporales se purgan automáticamente.",
+        faq4Q: "¿Funciona en iPhone y Android?",
+        faq4A: "Sí, optimizado para Safari en iOS, Chrome en Android y todos los navegadores de escritorio.",
+        ytPageTitle: "Cortador de Videos de YouTube",
+        ytPageSubtitle: "Pega cualquier enlace de YouTube, define los tiempos de corte y descarga tu clip en 1080p Full HD.",
+        ytBreadcrumbHome: "Inicio",
+        ytBreadcrumbCurrent: "Cortador de YouTube",
+        tkPageTitle: "Descargador de TikTok sin marca de agua",
+        tkPageSubtitle: "Guarda videos de TikTok en alta definición sin marca de agua directamente en tu dispositivo.",
+        tkBreadcrumbHome: "Inicio",
+        tkBreadcrumbCurrent: "Descargador de TikTok",
+        footerDesc: "El cortador de videos de YouTube y descargador de TikTok sin marcas de agua más rápido y gratuito.",
+        footerTools: "Herramientas en línea",
+        footerFeatures: "Características populares",
+        footerSitemap: "Mapa del sitio e Información",
+        footerRights: "© 2026 SnapCut.tech — Todos los derechos reservados."
     },
-    fr: {
-        qualityLabel: "Qualité vidéo",
-        opt720: "⚡ 720p HD (Rapide et recommandé)",
+    pt: {
+        navYt: "🎬 Cortador do YouTube",
+        navTk: "📱 Baixar TikTok",
+        navGuide: "💡 Como Usar",
+        navFaq: "❓ FAQ",
+        qualityLabel: "Qualidade do Vídeo",
+        opt720: "⚡ 720p HD (Rápido e Recomendado)",
         opt1080: "🎬 1080p Full HD",
         opt480: "📱 480p SD",
-        opt360: "💾 360p (Taille réduite)",
-        subtitle: "Coupez et téléchargez des médias depuis YouTube et TikTok en quelques secondes.",
-        urlLabel: "Lien média (YouTube, TikTok)",
-        tiktokModeLabel: "Option de téléchargement",
-        tkFull: "Vidéo complète",
-        tkCut: "Couper la section",
-        startLabel: "Début",
-        endLabel: "Fin",
-        submitBtnDefault: "Démarrer",
-        submitBtnYoutube: "Couper et Télécharger",
-        submitBtnTiktok: "Télécharger TikTok",
-        submitBtnSpotify: "Télécharger MP3",
-        playBtn: "▶ Lecture",
-        pauseBtn: "⏸ Pause",
-        setStartBtn: "⏱️ Définir Début",
-        setEndBtn: "⏱️ Définir Fin",
-        badgeYoutube: "YouTube Détecté",
-        badgeTiktok: "TikTok Détecté",
-        badgeSpotify: "Spotify Détecté",
-        success: "Succès! Votre fichier est en cours de téléchargement...",
-        errorGeneral: "Une erreur est survenue."
+        opt360: "💾 360p (Tamanho Menor)",
+        subtitle: "Corte e baixe vídeos do YouTube e TikTok em segundos.",
+        urlLabel: "Link do Vídeo (YouTube, TikTok)",
+        tiktokModeLabel: "Opção de Download",
+        tkFull: "Vídeo Completo",
+        tkCut: "Cortar Seção",
+        startLabel: "Início",
+        endLabel: "Fim",
+        submitBtnDefault: "Iniciar Processo",
+        submitBtnYoutube: "Cortar e Baixar",
+        submitBtnTiktok: "Baixar TikTok",
+        submitBtnSpotify: "Baixar MP3",
+        playBtn: "▶ Reproduzir",
+        pauseBtn: "⏸ Pausar",
+        setStartBtn: "⏱️ Definir como Início",
+        setEndBtn: "⏱️ Definir como Fim",
+        badgeYoutube: "YouTube Detectado (Cortar)",
+        badgeTiktok: "TikTok Detectado (Sem marca d'água)",
+        badgeSpotify: "Spotify Detectado",
+        success: "Sucesso! O download do seu arquivo começou...",
+        errorGeneral: "Ocorreu um erro.",
+        processDurationHint: "⏱️ O processo pode levar cerca de 15 segundos.",
+        processingNotice: "⏳ Processando vídeo... Isso pode levar cerca de 15 segundos. Por favor não feche a página.",
+        guideTitle: "⚡ Como cortar e baixar vídeos com SnapCut",
+        guideSubtitle: "Siga estes 3 passos simples para recortar clipes do YouTube ou salvar vídeos do TikTok sem marca d'água:",
+        step1Title: "1. Cole o Link do Vídeo",
+        step1Desc: "Copie o link do YouTube ou TikTok e cole na caixa acima.",
+        step2Title: "2. Escolha o Tempo e a Qualidade",
+        step2Desc: "Selecione os minutos exatos de início e fim e a resolução (1080p, 720p).",
+        step3Title: "3. Baixe Imediatamente",
+        step3Desc: "Clique em 'Iniciar Processo' e baixe seu arquivo MP4 limpo sem marcas d'água.",
+        promoYtTitle: "🎬 Cortador Dedicado do YouTube",
+        promoYtDesc: "Recorte podcasts, músicas e melhores momentos com precisão de segundos.",
+        promoYtBtn: "Abrir Cortador do YouTube →",
+        promoTkTitle: "📱 Baixar Vídeos do TikTok sem Marca d'Água",
+        promoTkDesc: "Salve vídeos virais em qualidade original HD sem logos ou marcas de usuário.",
+        promoTkBtn: "Abrir Baixador do TikTok →",
+        whyTitle: "🚀 Por que escolher o SnapCut?",
+        whyDesc: "Sem necessidade de instalar programas pesados apenas para cortar um clipe de 15 segundos.",
+        feat1Title: "✂️ Precisão de Segundos",
+        feat1Desc: "Corte exatamente os trechos que precisa sem gastar banda com o vídeo todo.",
+        feat2Title: "🎯 100% Sem Marca d'Água",
+        feat2Desc: "Nunca colocamos anúncios ou marcas nos seus vídeos baixados.",
+        feat3Title: "⚡ Velocidade na Nuvem",
+        feat3Desc: "Renderização nos servidores em nuvem, sem aquecer o celular ou pesar no PC.",
+        faqTitle: "❓ Perguntas Frequentes (FAQ)",
+        faq1Q: "Como cortar um vídeo do YouTube online?",
+        faq1A: "Cole o link do YouTube no SnapCut, ajuste os tempos de corte, selecione a qualidade e clique em Iniciar. O MP4 será baixado em segundos.",
+        faq2Q: "O SnapCut remove a marca d'água do TikTok?",
+        faq2A: "Sim! O SnapCut remove logotipos e nomes de usuário automaticamente, salvando o MP4 original em HD.",
+        faq3Q: "O SnapCut é gratuito e seguro?",
+        faq3A: "100% gratuito, sem cadastro, sem cartões de crédito.",
+        faq4Q: "Funciona no iPhone e Android?",
+        faq4A: "Sim, compatível com Safari no iOS, Chrome no Android e navegadores de computador.",
+        ytPageTitle: "Cortador de Vídeos do YouTube",
+        ytPageSubtitle: "Cole o link do YouTube, selecione os tempos de corte e baixe seu clipe em 1080p Full HD.",
+        ytBreadcrumbHome: "Início",
+        ytBreadcrumbCurrent: "Cortador do YouTube",
+        tkPageTitle: "Baixar Vídeos do TikTok sem Marca d'Água",
+        tkPageSubtitle: "Baixe vídeos em alta definição sem marca d'água diretamente para o seu celular ou PC.",
+        tkBreadcrumbHome: "Início",
+        tkBreadcrumbCurrent: "Baixar TikTok",
+        footerDesc: "A ferramenta mais rápida e gratuita para cortar vídeos do YouTube e baixar TikTok sem marca d'água.",
+        footerTools: "Ferramentas Online",
+        footerFeatures: "Recursos Populares",
+        footerSitemap: "Mapa do Site",
+        footerRights: "© 2026 SnapCut.tech — Todos os direitos reservados."
+    },
+    id: {
+        navYt: "🎬 Pemotong YouTube",
+        navTk: "📱 Pengunduh TikTok",
+        navGuide: "💡 Panduan",
+        navFaq: "❓ FAQ",
+        qualityLabel: "Kualitas Video",
+        opt720: "⚡ 720p HD (Cepat & Direkomendasikan)",
+        opt1080: "🎬 1080p Full HD",
+        opt480: "📱 480p SD",
+        opt360: "💾 360p (Ukuran Kecil)",
+        subtitle: "Potong dan unduh video dari YouTube & TikTok dalam hitungan detik.",
+        urlLabel: "Tautan Video (YouTube, TikTok)",
+        tiktokModeLabel: "Pilihan Unduhan",
+        tkFull: "Video Lengkap",
+        tkCut: "Potong Bagian",
+        startLabel: "Waktu Mulai",
+        endLabel: "Waktu Selesai",
+        submitBtnDefault: "Mulai Proses",
+        submitBtnYoutube: "Potong & Unduh",
+        submitBtnTiktok: "Unduh TikTok",
+        submitBtnSpotify: "Unduh MP3",
+        playBtn: "▶ Putar",
+        pauseBtn: "⏸ Jeda",
+        setStartBtn: "⏱️ Tetapkan Mulai",
+        setEndBtn: "⏱️ Tetapkan Selesai",
+        badgeYoutube: "YouTube Terdeteksi (Potong)",
+        badgeTiktok: "TikTok Terdeteksi (Tanpa Watermark)",
+        badgeSpotify: "Spotify Terdeteksi",
+        success: "Berhasil! File Anda sedang diunduh...",
+        errorGeneral: "Terjadi kesalahan.",
+        processDurationHint: "⏱️ Proses pemotongan dan unduhan memerlukan waktu sekitar 15 detik.",
+        processingNotice: "⏳ Memproses video... Ini memakan waktu sekitar 15 detik. Mohon jangan tutup halaman.",
+        guideTitle: "⚡ Cara Memotong dan Mengunduh Video dengan SnapCut",
+        guideSubtitle: "Ikuti 3 langkah mudah untuk memotong video YouTube atau mengunduh TikTok tanpa watermark:",
+        step1Title: "1. Tempel Tautan Video",
+        step1Desc: "Salin tautan YouTube atau TikTok dan tempelkan ke kolom pencarian di atas.",
+        step2Title: "2. Pilih Waktu & Kualitas",
+        step2Desc: "Tentukan waktu mulai dan selesai serta resolusi yang diinginkan (1080p, 720p).",
+        step3Title: "3. Unduh Instan",
+        step3Desc: "Klik 'Mulai Proses' dan simpan file MP4 jernih Anda tanpa watermark.",
+        promoYtTitle: "🎬 Pemotong Khusus Video YouTube",
+        promoYtDesc: "Potong podcast, musik, dan sorotan YouTube dengan akurasi detik.",
+        promoYtBtn: "Buka Pemotong YouTube →",
+        promoTkTitle: "📱 Unduh Video TikTok Tanpa Watermark",
+        promoTkDesc: "Simpan video viral TikTok dalam kualitas HD asli tanpa logo dengan satu klik.",
+        promoTkBtn: "Buka Pengunduh TikTok →",
+        whyTitle: "🚀 Mengapa Memilih SnapCut?",
+        whyDesc: "Tidak perlu aplikasi berat seperti Premiere atau CapCut hanya untuk memotong video 15 detik.",
+        feat1Title: "✂️ Presisi Detik",
+        feat1Desc: "Atur waktu dengan tepat. Unduh momen terbaik tanpa membuang kuota.",
+        feat2Title: "🎯 100% Tanpa Watermark",
+        feat2Desc: "Kami tidak pernah menyisipkan iklan atau watermark pada video MP4 Anda.",
+        feat3Title: "⚡ Kecepatan Cloud",
+        feat3Desc: "Pemrosesan dilakukan di server cloud cepat tanpa membuat ponsel Anda panas.",
+        faqTitle: "❓ Pertanyaan Umum (FAQ)",
+        faq1Q: "Bagaimana cara memotong video YouTube online di SnapCut?",
+        faq1A: "Tempel tautan YouTube, pilih waktu mulai dan selesai, pilih resolusi (1080p, 720p), lalu klik Mulai Proses. Video MP4 akan terunduh otomatis.",
+        faq2Q: "Apakah SnapCut menghapus watermark TikTok?",
+        faq2A: "Ya! SnapCut secara otomatis menghapus watermark dan nama pengguna dari video TikTok.",
+        faq3Q: "Apakah SnapCut gratis dan aman?",
+        faq3A: "SnapCut 100% gratis tanpa pendaftaran atau kartu kredit. Privasi Anda terjaga.",
+        faq4Q: "Apakah bisa digunakan di iPhone dan Android?",
+        faq4A: "Ya, SnapCut berjalan sempurna di Safari iOS, Chrome Android, dan semua browser PC.",
+        ytPageTitle: "Pemotong Video YouTube",
+        ytPageSubtitle: "Tempel tautan YouTube, atur waktu potong, dan unduh klip dalam 1080p Full HD.",
+        ytBreadcrumbHome: "Beranda",
+        ytBreadcrumbCurrent: "Pemotong YouTube",
+        tkPageTitle: "Pengunduh Video TikTok Tanpa Watermark",
+        tkPageSubtitle: "Simpan video TikTok kualitas tinggi tanpa watermark langsung ke perangkat Anda.",
+        tkBreadcrumbHome: "Beranda",
+        tkBreadcrumbCurrent: "Pengunduh TikTok",
+        footerDesc: "Alat web tercepat dan gratis untuk memotong video YouTube dan mengunduh TikTok tanpa watermark.",
+        footerTools: "Alat Online",
+        footerFeatures: "Fitur Populer",
+        footerSitemap: "Peta Situs & Info",
+        footerRights: "© 2026 SnapCut.tech — Hak cipta dilindungi."
     },
     de: {
+        navMp3: "🎵 MP3 Schneider",
+        optMp3: "🎵 MP3 Audio (Ultra Schnell & Leicht)",
+        shareClipBtn: "🔗 Clip-Link Teilen",
+        shareCopied: "✅ Clip-Link in Zwischenablage kopiert!",
+        navYt: "🎬 YouTube Cutter",
+        navTk: "📱 TikTok Downloader",
+        navGuide: "💡 Anleitung",
+        navFaq: "❓ FAQ",
         qualityLabel: "Videoqualität",
         opt720: "⚡ 720p HD (Schnell & empfohlen)",
         opt1080: "🎬 1080p Full HD",
@@ -322,7 +519,7 @@ const translations = {
         tkCut: "Abschnitt schneiden",
         startLabel: "Startzeit",
         endLabel: "Endzeit",
-        submitBtnDefault: "Starten",
+        submitBtnDefault: "Prozess starten",
         submitBtnYoutube: "Schneiden & Herunterladen",
         submitBtnTiktok: "TikTok Herunterladen",
         submitBtnSpotify: "MP3 Herunterladen",
@@ -330,94 +527,769 @@ const translations = {
         pauseBtn: "⏸ Pause",
         setStartBtn: "⏱️ Als Start setzen",
         setEndBtn: "⏱️ Als Ende setzen",
-        badgeYoutube: "YouTube Erkannt",
-        badgeTiktok: "TikTok Erkannt",
+        badgeYoutube: "YouTube Erkannt (Schneiden)",
+        badgeTiktok: "TikTok Erkannt (Ohne Wasserzeichen)",
         badgeSpotify: "Spotify Erkannt",
         success: "Erfolg! Ihre Datei wird heruntergeladen...",
-        errorGeneral: "Ein Fehler ist aufgetreten."
+        errorGeneral: "Ein Fehler ist aufgetreten.",
+        processDurationHint: "⏱️ Die Videobearbeitung dauert etwa 15 Sekunden.",
+        processingNotice: "⏳ Video wird verarbeitet... Dies dauert ca. 15 Sekunden. Bitte Seite nicht schließen.",
+        guideTitle: "⚡ So schneiden und laden Sie Videos mit SnapCut herunter",
+        guideSubtitle: "In 3 einfachen Schritten YouTube-Videos trimmen oder TikToks ohne Wasserzeichen speichern:",
+        step1Title: "1. Video-URL einfügen",
+        step1Desc: "Kopieren Sie den YouTube- oder TikTok-Link und fügen Sie ihn oben ein.",
+        step2Title: "2. Zeit und Qualität wählen",
+        step2Desc: "Wählen Sie Start- und Endzeit sowie Ihre gewünschte Auflösung (1080p, 720p).",
+        step3Title: "3. Sofort herunterladen",
+        step3Desc: "Klicken Sie auf 'Prozess starten' und laden Sie Ihre saubere MP4-Datei herunter.",
+        promoYtTitle: "🎬 Dedizierter YouTube Video Cutter",
+        promoYtDesc: "Präzises Trimmen für Podcasts, Musik und Highlights auf YouTube.",
+        promoYtBtn: "YouTube Cutter öffnen →",
+        promoTkTitle: "📱 TikTok Video Downloader ohne Wasserzeichen",
+        promoTkDesc: "Speichern Sie TikTok-Videos in Original-HD-Qualität ohne Logo mit einem Klick.",
+        promoTkBtn: "TikTok Downloader öffnen →",
+        whyTitle: "🚀 Warum SnapCut wählen?",
+        whyDesc: "Keine schwere Software wie Premiere oder CapCut nötig, um 15-Sekunden-Clips zu schneiden.",
+        feat1Title: "✂️ Sekundengenaue Präzision",
+        feat1Desc: "Laden Sie nur den benötigten Teil herunter, ohne Speicherplatz zu verschwenden.",
+        feat2Title: "🎯 100% Ohne Wasserzeichen",
+        feat2Desc: "Wir fügen Ihren MP4-Videos niemals Werbung oder störende Logos hinzu.",
+        feat3Title: "⚡ Schnelle Cloud-Power",
+        feat3Desc: "Die Videoverarbeitung erfolgt blitzschnell auf unseren Servern.",
+        faqTitle: "❓ Häufig gestellte Fragen (FAQ)",
+        faq1Q: "Wie schneide ich ein YouTube-Video online?",
+        faq1A: "Link einfügen, Start- und Endzeit angeben, Qualität wählen und starten. Die MP4 lädt automatisch herunter.",
+        faq2Q: "Entfernt SnapCut TikTok-Wasserzeichen?",
+        faq2A: "Ja! SnapCut entfernt Benutzernamen und Wasserzeichen automatisch von TikTok-Videos.",
+        faq3Q: "Ist SnapCut kostenlos und sicher?",
+        faq3A: "100% kostenlos ohne Registrierung oder Kreditkarte. Temporäre Daten werden gelöscht.",
+        faq4Q: "Funktioniert es auf iPhone und Android?",
+        faq4A: "Ja, voll kompatibel mit Safari auf iOS, Chrome auf Android und allen PC-Browsern.",
+        ytPageTitle: "YouTube Video Cutter",
+        ytPageSubtitle: "Fügen Sie einen YouTube-Link ein, wählen Sie Start/Ende und laden Sie den Clip in 1080p Full HD herunter.",
+        ytBreadcrumbHome: "Startseite",
+        ytBreadcrumbCurrent: "YouTube Cutter",
+        tkPageTitle: "TikTok Downloader ohne Wasserzeichen",
+        tkPageSubtitle: "Laden Sie TikTok-Videos in HD-Qualität ohne Wasserzeichen direkt auf Ihr Gerät herunter.",
+        tkBreadcrumbHome: "Startseite",
+        tkBreadcrumbCurrent: "TikTok Downloader",
+        footerDesc: "Das schnellste kostenlose Online-Tool zum Schneiden von YouTube-Videos und TikTok-Download ohne Wasserzeichen.",
+        footerTools: "Online-Tools",
+        footerFeatures: "Beliebte Funktionen",
+        footerSitemap: "Sitemap & Info",
+        footerRights: "© 2026 SnapCut.tech — Alle Rechte vorbehalten."
+    },
+    fr: {
+        navMp3: "🎵 Découpeur MP3",
+        optMp3: "🎵 Audio MP3 (Ultra Rapide & Léger)",
+        shareClipBtn: "🔗 Partager le Clip",
+        shareCopied: "✅ Lien copié dans le presse-papiers !",
+        navYt: "🎬 Coupeur YouTube",
+        navTk: "📱 Téléchargeur TikTok",
+        navGuide: "💡 Guide",
+        navFaq: "❓ FAQ",
+        qualityLabel: "Qualité Vidéo",
+        opt720: "⚡ 720p HD (Rapide & Recommandé)",
+        opt1080: "🎬 1080p Full HD",
+        opt480: "📱 480p SD",
+        opt360: "💾 360p (Taille Réduite)",
+        subtitle: "Coupez et téléchargez des médias depuis YouTube et TikTok en quelques secondes.",
+        urlLabel: "Lien Média (YouTube, TikTok)",
+        tiktokModeLabel: "Option de Téléchargement",
+        tkFull: "Vidéo Complète",
+        tkCut: "Couper une Section",
+        startLabel: "Début",
+        endLabel: "Fin",
+        submitBtnDefault: "Lancer le Traitement",
+        submitBtnYoutube: "Couper & Télécharger",
+        submitBtnTiktok: "Télécharger TikTok",
+        submitBtnSpotify: "Télécharger MP3",
+        playBtn: "▶ Lecture",
+        pauseBtn: "⏸ Pause",
+        setStartBtn: "⏱️ Définir Début",
+        setEndBtn: "⏱️ Définir Fin",
+        badgeYoutube: "YouTube Détecté (Couper)",
+        badgeTiktok: "TikTok Détecté (Sans Filigrane)",
+        badgeSpotify: "Spotify Détecté",
+        success: "Succès ! Votre fichier est en cours de téléchargement...",
+        errorGeneral: "Une erreur est survenue.",
+        processDurationHint: "⏱️ Le traitement vidéo prend environ 15 secondes.",
+        processingNotice: "⏳ Traitement de la vidéo... Cela peut prendre environ 15 secondes. Ne fermez pas la page.",
+        guideTitle: "⚡ Comment couper et télécharger des vidéos avec SnapCut",
+        guideSubtitle: "Suivez ces 3 étapes simples pour découper une vidéo YouTube ou enregistrer un TikTok sans filigrane :",
+        step1Title: "1. Collez le Lien Vidéo",
+        step1Desc: "Copiez l'URL YouTube ou TikTok et collez-la dans le champ de recherche ci-dessus.",
+        step2Title: "2. Choisissez l'Intervalle & la Qualité",
+        step2Desc: "Définissez les timestamps de début et de fin ainsi que la résolution (1080p, 720p).",
+        step3Title: "3. Téléchargement Immédiat",
+        step3Desc: "Cliquez sur 'Lancer le Traitement' et récupérez votre fichier MP4 propre sans filigrane.",
+        promoYtTitle: "🎬 Coupeur Dédié pour YouTube",
+        promoYtDesc: "Découpez des extraits de podcasts, musique et moments forts à la seconde près.",
+        promoYtBtn: "Ouvrir le Coupeur YouTube →",
+        promoTkTitle: "📱 Téléchargeur TikTok Sans Filigrane",
+        promoTkDesc: "Enregistrez des vidéos TikTok virales en qualité HD originale sans logo.",
+        promoTkBtn: "Ouvrir le Téléchargeur TikTok →",
+        whyTitle: "🚀 Pourquoi Choisir SnapCut ?",
+        whyDesc: "Plus besoin de logiciels lourds comme Premiere Pro ou CapCut pour couper un court clip de 15 secondes.",
+        feat1Title: "✂️ Précision à la Seconde",
+        feat1Desc: "Téléchargez uniquement le passage qui vous intéresse sans gaspiller de bande passante.",
+        feat2Title: "🎯 100% Sans Filigrane",
+        feat2Desc: "Aucune publicité ni logo incrusté dans vos fichiers vidéo MP4.",
+        feat3Title: "⚡ Puissance du Cloud",
+        feat3Desc: "Traitement ultra-rapide sur nos serveurs distants, sans surchauffer votre smartphone.",
+        faqTitle: "❓ Foire Aux Questions (FAQ)",
+        faq1Q: "Comment découper une vidéo YouTube en ligne ?",
+        faq1A: "Collez le lien YouTube, définissez début et fin, choisissez la résolution et lancez. Le MP4 est téléchargé automatiquement.",
+        faq2Q: "SnapCut supprime-t-il le filigrane TikTok ?",
+        faq2A: "Oui ! SnapCut supprime automatiquement les logos et identifiants des vidéos TikTok.",
+        faq3Q: "SnapCut est-il gratuit et sûr ?",
+        faq3A: "100% gratuit sans inscription ni carte de crédit. Les fichiers temporaires sont purgés automatiquement.",
+        faq4Q: "Est-il compatible iPhone et Android ?",
+        faq4A: "Oui, parfaitement compatible avec Safari sur iOS, Chrome sur Android et tous les navigateurs PC.",
+        ytPageTitle: "Coupeur de Vidéo YouTube",
+        ytPageSubtitle: "Collez un lien YouTube, choisissez les points de coupe et téléchargez votre extrait en 1080p Full HD.",
+        ytBreadcrumbHome: "Accueil",
+        ytBreadcrumbCurrent: "Coupeur YouTube",
+        tkPageTitle: "Téléchargeur TikTok Sans Filigrane",
+        tkPageSubtitle: "Téléchargez des vidéos TikTok en haute définition sans logo directement sur votre appareil.",
+        tkBreadcrumbHome: "Accueil",
+        tkBreadcrumbCurrent: "Téléchargeur TikTok",
+        footerDesc: "Le service en ligne le plus rapide et gratuit pour couper des vidéos YouTube et télécharger TikTok sans filigrane.",
+        footerTools: "Outils en Ligne",
+        footerFeatures: "Fonctionnalités",
+        footerSitemap: "Plan du Site",
+        footerRights: "© 2026 SnapCut.tech — Tous droits réservés."
+    },
+    it: {
+        navYt: "🎬 Taglia YouTube",
+        navTk: "📱 Scarica TikTok",
+        navGuide: "💡 Guida",
+        navFaq: "❓ FAQ",
+        qualityLabel: "Qualità Video",
+        opt720: "⚡ 720p HD (Veloce & Consigliato)",
+        opt1080: "🎬 1080p Full HD",
+        opt480: "📱 480p SD",
+        opt360: "💾 360p (Leggero)",
+        subtitle: "Taglia e scarica video da YouTube e TikTok in pochi secondi.",
+        urlLabel: "Link Video (YouTube, TikTok)",
+        tiktokModeLabel: "Opzione di Download",
+        tkFull: "Video Completo",
+        tkCut: "Taglia Spezzone",
+        startLabel: "Inizio",
+        endLabel: "Fine",
+        submitBtnDefault: "Avvia Processo",
+        submitBtnYoutube: "Taglia e Scarica",
+        submitBtnTiktok: "Scarica TikTok",
+        submitBtnSpotify: "Scarica MP3",
+        playBtn: "▶ Riproduci",
+        pauseBtn: "⏸ Pausa",
+        setStartBtn: "⏱️ Imposta Inizio",
+        setEndBtn: "⏱️ Imposta Fine",
+        badgeYoutube: "YouTube Rilevato (Taglio)",
+        badgeTiktok: "TikTok Rilevato (Senza Filigrana)",
+        badgeSpotify: "Spotify Rilevato",
+        success: "Operazione riuscita! Il file si sta scaricando...",
+        errorGeneral: "Si è verificato un errore.",
+        processDurationHint: "⏱️ Il processo di elaborazione richiede circa 15 secondi.",
+        processingNotice: "⏳ Elaborazione video... L'operazione richiede circa 15 secondi. Non chiudere la pagina.",
+        guideTitle: "⚡ Come tagliare e scaricare video con SnapCut",
+        guideSubtitle: "Segui questi 3 semplici passaggi per ritagliare video YouTube o salvare TikTok senza watermark:",
+        step1Title: "1. Incolla il Link",
+        step1Desc: "Copia il link YouTube o TikTok e incollalo nel box sopra.",
+        step2Title: "2. Scegli Tempi e Risoluzione",
+        step2Desc: "Seleziona i minuti di inizio e fine e la qualità desiderata (1080p, 720p).",
+        step3Title: "3. Scarica Subito",
+        step3Desc: "Clicca su 'Avvia Processo' e ricevi subito il tuo video MP4 pulito.",
+        promoYtTitle: "🎬 Strumento Taglio Video YouTube",
+        promoYtDesc: "Ritaglia spezzoni con precisione al secondo per podcast, musica e clip.",
+        promoYtBtn: "Apri Taglia YouTube →",
+        promoTkTitle: "📱 Scarica TikTok Senza Filigrana",
+        promoTkDesc: "Salva video virali di TikTok in HD originale senza logo con un solo clic.",
+        promoTkBtn: "Apri Scarica TikTok →",
+        whyTitle: "🚀 Perché Scegliere SnapCut?",
+        whyDesc: "Non hai bisogno di programmi pesanti come Premiere o CapCut per tagliare un clip di 15 secondi.",
+        feat1Title: "✂️ Precisione al Millisecondo",
+        feat1Desc: "Scarica solo la parte migliore del video senza sprecare giga.",
+        feat2Title: "🎯 100% Senza Watermark",
+        feat2Desc: "Nessun watermark o logo aggiunto ai tuoi video scaricati.",
+        feat3Title: "⚡ Velocità Cloud",
+        feat3Desc: "I nostri server renderizzano il video senza surriscaldare il telefono o rallentare il PC.",
+        faqTitle: "❓ Domande Frequenti (FAQ)",
+        faq1Q: "Come posso tagliare un video YouTube online?",
+        faq1A: "Incolla il link, seleziona i tempi di inizio e fine, scegli la qualità e clicca su Avvia. Il file MP4 verrà scaricato automaticamente.",
+        faq2Q: "SnapCut rimuove i watermark di TikTok?",
+        faq2A: "Sì! SnapCut rimuove loghi e nomi utente automaticamente dai video TikTok.",
+        faq3Q: "SnapCut è gratuito e sicuro?",
+        faq3A: "100% gratuito senza abbonamenti, carte di credito o registrazioni.",
+        faq4Q: "Funziona su iPhone e Android?",
+        faq4A: "Sì, compatibile al 100% con Safari su iOS, Chrome su Android e browser desktop.",
+        ytPageTitle: "Taglia Video YouTube",
+        ytPageSubtitle: "Incolla un link YouTube, imposta i tempi e scarica il tuo spezzone in 1080p Full HD.",
+        ytBreadcrumbHome: "Home",
+        ytBreadcrumbCurrent: "Taglia YouTube",
+        tkPageTitle: "Scarica TikTok Senza Filigrana",
+        tkPageSubtitle: "Salva video TikTok in alta definizione senza logo direttamente sul tuo dispositivo.",
+        tkBreadcrumbHome: "Home",
+        tkBreadcrumbCurrent: "Scarica TikTok",
+        footerDesc: "Il servizio online più veloce e gratuito per tagliare video YouTube e scaricare TikTok senza watermark.",
+        footerTools: "Strumenti Online",
+        footerFeatures: "Funzioni Popolari",
+        footerSitemap: "Mappa del Sito",
+        footerRights: "© 2026 SnapCut.tech — Tutti i diritti riservati."
+    },
+    ru: {
+        navYt: "🎬 Нарезка YouTube",
+        navTk: "📱 Скачать TikTok",
+        navGuide: "💡 Инструкция",
+        navFaq: "❓ FAQ",
+        qualityLabel: "Качество видео",
+        opt720: "⚡ 720p HD (Быстро и рекомендуется)",
+        opt1080: "🎬 1080p Full HD",
+        opt480: "📱 480p SD",
+        opt360: "💾 360p (Малый размер)",
+        subtitle: "Обрезайте и скачивайте видео с YouTube и TikTok за считанные секунды.",
+        urlLabel: "Ссылка на видео (YouTube, TikTok)",
+        tiktokModeLabel: "Вариант скачивания",
+        tkFull: "Полное видео",
+        tkCut: "Обрезать фрагмент",
+        startLabel: "Начало",
+        endLabel: "Конец",
+        submitBtnDefault: "Начать процесс",
+        submitBtnYoutube: "Обрезать и скачать",
+        submitBtnTiktok: "Скачать TikTok",
+        submitBtnSpotify: "Скачать MP3",
+        playBtn: "▶ Воспроизвести",
+        pauseBtn: "⏸ Пауза",
+        setStartBtn: "⏱️ Сделать началом",
+        setEndBtn: "⏱️ Сделать концом",
+        badgeYoutube: "YouTube обнаружен (Обрезка)",
+        badgeTiktok: "TikTok обнаружен (Без водяного знака)",
+        badgeSpotify: "Spotify обнаружен",
+        success: "Успешно! Ваш файл скачивается...",
+        errorGeneral: "Произошла ошибка.",
+        processDurationHint: "⏱️ Обработка видео занимает около 15 секунд.",
+        processingNotice: "⏳ Видео обрабатывается... Это займет около 15 секунд. Пожалуйста, не закрывайте страницу.",
+        guideTitle: "⚡ Как обрезать и скачать видео в SnapCut",
+        guideSubtitle: "3 простых шага для обрезки видео YouTube или скачивания TikTok без водяного знака:",
+        step1Title: "1. Вставьте ссылку",
+        step1Desc: "Скопируйте ссылку YouTube или TikTok и вставьте в поле выше.",
+        step2Title: "2. Выберите время и качество",
+        step2Desc: "Укажите точное время начала и конца, а также нужное разрешение (1080p, 720p).",
+        step3Title: "3. Скачайте результат",
+        step3Desc: "Нажмите 'Начать процесс' и получите готовый чистый MP4 файл.",
+        promoYtTitle: "🎬 Нарезка видео YouTube",
+        promoYtDesc: "Точная нарезка подкастов, музыки и ярких моментов с точностью до секунды.",
+        promoYtBtn: "Открыть нарезку YouTube →",
+        promoTkTitle: "📱 Скачать TikTok без водяного знака",
+        promoTkDesc: "Сохраняйте вирусные видео TikTok в исходном HD качестве без логотипов.",
+        promoTkBtn: "Открыть загрузчик TikTok →",
+        whyTitle: "🚀 Почему выбирают SnapCut?",
+        whyDesc: "Вам больше не нужны тяжелые программы вроде Premiere или CapCut, чтобы вырезать 15-секундный момент.",
+        feat1Title: "✂️ Точность до секунд",
+        feat1Desc: "Вырезайте только нужные моменты без скачивания гигабайтов лишнего видео.",
+        feat2Title: "🎯 100% Без водяных знаков",
+        feat2Desc: "Мы никогда не добавляем водяные знаки, логотипы или рекламу в ваше видео.",
+        feat3Title: "⚡ Облачная скорость",
+        feat3Desc: "Обработка на мощных серверах не нагревает ваш телефон и не нагружает ПК.",
+        faqTitle: "❓ Часто задаваемые вопросы (FAQ)",
+        faq1Q: "Как обрезать видео YouTube онлайн?",
+        faq1A: "Вставьте ссылку, укажите временные метки, выберите качество и нажмите 'Начать процесс'. Файл MP4 скачается автоматически.",
+        faq2Q: "Удаляет ли SnapCut водяные знаки TikTok?",
+        faq2A: "Да! SnapCut автоматически очищает логотипы и водяные знаки с видео TikTok.",
+        faq3Q: "SnapCut бесплатный и безопасный?",
+        faq3A: "Абсолютно бесплатно без подписок и регистрации. Файлы удаляются автоматически.",
+        faq4Q: "Работает ли на iPhone и Android?",
+        faq4A: "Да, сервис полностью адаптирован под Safari на iOS, Chrome на Android и все ПК.",
+        ytPageTitle: "Нарезка видео YouTube онлайн",
+        ytPageSubtitle: "Вставьте ссылку на YouTube, задайте таймкоды и скачайте отрывок в 1080p Full HD.",
+        ytBreadcrumbHome: "Главная",
+        ytBreadcrumbCurrent: "Нарезка YouTube",
+        tkPageTitle: "Скачать видео TikTok без водяных знаков",
+        tkPageSubtitle: "Сохраняйте видео TikTok в высоком разрешении без логотипов на телефон или компьютер.",
+        tkBreadcrumbHome: "Главная",
+        tkBreadcrumbCurrent: "Скачать TikTok",
+        footerDesc: "Быстрый бесплатный онлайн-сервис для нарезки видео с YouTube и скачивания TikTok без водяного знака.",
+        footerTools: "Онлайн инструменты",
+        footerFeatures: "Популярные функции",
+        footerSitemap: "Карта сайта",
+        footerRights: "© 2026 SnapCut.tech — Все права защищены."
+    },
+    ja: {
+        navYt: "🎬 YouTubeカット",
+        navTk: "📱 TikTok保存",
+        navGuide: "💡 使い方",
+        navFaq: "❓ FAQ",
+        qualityLabel: "画質選択",
+        opt720: "⚡ 720p HD (高速・推奨)",
+        opt1080: "🎬 1080p Full HD",
+        opt480: "📱 480p SD",
+        opt360: "💾 360p (軽量)",
+        subtitle: "YouTubeとTikTokの動画を数秒で切り抜き＆ダウンロード。",
+        urlLabel: "動画URL (YouTube, TikTok)",
+        tiktokModeLabel: "ダウンロード形式",
+        tkFull: "全編動画",
+        tkCut: "指定範囲カット",
+        startLabel: "開始時間",
+        endLabel: "終了時間",
+        submitBtnDefault: "処理を開始",
+        submitBtnYoutube: "切り抜いてダウンロード",
+        submitBtnTiktok: "TikTokをダウンロード",
+        submitBtnSpotify: "MP3をダウンロード",
+        playBtn: "▶ 再生",
+        pauseBtn: "⏸ 一時停止",
+        setStartBtn: "⏱️ 現在地を開始に設定",
+        setEndBtn: "⏱️ 現在地を終了に設定",
+        badgeYoutube: "YouTube検出 (カット可能)",
+        badgeTiktok: "TikTok検出 (透かしなし)",
+        badgeSpotify: "Spotify検出",
+        success: "成功！ファイルのダウンロードを開始しています...",
+        errorGeneral: "エラーが発生しました。",
+        processDurationHint: "⏱️ 動画の処理には約15秒かかります。",
+        processingNotice: "⏳ 動画を処理中... 約15秒かかります。ページを閉じずにお待ちください。",
+        guideTitle: "⚡ SnapCutで動画をカット＆保存する方法",
+        guideSubtitle: "簡単3ステップでYouTube動画を切り抜くかTikTokをロゴなしで保存できます:",
+        step1Title: "1. 動画URLを貼り付け",
+        step1Desc: "YouTubeまたはTikTokのURLをコピーして上のボックスに貼り付けます。",
+        step2Title: "2. 時間と画質を選択",
+        step2Desc: "開始・終了時間と画質（1080p、720p）を指定します。",
+        step3Title: "3. すぐにダウンロード",
+        step3Desc: "「処理を開始」をクリックすると、透かしのない綺麗なMP4が保存されます。",
+        promoYtTitle: "🎬 YouTube動画切り抜き専用ツール",
+        promoYtDesc: "ポッドキャストや音楽動画を秒単位の精度で素早くクリップ。",
+        promoYtBtn: "YouTubeカッターを開く →",
+        promoTkTitle: "📱 TikTokロゴなし動画ダウンローダー",
+        promoTkDesc: "バズったTikTok動画をウォーターマークなしの高画質HDで保存。",
+        promoTkBtn: "TikTok保存を開く →",
+        whyTitle: "🚀 SnapCutが選ばれる理由",
+        whyDesc: "15秒の動画を切り抜くためだけに重い編集ソフトを立ち上げる必要はありません。",
+        feat1Title: "✂️ 秒単位の精密トリミング",
+        feat1Desc: "必要なシーンだけを切り抜き、無駄な通信量を削減します。",
+        feat2Title: "🎯 100% ウォーターマークなし",
+        feat2Desc: "保存されたMP4動画に広告やロゴを挿入することは一切ありません。",
+        feat3Title: "⚡ クラウド超高速レンダリング",
+        feat3Desc: "サーバー上で高速処理するため、スマホが熱くなったりPCが重くなりません。",
+        faqTitle: "❓ よくある質問 (FAQ)",
+        faq1Q: "オンラインでYouTube動画をカットする方法は？",
+        faq1A: "URLを貼り付け、開始と終了時間を決め、画質を選んでボタンを押すだけです。数秒でMP4が自動保存されます。",
+        faq2Q: "TikTokの透かし（ロゴ）は消えますか？",
+        faq2A: "はい！SnapCutはTikTok動画から自動でロゴとユーザー名を削除して保存します。",
+        faq3Q: "無料で安全に使えますか？",
+        faq3A: "登録不要、完全無料で安全にご利用いただけます。一時ファイルは自動消去されます。",
+        faq4Q: "iPhoneやAndroidでも使えますか？",
+        faq4A: "はい、SafariやChromeなどモバイルブラウザにも完全対応しています。",
+        ytPageTitle: "YouTube動画カッター・切り抜き",
+        ytPageSubtitle: "YouTubeリンクを貼り付け、開始と終了時間を指定して1080p Full HDで切り抜き保存。",
+        ytBreadcrumbHome: "ホーム",
+        ytBreadcrumbCurrent: "YouTubeカッター",
+        tkPageTitle: "TikTok透かしなし動画保存",
+        tkPageSubtitle: "TikTok動画をロゴ・ウォーターマークなしの高画質HDで直接デバイスに保存。",
+        tkBreadcrumbHome: "ホーム",
+        tkBreadcrumbCurrent: "TikTok保存",
+        footerDesc: "最速の無料オンラインYouTube動画切り抜き＆TikTok透かしなし保存ツール。",
+        footerTools: "オンラインツール",
+        footerFeatures: "主な機能",
+        footerSitemap: "サイトマップ",
+        footerRights: "© 2026 SnapCut.tech — 全著作権所有。"
+    },
+    ko: {
+        navYt: "🎬 유튜브 자르기",
+        navTk: "📱 틱톡 다운로더",
+        navGuide: "💡 사용 가이드",
+        navFaq: "❓ 자주 묻는 질문",
+        qualityLabel: "비디오 화질",
+        opt720: "⚡ 720p HD (빠름 & 권장)",
+        opt1080: "🎬 1080p Full HD",
+        opt480: "📱 480p SD",
+        opt360: "💾 360p (작은 용량)",
+        subtitle: "몇 초 만에 유튜브 및 틱톡 영상을 자르고 다운로드하세요.",
+        urlLabel: "동영상 링크 (YouTube, TikTok)",
+        tiktokModeLabel: "다운로드 옵션",
+        tkFull: "전체 동영상",
+        tkCut: "구간 자르기",
+        startLabel: "시작 시간",
+        endLabel: "종료 시간",
+        submitBtnDefault: "처리 시작",
+        submitBtnYoutube: "자르기 및 다운로드",
+        submitBtnTiktok: "틱톡 다운로드",
+        submitBtnSpotify: "MP3 다운로드",
+        playBtn: "▶ 재생",
+        pauseBtn: "⏸ 일시정지",
+        setStartBtn: "⏱️ 시작 시간으로 설정",
+        setEndBtn: "⏱️ 종료 시간으로 설정",
+        badgeYoutube: "유튜브 감지됨 (자르기)",
+        badgeTiktok: "틱톡 감지됨 (워터마크 없음)",
+        badgeSpotify: "스포티파이 감지됨",
+        success: "성공! 파일이 다운로드되고 있습니다...",
+        errorGeneral: "오류가 발생했습니다.",
+        processDurationHint: "⏱️ 비디오 처리에는 약 15초가 소요됩니다.",
+        processingNotice: "⏳ 비디오 처리 중... 약 15초가 걸릴 수 있습니다. 페이지를 닫지 마세요.",
+        guideTitle: "⚡ SnapCut으로 비디오 자르기 및 다운로드하는 방법",
+        guideSubtitle: "3단계만 거치면 유튜브 영상을 원하는 구간만 자르거나 워터마크 없이 틱톡을 저장할 수 있습니다:",
+        step1Title: "1. 동영상 URL 붙여넣기",
+        step1Desc: "유튜브 또는 틱톡 링크를 복사하여 상단 검색창에 입력합니다.",
+        step2Title: "2. 시간 및 화질 선택",
+        step2Desc: "시작 시간과 종료 시간을 지정하고 화질(1080p, 720p)을 선택합니다.",
+        step3Title: "3. 즉시 다운로드",
+        step3Desc: "'처리 시작'을 클릭하면 워터마크 없는 깨끗한 MP4 파일이 다운로드됩니다.",
+        promoYtTitle: "🎬 유튜브 전용 영상 클리퍼",
+        promoYtDesc: "팟캐스트, 음악, 하이라이트 구간을 초 단위 정밀도로 잘라보세요.",
+        promoYtBtn: "유튜브 자르기 열기 →",
+        promoTkTitle: "📱 틱톡 워터마크 없는 영상 다운로더",
+        promoTkDesc: "로고나 계정 아이디 없이 원본 고화질 HD로 틱톡 영상을 원클릭 저장하세요.",
+        promoTkBtn: "틱톡 다운로더 열기 →",
+        whyTitle: "🚀 왜 SnapCut을 선택해야 할까요?",
+        whyDesc: "15초짜리 클립 하나를 위해 무거운 편집 프로그램을 설치할 필요가 없습니다.",
+        feat1Title: "✂️ 초 단위 정밀 자르기",
+        feat1Desc: "전체 영상을 다운받을 필요 없이 필요한 순간만 깔끔하게 저장합니다.",
+        feat2Title: "🎯 100% 워터마크 없음",
+        feat2Desc: "다운로드한 영상에 어떠한 로고나 광고도 추가되지 않습니다.",
+        feat3Title: "⚡ 초고속 클라우드 렌더링",
+        feat3Desc: "고성능 클라우드 서버에서 렌더링되어 스마트폰 발열이나 PC 부담이 없습니다.",
+        faqTitle: "❓ 자주 묻는 질문 (FAQ)",
+        faq1Q: "유튜브 영상을 온라인에서 어떻게 자르나요?",
+        faq1A: "유튜브 링크를 붙여넣고 시작/종료 시간을 정한 뒤 화질을 골라 시작을 누르면 MP4가 자동 저장됩니다.",
+        faq2Q: "틱톡 영상의 워터마크가 제거되나요?",
+        faq2A: "네! SnapCut은 틱톡 영상에서 로고와 사용자 아이디를 자동으로 제거합니다.",
+        faq3Q: "무료이고 안전한가요?",
+        faq3A: "회원가입이나 결제 없이 100% 무료로 이용하실 수 있으며 임시 파일은 즉시 파기됩니다.",
+        faq4Q: "아이폰이나 안드로이드에서도 되나요?",
+        faq4A: "네, 모바일 Safari 및 Chrome 브라우저에서 완벽하게 작동합니다.",
+        ytPageTitle: "온라인 유튜브 영상 자르기",
+        ytPageSubtitle: "유튜브 링크를 넣고 시작/종료 구간을 설정해 1080p Full HD로 다운로드하세요.",
+        ytBreadcrumbHome: "홈",
+        ytBreadcrumbCurrent: "유튜브 자르기",
+        tkPageTitle: "워터마크 없는 틱톡 영상 다운로더",
+        tkPageSubtitle: "로고 없는 원본 HD 화질로 틱톡 영상을 스마트폰이나 PC에 즉시 저장하세요.",
+        tkBreadcrumbHome: "홈",
+        tkBreadcrumbCurrent: "틱톡 다운로더",
+        footerDesc: "가장 빠르고 간편한 무료 온라인 유튜브 비디오 커터 및 틱톡 워터마크 제거 다운로더.",
+        footerTools: "온라인 도구",
+        footerFeatures: "주요 기능",
+        footerSitemap: "사이트맵",
+        footerRights: "© 2026 SnapCut.tech — 판권 소유."
+    },
+    vi: {
+        navYt: "🎬 Cắt YouTube",
+        navTk: "📱 Tải TikTok",
+        navGuide: "💡 Hướng dẫn",
+        navFaq: "❓ FAQ",
+        qualityLabel: "Chất lượng video",
+        opt720: "⚡ 720p HD (Nhanh & Khuyên dùng)",
+        opt1080: "🎬 1080p Full HD",
+        opt480: "📱 480p SD",
+        opt360: "💾 360p (Dung lượng nhỏ)",
+        subtitle: "Cắt và tải video YouTube & TikTok trong vài giây.",
+        urlLabel: "Liên kết video (YouTube, TikTok)",
+        tiktokModeLabel: "Tùy chọn tải về",
+        tkFull: "Video đầy đủ",
+        tkCut: "Cắt đoạn ngắn",
+        startLabel: "Bắt đầu",
+        endLabel: "Kết thúc",
+        submitBtnDefault: "Bắt đầu xử lý",
+        submitBtnYoutube: "Cắt & Tải về",
+        submitBtnTiktok: "Tải TikTok",
+        submitBtnSpotify: "Tải MP3",
+        playBtn: "▶ Phát",
+        pauseBtn: "⏸ Tạm dừng",
+        setStartBtn: "⏱️ Đặt làm Bắt đầu",
+        setEndBtn: "⏱️ Đặt làm Kết thúc",
+        badgeYoutube: "Phát hiện YouTube (Cắt)",
+        badgeTiktok: "Phát hiện TikTok (Không logo)",
+        badgeSpotify: "Phát hiện Spotify",
+        success: "Thành công! Tệp của bạn đang được tải xuống...",
+        errorGeneral: "Đã xảy ra lỗi.",
+        processDurationHint: "⏱️ Quá trình xử lý video mất khoảng 15 giây.",
+        processingNotice: "⏳ Đang xử lý video... Quá trình này mất khoảng 15 giây. Vui lòng không đóng trang.",
+        guideTitle: "⚡ Cách cắt và tải video với SnapCut",
+        guideSubtitle: "3 bước đơn giản để cắt video YouTube hoặc tải TikTok không logo:",
+        step1Title: "1. Dán liên kết video",
+        step1Desc: "Sao chép liên kết YouTube hoặc TikTok và dán vào ô bên trên.",
+        step2Title: "2. Chọn thời gian & chất lượng",
+        step2Desc: "Chọn thời gian bắt đầu, kết thúc và độ phân giải mong muốn (1080p, 720p).",
+        step3Title: "3. Tải xuống ngay",
+        step3Desc: "Nhấp 'Bắt đầu xử lý' để tải về tệp MP4 không dính logo watermark.",
+        promoYtTitle: "🎬 Công cụ cắt video YouTube chuyên dụng",
+        promoYtDesc: "Cắt đoạn video chính xác đến từng giây cho podcast, bài hát hay khoảnh khắc ấn tượng.",
+        promoYtBtn: "Mở cắt YouTube →",
+        promoTkTitle: "📱 Tải video TikTok không logo watermark",
+        promoTkDesc: "Lưu các video TikTok yêu thích với chất lượng HD gốc không chứa hình mờ.",
+        promoTkBtn: "Mở tải TikTok →",
+        whyTitle: "🚀 Tại sao nên chọn SnapCut?",
+        whyDesc: "Không cần cài đặt phần mềm nặng như Premiere hay CapCut chỉ để cắt đoạn video 15 giây.",
+        feat1Title: "✂️ Cắt chính xác từng giây",
+        feat1Desc: "Tải đúng đoạn video cần thiết mà không lãng phí dung lượng tải toàn bộ.",
+        feat2Title: "🎯 100% Không logo watermark",
+        feat2Desc: "Không bao giờ chèn thêm quảng cáo hay hình mờ vào video của bạn.",
+        feat3Title: "⚡ Tốc độ xử lý đám mây",
+        feat3Desc: "Hệ thống máy chủ xử lý cực nhanh, không làm nóng máy hay nặng điện thoại.",
+        faqTitle: "❓ Câu hỏi thường gặp (FAQ)",
+        faq1Q: "Làm thế nào để cắt video YouTube trực tuyến?",
+        faq1A: "Dán liên kết YouTube, chọn thời gian bắt đầu/kết thúc, chọn độ phân giải và nhấn bắt đầu. File MP4 sẽ tải về tự động.",
+        faq2Q: "SnapCut có xóa được logo TikTok không?",
+        faq2A: "Có! SnapCut tự động loại bỏ watermark và ID người dùng trên video TikTok.",
+        faq3Q: "SnapCut có miễn phí và an toàn không?",
+        faq3A: "100% miễn phí, không cần đăng ký tài khoản hay thẻ tín dụng.",
+        faq4Q: "Có dùng được trên iPhone và Android không?",
+        faq4A: "Có, hoạt động mượt mà trên Safari cho iOS và Chrome cho Android.",
+        ytPageTitle: "Cắt video YouTube trực tuyến",
+        ytPageSubtitle: "Dán liên kết YouTube, chọn khoảng thời gian và tải video 1080p Full HD.",
+        ytBreadcrumbHome: "Trang chủ",
+        ytBreadcrumbCurrent: "Cắt YouTube",
+        tkPageTitle: "Tải video TikTok không logo",
+        tkPageSubtitle: "Lưu video TikTok độ nét cao không có watermark trực tiếp về máy.",
+        tkBreadcrumbHome: "Trang chủ",
+        tkBreadcrumbCurrent: "Tải TikTok",
+        footerDesc: "Công cụ trực tuyến miễn phí và nhanh nhất để cắt video YouTube và tải TikTok không watermark.",
+        footerTools: "Công cụ trực tuyến",
+        footerFeatures: "Tính năng nổi bật",
+        footerSitemap: "Sơ đồ trang web",
+        footerRights: "© 2026 SnapCut.tech — Bản quyền được bảo lưu."
     },
     ar: {
+        navMp3: "🎵 قاطع MP3",
+        optMp3: "🎵 صوت MP3 (فائق السرعة وخفيف)",
+        shareClipBtn: "🔗 مشاركة رابط المقطع",
+        shareCopied: "✅ تم نسخ الرابط إلى الحافظة!",
+        navYt: "🎬 قص يوتيوب",
+        navTk: "📱 تنزيل تيك توك",
+        navGuide: "💡 دليل الاستخدام",
+        navFaq: "❓ الأسئلة الشائعة",
         qualityLabel: "جودة الفيديو",
         opt720: "⚡ 720p HD (سريع وموصى به)",
         opt1080: "🎬 1080p Full HD",
         opt480: "📱 480p SD",
         opt360: "💾 360p (حجم صغير)",
-        subtitle: "قص وتنزيل الوسائط من YouTube و TikTok و Spotify في ثوانٍ.",
-        urlLabel: "رابط الوسائط",
+        subtitle: "قص وتنزيل مقاطع الفيديو من يوتيوب وتيك توك في ثوانٍ معدودة.",
+        urlLabel: "رابط الفيديو (YouTube, TikTok)",
         tiktokModeLabel: "خيار التنزيل",
-        tkFull: "فيديو كامل",
-        tkCut: "قطع قسم",
+        tkFull: "الفيديو بالكامل",
+        tkCut: "قص مقطع محدد",
         startLabel: "البداية",
         endLabel: "النهاية",
         submitBtnDefault: "بدء العملية",
-        submitBtnYoutube: "قص وتنزيل",
-        submitBtnTiktok: "تنزيل TikTok",
+        submitBtnYoutube: "قص وتنزيل الفيديو",
+        submitBtnTiktok: "تنزيل تيك توك",
         submitBtnSpotify: "تنزيل MP3",
         playBtn: "▶ تشغيل",
         pauseBtn: "⏸ إيقاف مؤقت",
         setStartBtn: "⏱️ تعيين كبداية",
         setEndBtn: "⏱️ تعيين كنهاية",
-        badgeYoutube: "تم اكتشاف YouTube",
-        badgeTiktok: "تم اكتشاف TikTok",
+        badgeYoutube: "تم اكتشاف YouTube (قص)",
+        badgeTiktok: "تم اكتشاف TikTok (بدون علامة مائية)",
         badgeSpotify: "تم اكتشاف Spotify",
-        success: "نجاح! جاري تنزيل ملفك...",
-        errorGeneral: "حدث خطأ."
+        success: "تم بنجاح! جاري تنزيل الملف الخاص بك...",
+        errorGeneral: "حدث خطأ ما.",
+        processDurationHint: "⏱️ قد تستغرق معالجة الفيديو حوالي 15 ثانية.",
+        processingNotice: "⏳ جاري معالجة الفيديو... يستغرق الأمر حوالي 15 ثانية. يرجى عدم إغلاق الصفحة.",
+        guideTitle: "⚡ كيفية قص وتنزيل الفيديوهات عبر SnapCut",
+        guideSubtitle: "اتبع 3 خطوات بسيطة لقص مقاطع يوتيوب أو حفظ تيك توك بدون علامة مائية:",
+        step1Title: "1. الصق رابط الفيديو",
+        step1Desc: "انسخ رابط يوتيوب أو تيك توك والصقه في مربع البحث أعلاه.",
+        step2Title: "2. اختر الوقت والجودة",
+        step2Desc: "حدد وقت البداية والنهاية والدقة المطلوبة (1080p, 720p).",
+        step3Title: "3. تنزيل فوري",
+        step3Desc: "اضغط على 'بدء العملية' لتحميل فيديو MP4 نظيف تماماً بدون علامات مائية.",
+        promoYtTitle: "🎬 أداة متخصصة لقص فيديوهات يوتيوب",
+        promoYtDesc: "قص أجزاء محددة من مقاطع البودكاست والموسيقى بدقة عالية بالثواني.",
+        promoYtBtn: "فتح أداة قص يوتيوب →",
+        promoTkTitle: "📱 تنزيل تيك توك بدون علامة مائية",
+        promoTkDesc: "احفظ مقاطع تيك توك الرائجة بجودة HD الأصلية بدون شعار أو اسم مستخدم.",
+        promoTkBtn: "فتح تنزيل تيك توك →",
+        whyTitle: "🚀 لماذا تختار SnapCut؟",
+        whyDesc: "لا داعي لتثبيت برامج مونتاج معقدة مثل Premiere أو CapCut من أجل قص مقطع مدته 15 ثانية.",
+        feat1Title: "✂️ دقة فائقة بالثواني",
+        feat1Desc: "قم بتحميل الجزء الذي تريده فقط دون إهدار بيانات الإنترنت في تحميل الفيديو كاملاً.",
+        feat2Title: "🎯 100% بدون علامة مائية",
+        feat2Desc: "نحن لا نضع أي إعلانات أو شعارات مائية على مقاطع الفيديو المحملة.",
+        feat3Title: "⚡ معالجة سحابية فائقة السرعة",
+        feat3Desc: "تتم المعالجة عبر خوادمنا السريعة دون التسبب في سخونة هاتفك أو بطء حاسوبك.",
+        faqTitle: "❓ الأسئلة الشائعة (FAQ)",
+        faq1Q: "كيف أقوم بقص فيديو يوتيوب عبر الإنترنت؟",
+        faq1A: "الصق الرابط، حدد وقت البدء والانتهاء، اختر الجودة واضغط بدء. سيتم تنزيل ملف MP4 تلقائياً.",
+        faq2Q: "هل يحذف SnapCut العلامة المائية من تيك توك؟",
+        faq2A: "نعم! يقوم SnapCut تلقائياً بإزالة الشعارات وأسماء المستخدمين من فيديوهات تيك توك.",
+        faq3Q: "هل SnapCut مجاني وآمن؟",
+        faq3A: "مجاني تماماً 100% بدون تسجيل أو بطاقات بنكية، ويتم مسح الملفات المؤقتة تلقائياً.",
+        faq4Q: "هل يعمل على هواتف آيفون وأندرويد؟",
+        faq4A: "نعم، متوافق تماماً مع متصفح سفاري على آيفون ومتصفح كروم على أندرويد وجميع أجهزة الكمبيوتر.",
+        ytPageTitle: "قص فيديوهات يوتيوب أونلاين",
+        ytPageSubtitle: "الصق أي رابط يوتيوب وحدد أوقات البداية والنهاية وحمل المقطع بجودة 1080p Full HD.",
+        ytBreadcrumbHome: "الرئيسية",
+        ytBreadcrumbCurrent: "قص يوتيوب",
+        tkPageTitle: "تنزيل تيك توك بدون علامة مائية",
+        tkPageSubtitle: "احفظ فيديوهات تيك توك بجودة عالية الدقة بدون شعار مباشرة على هاتفك أو حاسوبك.",
+        tkBreadcrumbHome: "الرئيسية",
+        tkBreadcrumbCurrent: "تنزيل تيك توك",
+        footerDesc: "الأداة الأسرع والمجانية بالكامل لقص فيديوهات يوتيوب وتنزيل مقاطع تيك توك بدون علامة مائية.",
+        footerTools: "أدوات عبر الإنترنت",
+        footerFeatures: "أبرز المزايا",
+        footerSitemap: "خريطة الموقع",
+        footerRights: "© 2026 SnapCut.tech — جميع الحقوق محفوظة."
     },
     hi: {
+        navMp3: "🎵 MP3 कटर",
+        optMp3: "🎵 MP3 ऑडियो (अत्यंत तेज़ और हल्का)",
+        shareClipBtn: "🔗 क्लिप लिंक शेयर करें",
+        shareCopied: "✅ क्लिप लिंक कॉपी हो गया!",
+        navYt: "🎬 यूट्यूब कटर",
+        navTk: "📱 टिकटॉक डाउनलोडर",
+        navGuide: "💡 गाइड",
+        navFaq: "❓ सामान्य प्रश्न",
         qualityLabel: "वीडियो गुणवत्ता",
         opt720: "⚡ 720p HD (तेज़ और अनुशंसित)",
         opt1080: "🎬 1080p Full HD",
         opt480: "📱 480p SD",
         opt360: "💾 360p (छोटा आकार)",
-        subtitle: "सेकंड में YouTube, TikTok और Spotify से मीडिया काटें और डाउनलोड करें।",
-        urlLabel: "मीडिया लिंक",
+        subtitle: "कुछ ही सेकंड में YouTube और TikTok वीडियो काटें और डाउनलोड करें।",
+        urlLabel: "वीडियो लिंक (YouTube, TikTok)",
         tiktokModeLabel: "डाउनलोड विकल्प",
         tkFull: "पूरा वीडियो",
-        tkCut: "अनुभाग काटें",
-        startLabel: "प्रारंभ समय",
-        endLabel: "समाप्ति समय",
-        submitBtnDefault: "प्रारंभ करें",
+        tkCut: "हिस्सा काटें",
+        startLabel: "शुरुआत",
+        endLabel: "समाप्ति",
+        submitBtnDefault: "प्रक्रिया शुरू करें",
         submitBtnYoutube: "काटें और डाउनलोड करें",
-        submitBtnTiktok: "TikTok डाउनलोड करें",
+        submitBtnTiktok: "टिकटॉक डाउनलोड करें",
         submitBtnSpotify: "MP3 डाउनलोड करें",
         playBtn: "▶ चलाएं",
         pauseBtn: "⏸ रोकें",
-        setStartBtn: "⏱️ प्रारंभ के रूप में सेट करें",
-        setEndBtn: "⏱️ अंत के रूप में सेट करें",
-        badgeYoutube: "YouTube मिला",
-        badgeTiktok: "TikTok मिला",
-        badgeSpotify: "Spotify मिला",
+        setStartBtn: "⏱️ शुरुआत सेट करें",
+        setEndBtn: "⏱️ समाप्ति सेट करें",
+        badgeYoutube: "यूट्यूब मिला (काटें)",
+        badgeTiktok: "टिकटॉक मिला (बिना वॉटरमार्क)",
+        badgeSpotify: "स्पॉटिफ़ाई मिला",
         success: "सफलता! आपकी फ़ाइल डाउनलोड हो रही है...",
-        errorGeneral: "एक त्रुटि हुई।"
+        errorGeneral: "एक त्रुटि हुई।",
+        processDurationHint: "⏱️ वीडियो प्रक्रिया में लगभग 15 सेकंड का समय लग सकता है।",
+        processingNotice: "⏳ वीडियो प्रोसेस हो रहा है... इसमें लगभग 15 सेकंड लग सकते हैं। कृपया पेज बंद न करें।",
+        guideTitle: "⚡ SnapCut के साथ वीडियो काटने और डाउनलोड करने का तरीका",
+        guideSubtitle: "YouTube वीडियो ट्रिम करने या बिना वॉटरमार्क TikTok डाउनलोड करने के लिए 3 आसान चरण:",
+        step1Title: "1. वीडियो लिंक पेस्ट करें",
+        step1Desc: "यूट्यूब या टिकटॉक का लिंक कॉपी करके ऊपर दिए गए बॉक्स में पेस्ट करें।",
+        step2Title: "2. समय और गुणवत्ता चुनें",
+        step2Desc: "सटीक शुरुआत और समाप्ति समय और अपना पसंदीदा रिज़ॉल्यूशन (1080p, 720p) चुनें।",
+        step3Title: "3. तुरंत डाउनलोड करें",
+        step3Desc: "'प्रक्रिया शुरू करें' पर क्लिक करें और बिना किसी वॉटरमार्क के अपनी MP4 फ़ाइल प्राप्त करें।",
+        promoYtTitle: "🎬 समर्पित यूट्यूब वीडियो कटर",
+        promoYtDesc: "पॉडकास्ट, संगीत और मुख्य अंशों को सेकंड की सटीकता के साथ ट्रिम करें।",
+        promoYtBtn: "यूट्यूब कटर खोलें →",
+        promoTkTitle: "📱 बिना वॉटरमार्क टिकटॉक वीडियो डाउनलोडर",
+        promoTkDesc: "वायरल टिकटॉक वीडियो को बिना लोगो या यूजरनेम के ओरिजिनल एचडी में सेव करें।",
+        promoTkBtn: "टिकटॉक डाउनलोडर खोलें →",
+        whyTitle: "🚀 SnapCut क्यों चुनें?",
+        whyDesc: "15 सेकंड का क्लिप काटने के लिए प्रीमियर या कैपकट जैसे भारी सॉफ़्टवेयर की आवश्यकता नहीं है।",
+        feat1Title: "✂️ सेकंड-दर-सेकंड सटीकता",
+        feat1Desc: "पूरा वीडियो डाउनलोड करने में डेटा बर्बाद किए बिना सिर्फ वही हिस्सा लें जो चाहिए।",
+        feat2Title: "🎯 100% वॉटरमार्क मुक्त",
+        feat2Desc: "हम आपके डाउनलोड किए गए वीडियो में कभी भी कोई विज्ञापन या वॉटरमार्क नहीं जोड़ते।",
+        feat3Title: "⚡ तेज़ क्लाउड प्रोसेसिंग",
+        feat3Desc: "हमारे तेज़ सर्वर पर रेंडरिंग होती है, जिससे आपका फ़ोन गर्म नहीं होता।",
+        faqTitle: "❓ अक्सर पूछे जाने वाले सवाल (FAQ)",
+        faq1Q: "SnapCut के साथ ऑनलाइन YouTube वीडियो कैसे काटें?",
+        faq1A: "लिंक पेस्ट करें, समय चुनें, रिज़ॉल्यूशन चुनें और शुरू करें। MP4 वीडियो अपने आप डाउनलोड हो जाएगा।",
+        faq2Q: "क्या SnapCut टिकटॉक वॉटरमार्क हटाता है?",
+        faq2A: "हाँ! SnapCut टिकटॉक वीडियो से वॉटरमार्क और यूज़रनेम अपने आप हटा देता है।",
+        faq3Q: "क्या यह मुफ़्त और सुरक्षित है?",
+        faq3A: "बिना किसी रजिस्ट्रेशन या कार्ड के 100% मुफ़्त और सुरक्षित।",
+        faq4Q: "क्या यह मोबाइल पर काम करता है?",
+        faq4A: "हाँ, यह iPhone (Safari) और Android (Chrome) दोनों पर आसानी से काम करता है।",
+        ytPageTitle: "ऑनलाइन यूट्यूब वीडियो कटर",
+        ytPageSubtitle: "यूट्यूब लिंक पेस्ट करें, समय सीमा चुनें और 1080p Full HD में क्लिप डाउनलोड करें।",
+        ytBreadcrumbHome: "होम",
+        ytBreadcrumbCurrent: "यूट्यूब कटर",
+        tkPageTitle: "बिना वॉटरमार्क टिकटॉक डाउनलोडर",
+        tkPageSubtitle: "बिना किसी वॉटरमार्क के सीधे अपने फोन या पीसी पर टिकटॉक वीडियो सेव करें।",
+        tkBreadcrumbHome: "होम",
+        tkBreadcrumbCurrent: "टिकटॉक डाउनलोडर",
+        footerDesc: "यूट्यूब वीडियो काटने और बिना वॉटरमार्क टिकटॉक डाउनलोड करने का सबसे तेज़ मुफ़्त ऑनलाइन टूल।",
+        footerTools: "ऑनलाइन टूल्स",
+        footerFeatures: "लोकप्रिय सुविधाएं",
+        footerSitemap: "साइटमैप",
+        footerRights: "© 2026 SnapCut.tech — सर्वाधिकार सुरक्षित।"
     },
     zh: {
-        qualityLabel: "视频清晰度",
-        opt720: "⚡ 720p HD (最快且推荐)",
+        navMp3: "🎵 MP3 剪辑器",
+        optMp3: "🎵 MP3 音频（超快且轻巧）",
+        shareClipBtn: "🔗 分享剪辑链接",
+        shareCopied: "✅ 剪辑链接已复制到剪贴板！",
+        navYt: "🎬 YouTube剪辑",
+        navTk: "📱 TikTok下载",
+        navGuide: "💡 使用指南",
+        navFaq: "❓ 常见问题",
+        qualityLabel: "视频画质",
+        opt720: "⚡ 720p HD (快速且推荐)",
         opt1080: "🎬 1080p Full HD",
         opt480: "📱 480p SD",
-        opt360: "💾 360p (小文件)",
-        subtitle: "在几秒钟内剪切并下载YouTube，TikTok和Spotify媒体。",
-        urlLabel: "媒体链接",
+        opt360: "💾 360p (体积轻巧)",
+        subtitle: "数秒内裁剪并下载YouTube与TikTok视频。",
+        urlLabel: "视频链接 (YouTube, TikTok)",
         tiktokModeLabel: "下载选项",
         tkFull: "完整视频",
-        tkCut: "剪切部分",
+        tkCut: "裁剪片段",
         startLabel: "开始时间",
         endLabel: "结束时间",
-        submitBtnDefault: "开始",
-        submitBtnYoutube: "剪切和下载",
+        submitBtnDefault: "开始处理",
+        submitBtnYoutube: "裁剪并下载",
         submitBtnTiktok: "下载TikTok",
         submitBtnSpotify: "下载MP3",
         playBtn: "▶ 播放",
         pauseBtn: "⏸ 暂停",
-        setStartBtn: "⏱️ 设为开始",
-        setEndBtn: "⏱️ 设为结束",
-        badgeYoutube: "检测到YouTube",
-        badgeTiktok: "检测到TikTok",
-        badgeSpotify: "检测到Spotify",
-        success: "成功！您的文件正在下载...",
-        errorGeneral: "发生错误。"
+        setStartBtn: "⏱️ 设为开始点",
+        setEndBtn: "⏱️ 设为结束点",
+        badgeYoutube: "已检测到YouTube (可裁剪)",
+        badgeTiktok: "已检测到TikTok (无水印)",
+        badgeSpotify: "已检测到Spotify",
+        success: "成功！您的文件正在下载中...",
+        errorGeneral: "发生错误。",
+        processDurationHint: "⏱️ 视频裁剪与下载约需15秒。",
+        processingNotice: "⏳ 正在处理视频... 大约需要15秒，请不要关闭本页面。",
+        guideTitle: "⚡ 如何使用SnapCut裁剪并下载视频",
+        guideSubtitle: "简单3步即可修剪YouTube视频或保存无水印的TikTok短视频：",
+        step1Title: "1. 粘贴视频链接",
+        step1Desc: "复制YouTube或TikTok视频链接，粘贴到上方输入框中。",
+        step2Title: "2. 选择时间与画质",
+        step2Desc: "精确设置起始与结束时间，并选择您期望的清晰度（1080p、720p）。",
+        step3Title: "3. 立即高速下载",
+        step3Desc: "点击“开始处理”，即刻获取无水印的高清MP4文件。",
+        promoYtTitle: "🎬 专属YouTube视频裁剪工具",
+        promoYtDesc: "毫秒级精准裁剪播客、音乐或精彩瞬间，无需下载整个长视频。",
+        promoYtBtn: "打开YouTube裁剪器 →",
+        promoTkTitle: "📱 TikTok无水印视频下载器",
+        promoTkDesc: "一键保存高清无水印TikTok短视频，不带任何作者ID和平台Logo。",
+        promoTkBtn: "打开TikTok下载器 →",
+        whyTitle: "🚀 为什么选择SnapCut？",
+        whyDesc: "无需下载安装Premiere或剪映等庞大编辑软件，即可在线截取15秒精彩片段。",
+        feat1Title: "✂️ 秒级高精度裁剪",
+        feat1Desc: "只下载您需要的片段，不浪费任何带宽与存储空间。",
+        feat2Title: "🎯 100% 纯净无水印",
+        feat2Desc: "我们绝不会在您下载的MP4视频中插入任何广告或水印。",
+        feat3Title: "⚡ 超快云端渲染",
+        feat3Desc: "所有繁重运算均在云端服务器完成，手机不发烫、电脑不卡顿。",
+        faqTitle: "❓ 常见问题解答 (FAQ)",
+        faq1Q: "如何在线裁剪YouTube视频？",
+        faq1A: "粘贴链接，选择起始与结束时间，选择画质并点击开始。剪辑好的MP4视频将在数秒内自动下载。",
+        faq2Q: "SnapCut能去除TikTok视频水印吗？",
+        faq2A: "可以！SnapCut会自动清除TikTok短视频中的动态Logo与用户名。",
+        faq3Q: "SnapCut是免费且安全的吗？",
+        faq3A: "100%完全免费，无需注册账户或绑定信用卡。临时视频文件会在处理完毕后自动删除。",
+        faq4Q: "支持苹果iPhone和安卓手机吗？",
+        faq4A: "支持！全面兼容iOS Safari浏览器、Android Chrome浏览器及各类电脑浏览器。",
+        ytPageTitle: "在线YouTube视频裁剪器",
+        ytPageSubtitle: "粘贴任何YouTube链接，选定裁剪起止时间，秒级下载1080p Full HD短片。",
+        ytBreadcrumbHome: "首页",
+        ytBreadcrumbCurrent: "YouTube剪辑",
+        tkPageTitle: "TikTok无水印视频下载器",
+        tkPageSubtitle: "直接将无水印、无Logo的高清TikTok MP4视频保存至您的设备。",
+        tkBreadcrumbHome: "首页",
+        tkBreadcrumbCurrent: "TikTok下载",
+        footerDesc: "最快速、完全免费的在线YouTube视频剪切器与TikTok无水印下载工具。",
+        footerTools: "在线工具",
+        footerFeatures: "热门功能",
+        footerSitemap: "网站地图",
+        footerRights: "© 2026 SnapCut.tech — 保留所有权利。"
     }
 };
+
 
 let currentLang = 'en';
 
@@ -506,6 +1378,7 @@ Array.from(tkModeRadios).forEach(radio => {
         if (currentPlatform === 'tiktok') {
             updateTikTokModeUI();
         }
+        trackGA('select_mode', { platform: 'tiktok', mode: radio.value });
     });
 });
 
@@ -520,15 +1393,31 @@ let currentPlatform = 'unknown';
 let videoDuration = 0;
 let durationPollInterval = null;
 
+const urlParamLang = new URLSearchParams(window.location.search).get('lang');
 const savedLang = localStorage.getItem('snapcut_lang');
-const browserLang = (navigator.language || 'en').substring(0, 2);
-const initialLang = savedLang || (translations[browserLang] ? browserLang : 'en');
+const browserLang = (navigator.language || 'en').substring(0, 2).toLowerCase();
+const initialLang = (urlParamLang && translations[urlParamLang]) 
+    ? urlParamLang 
+    : (savedLang && translations[savedLang] ? savedLang : (translations[browserLang] ? browserLang : 'en'));
 
-// Google Analytics 4 Custom Event Tracking Helper
+if (urlParamLang && translations[urlParamLang]) {
+    localStorage.setItem('snapcut_lang', urlParamLang);
+}
+
+// Google Analytics 4 Custom Event Tracking Helper with Debug & Validation Support
 function trackGA(eventName, params = {}) {
     try {
         if (typeof window.gtag === 'function') {
-            window.gtag('event', eventName, params);
+            const isDebug = window.location.hostname === 'localhost' || 
+                            window.location.hostname === '127.0.0.1' || 
+                            window.location.search.includes('ga_debug');
+            
+            const eventParams = isDebug ? { ...params, debug_mode: true } : params;
+            window.gtag('event', eventName, eventParams);
+            
+            if (isDebug) {
+                console.log(`%c[GA4 Event] ${eventName}`, 'color: #00e5ff; font-weight: bold;', eventParams);
+            }
         }
     } catch (e) {
         console.warn('GA4 tracking error:', e);
@@ -558,31 +1447,6 @@ function getTikTokId(url) {
     const match = url.match(/\/video\/(\d+)/);
     return match ? match[1] : null;
 }
-
-tkModeRadios.forEach(radio => {
-    radio.addEventListener('change', (e) => {
-        if (e.target.value === 'cut') {
-            timeOptions.classList.remove('hidden');
-            startTimeInput.required = true;
-            endTimeInput.required = true;
-            
-            // Show Tiktok embed if valid ID
-            const tkId = getTikTokId(urlInput.value);
-            if (tkId) {
-                tkIframe.src = `https://www.tiktok.com/embed/v2/${tkId}`;
-                tkPlayerContainer.classList.remove('hidden');
-                playerWrapper.classList.remove('hidden');
-            }
-        } else {
-            timeOptions.classList.add('hidden');
-            startTimeInput.required = false;
-            endTimeInput.required = false;
-            tkPlayerContainer.classList.add('hidden');
-            playerWrapper.classList.add('hidden');
-            tkIframe.src = "";
-        }
-    });
-});
 
 function getYouTubeId(url) {
     const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=|shorts\/)([^#&?]*).*/;
@@ -680,6 +1544,8 @@ function pollDuration() {
 }
 
 // PLATFORM DETECTION
+let lastTrackedVideoUrl = '';
+
 urlInput.addEventListener('input', (e) => {
     const url = e.target.value;
     const urlLower = url.toLowerCase();
@@ -707,7 +1573,15 @@ urlInput.addEventListener('input', (e) => {
         btnText.textContent = t.submitBtnTiktok;
         
         updateTikTokModeUI();
-        trackGA('video_detected', { platform: 'tiktok' });
+        
+        const trimmedUrl = url.trim();
+        if (trimmedUrl && trimmedUrl !== lastTrackedVideoUrl) {
+            lastTrackedVideoUrl = trimmedUrl;
+            trackGA('video_detected', { 
+                platform: 'tiktok',
+                video_id: getTikTokId(trimmedUrl) || ''
+            });
+        }
     } else if (urlLower.includes('youtube.com') || urlLower.includes('youtu.be')) {
         currentPlatform = 'youtube';
         if (qualityGroup) qualityGroup.style.display = 'block';
@@ -716,12 +1590,19 @@ urlInput.addEventListener('input', (e) => {
         platformBadge.textContent = t.badgeYoutube;
         platformBadge.className = 'badge youtube';
         btnText.textContent = t.submitBtnYoutube;
-        trackGA('video_detected', { platform: 'youtube' });
         
         startTimeInput.required = true;
         endTimeInput.required = true;
 
         const videoId = getYouTubeId(url); 
+        const trimmedUrl = url.trim();
+        if (trimmedUrl && trimmedUrl !== lastTrackedVideoUrl) {
+            lastTrackedVideoUrl = trimmedUrl;
+            trackGA('video_detected', { 
+                platform: 'youtube',
+                video_id: videoId || ''
+            });
+        }
         if (videoId && isPlayerReady) {
             ytPlayerContainer.classList.remove('hidden');
             playerWrapper.classList.remove('hidden');
@@ -742,6 +1623,7 @@ urlInput.addEventListener('input', (e) => {
         }
     } else {
         currentPlatform = 'unknown';
+        lastTrackedVideoUrl = '';
         timeOptions.classList.remove('hidden');
         btnText.textContent = t.submitBtnDefault;
         startTimeInput.required = true;
@@ -751,15 +1633,19 @@ urlInput.addEventListener('input', (e) => {
 
 document.getElementById('set-start-btn').addEventListener('click', () => {
     if (ytPlayer && typeof ytPlayer.getCurrentTime === 'function') {
-        startTimeInput.value = formatTime(ytPlayer.getCurrentTime());
+        const curTime = formatTime(ytPlayer.getCurrentTime());
+        startTimeInput.value = curTime;
         startTimeInput.dispatchEvent(new Event('input'));
+        trackGA('timeline_action', { action: 'set_start_time', time: curTime });
     }
 });
 
 document.getElementById('set-end-btn').addEventListener('click', () => {
     if (ytPlayer && typeof ytPlayer.getCurrentTime === 'function') {
-        endTimeInput.value = formatTime(ytPlayer.getCurrentTime());
+        const curTime = formatTime(ytPlayer.getCurrentTime());
+        endTimeInput.value = curTime;
         endTimeInput.dispatchEvent(new Event('input'));
+        trackGA('timeline_action', { action: 'set_end_time', time: curTime });
     }
 });
 
@@ -774,6 +1660,7 @@ pauseBtn.addEventListener('click', () => {
 document.getElementById('cutter-form').addEventListener('submit', async (e) => {
     e.preventDefault();
     const t = translations[currentLang];
+    const processStartTime = Date.now();
     
     const url = urlInput.value;
     const startTime = startTimeInput.value;
@@ -804,11 +1691,16 @@ document.getElementById('cutter-form').addEventListener('submit', async (e) => {
             payload = { url, startTime, endTime, platform: 'youtube', quality };
         }
         
+        const startSec = timeToSeconds(startTime);
+        const endSec = timeToSeconds(endTime);
+        const cutLengthSec = (mode === 'cut' && endSec > startSec) ? (endSec - startSec) : 0;
+
         trackGA('process_start', {
             platform: currentPlatform,
             quality: quality,
             mode: mode,
-            language: currentLang
+            language: currentLang,
+            cut_length_sec: cutLengthSec
         });
             
         const response = await fetch('/api/process', {
@@ -830,6 +1722,8 @@ document.getElementById('cutter-form').addEventListener('submit', async (e) => {
         
         if (response.ok && data) {
             const downloadFilename = data.filename || 'video.mp4';
+            const durationSec = Math.round((Date.now() - processStartTime) / 1000);
+
             statusDiv.innerHTML = `
                 <div style="font-weight: 600; font-size: 1.05rem; margin-bottom: 6px;">${t.success}</div>
                 <div style="font-size: 0.95rem; margin-bottom: 12px; word-break: break-all; color: #4facfe;">
@@ -846,12 +1740,28 @@ document.getElementById('cutter-form').addEventListener('submit', async (e) => {
                 quality: quality,
                 mode: mode,
                 filename: downloadFilename,
+                processing_time_sec: durationSec,
+                cut_length_sec: cutLengthSec,
                 language: currentLang
             });
             
+            // GA4 Official Standard Event: file_download (Auto Trigger)
+            trackGA('file_download', {
+                file_name: downloadFilename,
+                file_extension: 'mp4',
+                platform: currentPlatform,
+                download_type: 'auto'
+            });
+
             const directLink = statusDiv.querySelector('.direct-download-link');
             if (directLink) {
                 directLink.addEventListener('click', () => {
+                    trackGA('file_download', {
+                        file_name: downloadFilename,
+                        file_extension: 'mp4',
+                        platform: currentPlatform,
+                        download_type: 'manual_click'
+                    });
                     trackGA('download_click', {
                         platform: currentPlatform,
                         filename: downloadFilename
@@ -867,11 +1777,13 @@ document.getElementById('cutter-form').addEventListener('submit', async (e) => {
             throw new Error((data && data.error) || t.errorGeneral);
         }
     } catch (err) {
+        const durationSec = Math.round((Date.now() - processStartTime) / 1000);
         statusDiv.textContent = err.message;
         statusDiv.classList.add('error');
         trackGA('process_error', {
             platform: currentPlatform,
             error_message: (err.message || 'unknown').substring(0, 100),
+            processing_time_sec: durationSec,
             language: currentLang
         });
     } finally {
@@ -883,18 +1795,96 @@ document.getElementById('cutter-form').addEventListener('submit', async (e) => {
 
 // URL Parametresi Desteği (?url=https://...)
 window.addEventListener('DOMContentLoaded', () => {
-    // Track navigation clicks
+    // Menü / Gezinme linklerini takip et
     document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', () => {
             trackGA('navigation_click', { destination: link.getAttribute('href') });
         });
     });
 
+    // Çapraz Tanıtım (Cross-Promo) buton tıklamalarını takip et
+    document.querySelectorAll('.cross-promo-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            trackGA('cross_promo_click', {
+                destination: btn.getAttribute('href'),
+                text: btn.textContent.trim()
+            });
+        });
+    });
+
+    // FAQ Soru Başlıkları Tıklamalarını Takip Et
+    document.querySelectorAll('#faq h3').forEach(item => {
+        item.addEventListener('click', () => {
+            trackGA('faq_click', { question: item.textContent.trim().substring(0, 80) });
+        });
+    });
+
+// Viral Clip Sharing Handler
+    const shareBtn = document.getElementById('share-clip-btn');
+    const shareToast = document.getElementById('share-toast');
+    if (shareBtn) {
+        shareBtn.addEventListener('click', async () => {
+            const url = urlInput.value.trim();
+            if (!url) {
+                alert(currentLang === 'tr' ? 'Lütfen önce bir video linki yapıştırın.' : 'Please paste a video link first.');
+                return;
+            }
+            const start = startTimeInput.value.trim();
+            const end = endTimeInput.value.trim();
+            const qEl = document.getElementById('quality');
+            const q = qEl ? qEl.value : '1080';
+            
+            let shareUrl = `${window.location.origin}${window.location.pathname}?url=${encodeURIComponent(url)}`;
+            if (start) shareUrl += `&start=${encodeURIComponent(start)}`;
+            if (end) shareUrl += `&end=${encodeURIComponent(end)}`;
+            if (q) shareUrl += `&quality=${encodeURIComponent(q)}`;
+            
+            try {
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    await navigator.clipboard.writeText(shareUrl);
+                } else {
+                    const tempInput = document.createElement('input');
+                    tempInput.value = shareUrl;
+                    document.body.appendChild(tempInput);
+                    tempInput.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(tempInput);
+                }
+                
+                trackGA('share_clip_click', {
+                    platform: currentPlatform,
+                    has_start: !!start,
+                    has_end: !!end,
+                    quality: q
+                });
+                
+                if (shareToast) {
+                    shareToast.classList.remove('hidden');
+                    setTimeout(() => {
+                        shareToast.classList.add('hidden');
+                    }, 2500);
+                }
+            } catch (err) {
+                console.error('Clipboard error:', err);
+                prompt(currentLang === 'tr' ? 'Klip linkinizi kopyalayın:' : 'Copy your clip link:', shareUrl);
+            }
+        });
+    }
+
     const params = new URLSearchParams(window.location.search);
     const prefillUrl = params.get('url') || params.get('link');
+    const prefillStart = params.get('start');
+    const prefillEnd = params.get('end');
+    const prefillQuality = params.get('quality');
     if (prefillUrl) {
         urlInput.value = decodeURIComponent(prefillUrl);
         urlInput.dispatchEvent(new Event('input'));
+        if (prefillStart && startTimeInput) startTimeInput.value = decodeURIComponent(prefillStart);
+        if (prefillEnd && endTimeInput) endTimeInput.value = decodeURIComponent(prefillEnd);
+        if (prefillQuality) {
+            const qualityEl = document.getElementById('quality');
+            if (qualityEl) qualityEl.value = prefillQuality;
+        }
     }
 });
 

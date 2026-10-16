@@ -36,10 +36,21 @@ app.use((req, res, next) => {
 });
 
 app.use(express.json());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public'), {
+    maxAge: '7d',
+    setHeaders: (res, filePath) => {
+        if (filePath.endsWith('.html')) {
+            res.setHeader('Cache-Control', 'no-cache');
+        }
+    }
+}));
 
 app.get('/youtube-cutter', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'youtube-cutter.html'));
+});
+
+app.get('/youtube-mp3-cutter', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'youtube-mp3-cutter.html'));
 });
 
 app.get('/tiktok-downloader', (req, res) => {
@@ -196,12 +207,19 @@ app.post('/api/process', (req, res) => {
     const cookieOpt = fs.existsSync(cookiePath) ? `--cookies "${cookiePath}"` : '';
 
     if (platform === 'youtube') {
-        const formatStr = getFormatOption(quality);
         const outTemplate = path.join(downloadsDir, `%(title).60s___${timeSegmentStr || 'full'}___${uniqueId}.%(ext)s`);
-        command = `${ytDlpCmd} ${potProviderOpt} ${cookieOpt} ${ffmpegOption} --download-sections "*${startTime}-${endTime}" --no-part --windows-filenames --merge-output-format mp4 --print after_move:filename ${safeUrl} -f "${formatStr}" -o "${outTemplate}"`;
+        if (quality === 'mp3') {
+            command = `${ytDlpCmd} ${potProviderOpt} ${cookieOpt} ${ffmpegOption} --download-sections "*${startTime}-${endTime}" --no-part --windows-filenames -x --audio-format mp3 --audio-quality 0 --print after_move:filename ${safeUrl} -o "${outTemplate}"`;
+        } else {
+            const formatStr = getFormatOption(quality);
+            command = `${ytDlpCmd} ${potProviderOpt} ${cookieOpt} ${ffmpegOption} --download-sections "*${startTime}-${endTime}" --no-part --windows-filenames --merge-output-format mp4 --print after_move:filename ${safeUrl} -f "${formatStr}" -o "${outTemplate}"`;
+        }
     } else if (platform === 'tiktok') {
         const outTemplate = path.join(downloadsDir, `%(title).60s___${timeSegmentStr || 'full'}___${uniqueId}.%(ext)s`);
-        if (mode === 'cut') {
+        if (quality === 'mp3') {
+            const sectionOpt = mode === 'cut' ? `--download-sections "*${startTime}-${endTime}"` : '';
+            command = `${ytDlpCmd} ${ffmpegOption} ${sectionOpt} --windows-filenames -x --audio-format mp3 --audio-quality 0 --print after_move:filename ${safeUrl} -o "${outTemplate}"`;
+        } else if (mode === 'cut') {
             command = `${ytDlpCmd} ${ffmpegOption} --download-sections "*${startTime}-${endTime}" --force-keyframes-at-cuts --windows-filenames --merge-output-format mp4 --print after_move:filename ${safeUrl} -o "${outTemplate}"`;
         } else {
             command = `${ytDlpCmd} ${ffmpegOption} --windows-filenames --merge-output-format mp4 --print after_move:filename ${safeUrl} -o "${outTemplate}"`;

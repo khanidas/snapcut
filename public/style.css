@@ -911,5 +911,63 @@ button:hover {
     font-size: 0.85rem;
 }
 
+/* Viral Clip Sharing */
+.clip-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 12px 0 6px;
+    position: relative;
+}
+
+.share-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: rgba(0, 229, 255, 0.08);
+    border: 1px solid rgba(0, 229, 255, 0.4);
+    color: #00e5ff;
+    padding: 8px 18px;
+    border-radius: 24px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    backdrop-filter: blur(8px);
+}
+
+.share-btn:hover {
+    background: rgba(0, 229, 255, 0.2);
+    border-color: #00e5ff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 18px rgba(0, 229, 255, 0.35);
+}
+
+.share-toast {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: #00e5ff;
+    color: #050e22;
+    padding: 6px 16px;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    white-space: nowrap;
+    box-shadow: 0 4px 20px rgba(0, 229, 255, 0.5);
+    pointer-events: none;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    z-index: 100;
+}
+
+.share-toast.hidden {
+    opacity: 0;
+    transform: translate(-50%, 6px);
+    pointer-events: none;
+}
+
 
 
