@@ -2663,11 +2663,81 @@ document.getElementById('cutter-form').addEventListener('submit', async (e) => {
     btn.classList.add('btn-loading');
     btn.disabled = true;
     
-    // İşlem başladığında 15 saniye uyarısını ve spinner'ı göster
+    // Smartlink 24 Saatlik Frekans Korumalı Monetizasyon
+    const SMARTLINK_URL = window.SNAPCUT_SMARTLINK_URL || 'https://abscloud.org/1/9892ca41adabdf797988c9b28ae32fde';
+    function triggerSmartlinkOnceDaily() {
+        try {
+            const lastShown = localStorage.getItem('snapcut_smartlink_last');
+            const now = Date.now();
+            if (!lastShown || (now - Number(lastShown)) > 24 * 60 * 60 * 1000) {
+                localStorage.setItem('snapcut_smartlink_last', String(now));
+                window.open(SMARTLINK_URL, '_blank', 'noopener,noreferrer');
+            }
+        } catch (e) {}
+    }
+
+    // İşlem başladığında 15 saniye ilerleme çubuğunu ve bekleme anı reklamını göster
+    let progressInterval = null;
     if (statusDiv) {
         statusDiv.className = 'processing';
-        statusDiv.textContent = t.processingNotice || (currentLang === 'tr' ? '⏳ Video işleniyor... Bu işlem yaklaşık 15 saniye sürebilir. Lütfen sayfayı kapatmayın.' : '⏳ Processing video... This may take about 15 seconds. Please do not close the page.');
+        statusDiv.innerHTML = `
+            <div class="process-box">
+                <div class="process-title">
+                    <span>⏳</span>
+                    <span>${t.processingNotice || (currentLang === 'tr' ? 'Video işleniyor, lütfen bekleyin...' : 'Processing video, please wait...')}</span>
+                </div>
+                <div class="process-progress-bar">
+                    <div class="process-progress-fill" id="process-progress-fill" style="width: 15%;"></div>
+                </div>
+                <div style="font-size: 0.82rem; color: #94a3b8; margin-bottom: 8px;">
+                    ⏱️ ${currentLang === 'tr' ? 'Yaklaşık 10-15 saniye içinde indirmeye hazır olacak' : 'Ready to download in about 10-15 seconds'}
+                </div>
+                <div class="in-stream-ad-card">
+                    <span class="in-stream-ad-label">Sponsor</span>
+                    <iframe src="about:blank" id="in-stream-ad-frame" style="width:300px; height:250px; border:none; overflow:hidden;" scrolling="no"></iframe>
+                </div>
+            </div>
+        `;
         statusDiv.classList.remove('hidden');
+
+        // Reklam iframe içeriğini gecikmesiz yükle
+        setTimeout(() => {
+            const adFrame = document.getElementById('in-stream-ad-frame');
+            if (adFrame && adFrame.contentWindow) {
+                try {
+                    const doc = adFrame.contentWindow.document;
+                    doc.open();
+                    doc.write(`
+                        <!DOCTYPE html>
+                        <html><head><style>body{margin:0;padding:0;display:flex;justify-content:center;align-items:center;background:transparent;}</style></head>
+                        <body>
+                        <script type="text/javascript">
+                          atOptions = {
+                            'key' : '3f263a4c274052ed655b50b774ea0977',
+                            'format' : 'iframe',
+                            'height' : 250,
+                            'width' : 300,
+                            'params' : {}
+                          };
+                        <\/script>
+                        <script type="text/javascript" src="https://bauval.org/22/3f263a4c274052ed655b50b774ea0977"><\/script>
+                        </body></html>
+                    `);
+                    doc.close();
+                } catch (e) {}
+            }
+        }, 50);
+
+        // Canlı 15 saniyelik ilerleme çubuğu animasyonu
+        let currentProgress = 15;
+        const progressFill = document.getElementById('process-progress-fill');
+        progressInterval = setInterval(() => {
+            if (currentProgress < 92) {
+                currentProgress += Math.floor(Math.random() * 8) + 4;
+                if (currentProgress > 92) currentProgress = 92;
+                if (progressFill) progressFill.style.width = currentProgress + '%';
+            }
+        }, 1100);
     }
     
     try {
@@ -2710,20 +2780,62 @@ document.getElementById('cutter-form').addEventListener('submit', async (e) => {
             throw new Error(currentLang === 'tr' ? `Sunucu hatası (${response.status}). Lütfen tekrar deneyin.` : `Server error (${response.status}). Please try again.`);
         }
         
+        if (progressInterval) clearInterval(progressInterval);
+
         if (response.ok && data) {
             const downloadFilename = data.filename || 'video.mp4';
             const durationSec = Math.round((Date.now() - processStartTime) / 1000);
+            const downloadBtnText = currentLang === 'tr' 
+                ? '⬇️ Dosyayı İndir (HD Hazır)' 
+                : '⬇️ Download Ready File (HD)';
 
+            statusDiv.className = 'success';
             statusDiv.innerHTML = `
-                <div style="font-weight: 600; font-size: 1.05rem; margin-bottom: 6px;">${t.success}</div>
-                <div style="font-size: 0.95rem; margin-bottom: 12px; word-break: break-all; color: #4facfe;">
-                    📁 <strong>${downloadFilename}</strong>
+                <div class="download-ready-card">
+                    <div class="ready-badge">🎉 ${t.success || (currentLang === 'tr' ? 'İşlem Tamamlandı!' : 'Success! Ready to Download')}</div>
+                    <div class="ready-filename">📁 <strong>${downloadFilename}</strong></div>
+                    
+                    <a href="${data.downloadUrl}" class="big-download-btn direct-download-link" download="${downloadFilename}">
+                        ${downloadBtnText}
+                    </a>
+                    
+                    <div class="backup-download-hint">
+                        ${currentLang === 'tr' ? 'Otomatik başlamadıysa yukarıdaki butona tıklayın.' : 'If download does not start automatically, click the button above.'}
+                    </div>
+
+                    <div class="in-stream-ad-card" style="margin-top: 14px;">
+                        <span class="in-stream-ad-label">Sponsor</span>
+                        <iframe src="about:blank" id="result-ad-frame" style="width:300px; height:250px; border:none; overflow:hidden;" scrolling="no"></iframe>
+                    </div>
                 </div>
-                <a href="${data.downloadUrl}" class="direct-download-link" download="${downloadFilename}">
-                    ⬇️ ${currentLang === 'tr' ? 'İndirme başlamadıysa buraya tıklayın' : 'Click here if download does not start'}
-                </a>
             `;
-            statusDiv.classList.add('success');
+
+            setTimeout(() => {
+                const resFrame = document.getElementById('result-ad-frame');
+                if (resFrame && resFrame.contentWindow) {
+                    try {
+                        const doc = resFrame.contentWindow.document;
+                        doc.open();
+                        doc.write(`
+                            <!DOCTYPE html>
+                            <html><head><style>body{margin:0;padding:0;display:flex;justify-content:center;align-items:center;background:transparent;}</style></head>
+                            <body>
+                            <script type="text/javascript">
+                              atOptions = {
+                                'key' : '3f263a4c274052ed655b50b774ea0977',
+                                'format' : 'iframe',
+                                'height' : 250,
+                                'width' : 300,
+                                'params' : {}
+                              };
+                            <\/script>
+                            <script type="text/javascript" src="https://bauval.org/22/3f263a4c274052ed655b50b774ea0977"><\/script>
+                            </body></html>
+                        `);
+                        doc.close();
+                    } catch (e) {}
+                }
+            }, 60);
             
             trackGA('process_success', {
                 platform: currentPlatform,
@@ -2746,6 +2858,9 @@ document.getElementById('cutter-form').addEventListener('submit', async (e) => {
             const directLink = statusDiv.querySelector('.direct-download-link');
             if (directLink) {
                 directLink.addEventListener('click', () => {
+                    // Günde 1 kez çalışan frekans korumalı Smartlink aç
+                    triggerSmartlinkOnceDaily();
+
                     trackGA('file_download', {
                         file_name: downloadFilename,
                         file_extension: 'mp4',
@@ -2767,6 +2882,7 @@ document.getElementById('cutter-form').addEventListener('submit', async (e) => {
             throw new Error((data && data.error) || t.errorGeneral);
         }
     } catch (err) {
+        if (progressInterval) clearInterval(progressInterval);
         const durationSec = Math.round((Date.now() - processStartTime) / 1000);
         statusDiv.textContent = err.message;
         statusDiv.classList.add('error');
@@ -2875,6 +2991,16 @@ window.addEventListener('DOMContentLoaded', () => {
             const qualityEl = document.getElementById('quality');
             if (qualityEl) qualityEl.value = prefillQuality;
         }
+    }
+
+    // Mobil Yapışkan Banner Kapatma Butonu
+    const stickyCloseBtn = document.getElementById('mobile-sticky-close');
+    const stickyBar = document.getElementById('mobile-sticky-ad');
+    if (stickyCloseBtn && stickyBar) {
+        stickyCloseBtn.addEventListener('click', () => {
+            stickyBar.style.display = 'none';
+            document.body.style.setProperty('padding-bottom', '25px', 'important');
+        });
     }
 });
 

@@ -703,14 +703,16 @@ button:hover {
     border-color: rgba(79, 172, 254, 0.5);
 }
 
-/* Mobil Cihazlar İçin Kusursuz 2 Satırlı Izgara Düzeni (<= 768px) */
+/* Mobil Cihazlar İçin Kusursuz Düzen (<= 768px) */
 @media (max-width: 768px) {
     .site-nav {
         display: grid;
         grid-template-columns: 1fr auto;
         grid-template-rows: auto auto;
-        gap: 12px 0;
-        padding: 12px 14px;
+        gap: 10px 0;
+        padding: 10px 14px;
+        margin-bottom: 20px;
+        border-radius: 14px;
     }
     .nav-brand-container {
         grid-column: 1;
@@ -718,24 +720,48 @@ button:hover {
         display: flex;
         align-items: center;
     }
+    .nav-brand {
+        font-size: 1.15rem;
+    }
+    .brand-logo-img {
+        width: 28px;
+        height: 28px;
+    }
     .lang-selector {
         grid-column: 2;
         grid-row: 1;
         display: flex;
         justify-content: flex-end;
+        align-items: center;
+    }
+    .lang-selector select {
+        padding: 6px 10px;
+        font-size: 0.8rem;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.08);
+        color: #fff;
+        border: 1px solid var(--glass-border);
+        outline: none;
     }
     .nav-links {
         grid-column: 1 / -1;
         grid-row: 2;
         width: 100%;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
+        display: flex;
+        overflow-x: auto;
+        flex-wrap: nowrap;
         gap: 8px;
+        padding: 4px 2px 6px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+    .nav-links::-webkit-scrollbar {
+        display: none;
     }
     .nav-link {
-        justify-content: center;
-        text-align: center;
-        padding: 8px 6px;
+        flex-shrink: 0;
+        white-space: nowrap;
+        padding: 7px 12px;
         font-size: 0.82rem;
     }
 }
@@ -967,6 +993,277 @@ button:hover {
     opacity: 0;
     transform: translate(-50%, 6px);
     pointer-events: none;
+}
+
+/* ================================================================
+   GELİŞMİŞ MONETİZASYON & İŞLEM BEKLEME (IN-STREAM) STİLLERİ
+   ================================================================ */
+.process-box {
+    text-align: center;
+    padding: 6px 0;
+}
+
+.process-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #93c5fd;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.process-progress-bar {
+    width: 100%;
+    height: 7px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+    margin: 10px 0 14px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.process-progress-fill {
+    height: 100%;
+    width: 15%;
+    background: var(--primary-gradient);
+    border-radius: 4px;
+    transition: width 0.4s ease;
+    box-shadow: 0 0 12px rgba(0, 229, 255, 0.6);
+}
+
+.in-stream-ad-card {
+    margin: 16px auto 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px dashed rgba(0, 229, 255, 0.3);
+    border-radius: 14px;
+    padding: 10px 8px;
+    max-width: 320px;
+    overflow: hidden;
+}
+
+.in-stream-ad-label {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 6px;
+}
+
+/* Yüksek Dönüşümlü İndirme Kartı ve Butonu */
+.download-ready-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 8px 0;
+}
+
+.ready-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(16, 185, 129, 0.15);
+    border: 1px solid rgba(16, 185, 129, 0.4);
+    color: #34d399;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.ready-filename {
+    font-size: 0.92rem;
+    color: #93c5fd;
+    word-break: break-all;
+    margin-bottom: 14px;
+    font-weight: 600;
+}
+
+.big-download-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    max-width: 420px;
+    background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+    color: #050e22 !important;
+    font-weight: 800;
+    font-size: 1.15rem;
+    padding: 16px 24px;
+    border-radius: 14px;
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: 0 8px 30px rgba(0, 242, 254, 0.45);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    animation: downloadGlow 2.5s infinite ease-in-out;
+}
+
+@keyframes downloadGlow {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 8px 25px rgba(0, 242, 254, 0.4);
+    }
+    50% {
+        transform: scale(1.02);
+        box-shadow: 0 10px 35px rgba(79, 172, 254, 0.65);
+    }
+}
+
+.big-download-btn:hover {
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 12px 40px rgba(0, 242, 254, 0.7);
+}
+
+.backup-download-hint {
+    margin-top: 10px;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+}
+
+.backup-download-hint a {
+    color: #4facfe;
+    text-decoration: underline;
+}
+
+/* ================================================================
+   MOBİL YAPIŞKAN ALT BANNER (STICKY 320x50)
+   ================================================================ */
+.mobile-sticky-ad {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    min-height: 56px;
+    background: rgba(11, 15, 25, 0.98);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-top: 1px solid rgba(0, 229, 255, 0.35);
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 99999;
+    padding: 4px 6px;
+    box-shadow: 0 -4px 25px rgba(0, 0, 0, 0.7);
+}
+
+.mobile-sticky-close {
+    position: absolute;
+    top: -24px;
+    right: 14px;
+    background: rgba(11, 15, 25, 0.95);
+    border: 1px solid rgba(0, 229, 255, 0.3);
+    border-bottom: none;
+    color: #94a3b8;
+    border-radius: 8px 8px 0 0;
+    padding: 2px 10px;
+    font-size: 0.72rem;
+    cursor: pointer;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.mobile-sticky-close:hover {
+    color: #00e5ff;
+}
+
+@media (max-width: 768px) {
+    .mobile-sticky-ad {
+        display: flex;
+    }
+}
+
+/* ================================================================
+   TELEFON VE DAR EKRANLAR İÇİN KAPSAMLI MOBİL İYİLEŞTİRMELER (<= 640px)
+   ================================================================ */
+@media (max-width: 640px) {
+    body {
+        padding: 10px 0 95px !important; /* Alt yapışkan reklam için temiz nefes payı */
+    }
+
+    .container {
+        padding: 8px 12px !important;
+        max-width: 100% !important;
+    }
+
+    .glass-panel {
+        padding: 20px 14px !important;
+        border-radius: 18px !important;
+    }
+
+    header {
+        margin-bottom: 20px !important;
+    }
+
+    .header-logo-badge {
+        margin-bottom: 8px !important;
+    }
+
+    .header-logo-icon {
+        width: 52px !important;
+        height: 52px !important;
+        border-radius: 12px !important;
+    }
+
+    header h1 {
+        font-size: 2.1rem !important;
+        margin-bottom: 6px !important;
+    }
+
+    header p {
+        font-size: 0.92rem !important;
+        padding: 0 4px !important;
+        line-height: 1.4 !important;
+    }
+
+    .input-group {
+        margin-bottom: 16px !important;
+    }
+
+    .time-inputs {
+        gap: 10px !important;
+    }
+
+    input:not([type="range"]):not([type="radio"]) {
+        padding: 13px 12px !important;
+        font-size: 0.95rem !important;
+        border-radius: 10px !important;
+    }
+
+    .custom-select {
+        padding: 13px 36px 13px 12px !important;
+        font-size: 0.95rem !important;
+        border-radius: 10px !important;
+    }
+
+    button[type="submit"] {
+        padding: 15px !important;
+        font-size: 1.05rem !important;
+        border-radius: 12px !important;
+    }
+
+    .steps-grid {
+        grid-template-columns: 1fr !important;
+        gap: 12px !important;
+    }
+
+    .step-card {
+        padding: 18px 14px !important;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 20px !important;
+    }
 }
 
 
