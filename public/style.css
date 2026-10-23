@@ -674,32 +674,34 @@ button:hover {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    color: var(--text-muted);
-    text-decoration: none;
+    color: #94a3b8 !important;
+    text-decoration: none !important;
     font-size: 0.85rem;
     font-weight: 600;
-    padding: 7px 13px;
+    padding: 8px 14px;
     border-radius: 12px;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     white-space: nowrap;
 }
 
 .top-nav-link:hover {
-    color: #fff;
-    background: rgba(79, 172, 254, 0.16);
-    border-color: rgba(79, 172, 254, 0.45);
+    color: #ffffff !important;
+    background: rgba(79, 172, 254, 0.18);
+    border-color: rgba(79, 172, 254, 0.5);
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 229, 255, 0.2);
+    box-shadow: 0 4px 14px rgba(0, 229, 255, 0.25);
+    text-decoration: none !important;
 }
 
 .top-nav-link.active {
-    color: #fff;
-    background: linear-gradient(135deg, rgba(0, 229, 255, 0.22) 0%, rgba(79, 172, 254, 0.16) 100%);
-    border-color: #00e5ff;
-    box-shadow: 0 0 14px rgba(0, 229, 255, 0.35);
+    color: #ffffff !important;
+    background: linear-gradient(135deg, rgba(0, 229, 255, 0.24) 0%, rgba(79, 172, 254, 0.18) 100%);
+    border-color: #00e5ff !important;
+    box-shadow: 0 0 16px rgba(0, 229, 255, 0.4);
     font-weight: 700;
+    text-decoration: none !important;
 }
 
 /* Mobil Cihazlar İçin Kusursuz Ortalanmış Düzen (<= 768px) */
