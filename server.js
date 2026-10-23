@@ -68,6 +68,30 @@ app.get('/tiktok-downloader', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'tiktok-downloader.html'));
 });
 
+app.get('/youtube-ringtone-maker', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'youtube-ringtone-maker.html'));
+});
+
+app.get('/youtube-shorts-cutter', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'youtube-shorts-cutter.html'));
+});
+
+app.get('/tiktok-sound-downloader', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'tiktok-sound-downloader.html'));
+});
+
+app.get(['/de', '/de/'], (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'de', 'index.html'));
+});
+
+app.get(['/fr', '/fr/'], (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'fr', 'index.html'));
+});
+
+app.get(['/es', '/es/'], (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'es', 'index.html'));
+});
+
 // Sitemap ve Robots.txt için kesin MIME türü garantisi
 app.get('/sitemap.xml', (req, res) => {
     res.header('Content-Type', 'application/xml');

@@ -2268,8 +2268,14 @@ function applyLanguage(lang) {
 
     // Subpage initial button text
     if (typeof btnText !== 'undefined' && btnText) {
-        if (window.location.pathname.includes('youtube-mp3-cutter')) {
+        if (window.location.pathname.includes('youtube-ringtone-maker')) {
+            btnText.textContent = (t && t.submitBtnMp3) || '🎵 Create & Download Ringtone (MP3)';
+        } else if (window.location.pathname.includes('tiktok-sound-downloader')) {
+            btnText.textContent = (t && t.submitBtnMp3) || '🎵 Extract TikTok Sound (MP3)';
+        } else if (window.location.pathname.includes('youtube-mp3-cutter')) {
             btnText.textContent = (t && t.submitBtnMp3) || '🎵 Cut & Download MP3';
+        } else if (window.location.pathname.includes('youtube-shorts-cutter')) {
+            btnText.textContent = (t && t.submitBtnYoutube) || '🎬 Trim & Download Short (MP4)';
         } else if (window.location.pathname.includes('youtube-cutter')) {
             btnText.textContent = (t && t.submitBtnYoutube) || 'Trim & Download MP4';
         } else if (window.location.pathname.includes('tiktok-downloader')) {
@@ -2375,12 +2381,16 @@ let currentPlatform = 'unknown';
 let videoDuration = 0;
 let durationPollInterval = null;
 
+const pathLang = (window.location.pathname === '/de' || window.location.pathname.startsWith('/de/')) ? 'de' :
+                 (window.location.pathname === '/fr' || window.location.pathname.startsWith('/fr/')) ? 'fr' :
+                 (window.location.pathname === '/es' || window.location.pathname.startsWith('/es/')) ? 'es' : null;
+
 const urlParamLang = new URLSearchParams(window.location.search).get('lang');
 const savedLang = localStorage.getItem('snapcut_lang');
 const browserLang = (navigator.language || 'en').substring(0, 2).toLowerCase();
-const initialLang = (urlParamLang && translations[urlParamLang]) 
+const initialLang = pathLang || ((urlParamLang && translations[urlParamLang]) 
     ? urlParamLang 
-    : (savedLang && translations[savedLang] ? savedLang : (translations[browserLang] ? browserLang : 'en'));
+    : (savedLang && translations[savedLang] ? savedLang : (translations[browserLang] ? browserLang : 'en')));
 
 if (urlParamLang && translations[urlParamLang]) {
     localStorage.setItem('snapcut_lang', urlParamLang);
@@ -2412,8 +2422,21 @@ if (langSelectEl) {
     langSelectEl.addEventListener('change', (e) => {
         const selectedLang = e.target.value;
         localStorage.setItem('snapcut_lang', selectedLang);
-        applyLanguage(selectedLang);
         trackGA('change_language', { language: selectedLang });
+
+        const currentPath = window.location.pathname;
+        if (currentPath === '/de' || currentPath === '/de/' ||
+            currentPath === '/fr' || currentPath === '/fr/' ||
+            currentPath === '/es' || currentPath === '/es/') {
+            if (selectedLang === 'de') window.location.href = '/de/';
+            else if (selectedLang === 'fr') window.location.href = '/fr/';
+            else if (selectedLang === 'es') window.location.href = '/es/';
+            else if (selectedLang === 'en') window.location.href = '/';
+            else window.location.href = `/?lang=${selectedLang}`;
+            return;
+        }
+
+        applyLanguage(selectedLang);
     });
 }
 applyLanguage(initialLang);

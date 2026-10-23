@@ -41,4 +41,64 @@
       <image:title>SnapCut TikTok Video Downloader</image:title>
     </image:image>
   </url>
+  <url>
+    <loc>https://snapcut.tech/youtube-ringtone-maker</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://snapcut.tech/og-image.jpg</image:loc>
+      <image:title>SnapCut YouTube Ringtone Maker</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://snapcut.tech/youtube-shorts-cutter</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://snapcut.tech/og-image.jpg</image:loc>
+      <image:title>SnapCut YouTube Shorts Cutter</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://snapcut.tech/tiktok-sound-downloader</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://snapcut.tech/og-image.jpg</image:loc>
+      <image:title>SnapCut TikTok Sound Downloader</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://snapcut.tech/de/</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://snapcut.tech/og-image.jpg</image:loc>
+      <image:title>SnapCut Deutsch - Video Cutter &amp; TikTok Downloader</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://snapcut.tech/fr/</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://snapcut.tech/og-image.jpg</image:loc>
+      <image:title>SnapCut Français - Coupeur YouTube &amp; TikTok Downloader</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://snapcut.tech/es/</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://snapcut.tech/og-image.jpg</image:loc>
+      <image:title>SnapCut Español - Cortador de YouTube y TikTok</image:title>
+    </image:image>
+  </url>
 </urlset>
