@@ -28,10 +28,21 @@ app.use(cors({
     }
 }));
 
-// Güvenlik Başlıkları (Başka sitelerin SnapCut'ı iframe içine gömmesini engeller)
+// www -> non-www 301 kalıcı yönlendirme (SEO link gücünü tek alanda toplar)
+app.use((req, res, next) => {
+    const host = req.headers['x-forwarded-host'] || req.headers.host || '';
+    if (host.toLowerCase().startsWith('www.snapcut.tech')) {
+        return res.redirect(301, `https://snapcut.tech${req.originalUrl}`);
+    }
+    next();
+});
+
+// Güvenlik ve SEO Başlıkları (HSTS, Referrer-Policy, X-Frame-Options, X-Content-Type-Options)
 app.use((req, res, next) => {
     res.setHeader('X-Frame-Options', 'SAMEORIGIN');
     res.setHeader('X-Content-Type-Options', 'nosniff');
+    res.setHeader('Strict-Transport-Security', 'max-age=31536000; includeSubDomains; preload');
+    res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
     next();
 });
 
