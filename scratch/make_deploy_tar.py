@@ -15,6 +15,7 @@ files_to_pack = [
     "public/app.js",
     "public/logo.png",
     "public/logo-icon.png",
+    "public/logo-icon.webp",
     "public/apple-touch-icon.png",
     "public/favicon-192x192.png",
     "public/favicon-96x96.png",
