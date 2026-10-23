@@ -131,112 +131,53 @@
     </div>
     
     <div class="container">
-        <!-- Site Navigation Bar -->
-        <nav class="site-nav">
-            <div class="nav-brand-container">
-                <a href="/" class="nav-brand">
-                    <img src="/logo-icon.png" alt="SnapCut Logo" class="brand-logo-img" width="32" height="32">
-                    Snap<span>Cut</span>
-                </a>
-            </div>
-            <ul class="nav-links">
-                <li><a href="/youtube-cutter" class="nav-link active" data-i18n="navYt">🎬 YouTube Cutter</a></li>
-                <li><a href="/youtube-mp3-cutter" class="nav-link" data-i18n="navMp3">🎵 MP3 Cutter</a></li>
-                <li><a href="/youtube-ringtone-maker" class="nav-link" data-i18n="navRingtone">🔔 Ringtone Maker</a></li>
-                <li><a href="/youtube-shorts-cutter" class="nav-link" data-i18n="navShorts">⚡ Shorts Cutter</a></li>
-                <li><a href="/tiktok-downloader" class="nav-link" data-i18n="navTk">📱 TikTok Saver</a></li>
-                <li><a href="/tiktok-sound-downloader" class="nav-link" data-i18n="navTkSound">🎶 TikTok Sound</a></li>
-                <li><a href="#how-to" class="nav-link" data-i18n="navGuide">💡 How To</a></li>
-                <li><a href="#faq" class="nav-link" data-i18n="navFaq">❓ FAQ</a></li>
-            </ul>
-            <div class="lang-selector">
-                <select id="language-select">
-                    <option value="en">English 🇺🇸</option>
-                    <option value="tr">Türkçe 🇹🇷</option>
-                    <option value="es">Español 🇪🇸</option>
-                    <option value="pt">Português 🇧🇷</option>
-                    <option value="id">Bahasa Indonesia 🇮🇩</option>
-                    <option value="de">Deutsch 🇩🇪</option>
-                    <option value="fr">Français 🇫🇷</option>
-                    <option value="it">Italiano 🇮🇹</option>
-                    <option value="ru">Русский 🇷🇺</option>
-                    <option value="ja">日本語 🇯🇵</option>
-                    <option value="ko">한국어 🇰🇷</option>
-                    <option value="vi">Tiếng Việt 🇻🇳</option>
-                    <option value="ar">العربية 🇸🇦</option>
-                    <option value="hi">हिन्दी 🇮🇳</option>
-                    <option value="zh">中文 (简体) 🇨🇳</option>
-                </select>
-            </div>
-        </nav>
-
-        <div class="breadcrumb-nav">
-            <a href="/" data-i18n="ytBreadcrumbHome">Home</a> <span>/</span> <span data-i18n="ytBreadcrumbCurrent">YouTube Video Cutter</span>
+        <!-- Floating Language Selector (Top Right) -->
+        <div class="lang-selector-top">
+            <select id="language-select" aria-label="Select Language">
+                <option value="en">English 🇺🇸</option>
+                <option value="tr">Türkçe 🇹🇷</option>
+                <option value="es">Español 🇪🇸</option>
+                <option value="pt">Português 🇧🇷</option>
+                <option value="id">Bahasa Indonesia 🇮🇩</option>
+                <option value="de">Deutsch 🇩🇪</option>
+                <option value="fr">Français 🇫🇷</option>
+                <option value="it">Italiano 🇮🇹</option>
+                <option value="ru">Русский 🇷🇺</option>
+                <option value="ja">日本語 🇯🇵</option>
+                <option value="ko">한국어 🇰🇷</option>
+                <option value="vi">Tiếng Việt 🇻🇳</option>
+                <option value="ar">العربية 🇸🇦</option>
+                <option value="hi">हिन्दी 🇮🇳</option>
+                <option value="zh">中文 (简体) 🇨🇳</option>
+            </select>
         </div>
 
-        <header>
+        <!-- En Tepede SnapCut Amblemi ve Başlığı -->
+        <header class="main-header">
+            <div class="header-logo-badge">
+                <a href="/" title="SnapCut">
+                    <img src="/logo-icon.png" alt="SnapCut Emblem" class="header-logo-icon" width="76" height="76">
+                </a>
+            </div>
+            <div class="breadcrumb-nav">
+                <a href="/" data-i18n="ytBreadcrumbHome">Home</a> <span>/</span> <span data-i18n="ytBreadcrumbCurrent">YouTube Video Cutter</span>
+            </div>
             <h1 data-i18n="ytPageTitle">YouTube Video <span class="gradient-text">Cutter</span></h1>
             <p data-i18n="ytPageSubtitle">Paste any YouTube URL, set start and end timestamps, and download your trimmed clip instantly in 1080p Full HD.</p>
         </header>
 
-        <!-- Interactive Suite Switcher Bar -->
-        <div class="suite-switcher-container">
-            <div class="suite-switcher-header">
-                <span class="suite-badge">⚡ SNAPCUT SUITE</span>
-                <span class="suite-title">Select Tool:</span>
-            </div>
-            <div class="suite-switcher-grid">
-                <a href="/" class="suite-tool-chip">
-                    <span class="chip-icon">⚡</span>
-                    <div class="chip-info">
-                        <span class="chip-name">All-in-One</span>
-                        <span class="chip-sub">Trim & DL</span>
-                    </div>
-                </a>
-                <a href="/youtube-cutter" class="suite-tool-chip active">
-                    <span class="chip-icon">🎬</span>
-                    <div class="chip-info">
-                        <span class="chip-name">YT Cutter</span>
-                        <span class="chip-sub">1080p MP4</span>
-                    </div>
-                </a>
-                <a href="/youtube-mp3-cutter" class="suite-tool-chip">
-                    <span class="chip-icon">🎵</span>
-                    <div class="chip-info">
-                        <span class="chip-name">MP3 Cutter</span>
-                        <span class="chip-sub">320kbps Audio</span>
-                    </div>
-                </a>
-                <a href="/youtube-ringtone-maker" class="suite-tool-chip">
-                    <span class="chip-icon">🔔</span>
-                    <div class="chip-info">
-                        <span class="chip-name">Ringtone</span>
-                        <span class="chip-sub">iPhone & Android</span>
-                    </div>
-                </a>
-                <a href="/youtube-shorts-cutter" class="suite-tool-chip">
-                    <span class="chip-icon">✂️</span>
-                    <div class="chip-info">
-                        <span class="chip-name">Shorts Cutter</span>
-                        <span class="chip-sub">Vertical HD</span>
-                    </div>
-                </a>
-                <a href="/tiktok-downloader" class="suite-tool-chip">
-                    <span class="chip-icon">📱</span>
-                    <div class="chip-info">
-                        <span class="chip-name">TikTok Saver</span>
-                        <span class="chip-sub">No Watermark</span>
-                    </div>
-                </a>
-                <a href="/tiktok-sound-downloader" class="suite-tool-chip">
-                    <span class="chip-icon">🎶</span>
-                    <div class="chip-info">
-                        <span class="chip-name">TikTok Sound</span>
-                        <span class="chip-sub">Extract MP3</span>
-                    </div>
-                </a>
-            </div>
-        </div>
+        <!-- Tam Ortalanmış Temiz Menü Çubuğu -->
+        <nav class="top-nav-bar" aria-label="SnapCut Tools Navigation">
+            <a href="/" class="top-nav-link"><span>⚡</span> All-in-One</a>
+            <a href="/youtube-cutter" class="top-nav-link active"><span>🎬</span> YouTube Cutter</a>
+            <a href="/youtube-mp3-cutter" class="top-nav-link"><span>🎵</span> MP3 Cutter</a>
+            <a href="/youtube-ringtone-maker" class="top-nav-link"><span>🔔</span> Ringtone Maker</a>
+            <a href="/youtube-shorts-cutter" class="top-nav-link"><span>✂️</span> Shorts Cutter</a>
+            <a href="/tiktok-downloader" class="top-nav-link"><span>📱</span> TikTok Saver</a>
+            <a href="/tiktok-sound-downloader" class="top-nav-link"><span>🎶</span> TikTok Sound</a>
+            <a href="#how-to" class="top-nav-link"><span>💡</span> How To</a>
+            <a href="#faq" class="top-nav-link"><span>❓</span> FAQ</a>
+        </nav>
 
         <main>
             <div class="glass-panel">
